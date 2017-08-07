@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
-import './App.css';
+import { Grid, Navbar, Row, Col } from 'react-bootstrap';
 
 // From ml-search-ng ml-input template
         // <form className="form-inline" role="search">
@@ -17,21 +16,26 @@ import './App.css';
 					// <span ng-show="loadingSuggestions" className="glyphicon glyphicon-refresh"></span>
 				// </form>
 
-class SearchBar extends Component {
+import { FormGroup, FormControl, InputGroup, Glyphicon, Button } from 'react-bootstrap';
+class MLSearchBar extends Component {
   render() {
     return (
       <div className="ml-web-search-bar">
-        <form className="form-inline" role="search">
-					<div className="form-group">
-						<input type="text" className="form-control" placeholder="Search..."/>
-					</div>
-					<button type="submit" className="btn btn-default">
-						<span className="glyphicon glyphicon-search">Search</span>
-					</button>
-					<button type="reset" className="btn btn-default">
-						<span className="glyphicon glyphicon-remove">Clear</span>
-					</button>
-					<span className="glyphicon glyphicon-refresh"></span>
+        <form role="search">
+          <FormGroup controlId="searchBox">
+            <InputGroup>
+              <FormControl type="text" placeholder="Search..."/>
+              <InputGroup.Button type="submit">
+                <Button>
+                  <Glyphicon glyph="search"/> Search
+                </Button>
+                <Button>
+                  <Glyphicon glyph="remove"/> Clear
+                </Button>
+              </InputGroup.Button>
+            </InputGroup>
+            <Glyphicon glyph="refresh"/>
+          </FormGroup>
 				</form>
       </div>
     )
@@ -41,8 +45,25 @@ class SearchBar extends Component {
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <SearchBar />
+      <div>
+        <Navbar>
+          <Grid>
+            <Navbar.Header>
+              <Navbar.Brand>
+                <a href="/">MarkLogic Redwood</a>
+              </Navbar.Brand>
+              <Navbar.Toggle />
+            </Navbar.Header>
+          </Grid>
+        </Navbar>
+        <Grid>
+          <Row>
+            <Col md={3}/>
+            <Col md={9}>
+              <MLSearchBar />
+            </Col>
+          </Row>
+        </Grid>
       </div>
     );
   }
