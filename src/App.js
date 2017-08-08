@@ -10,13 +10,15 @@ class App extends Component {
           <Grid>
             <Navbar.Header>
               <Navbar.Brand>
-                <a href="/">MarkLogic Redwood</a>
+                <a href="/">MarkLogic Treehouse</a>
               </Navbar.Brand>
               <Navbar.Toggle />
             </Navbar.Header>
           </Grid>
         </Navbar>
-        <MLSearch />
+        <Grid fluid="true">
+          <MLSearch />
+        </Grid>
       </div>
     );
   }
