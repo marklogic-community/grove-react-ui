@@ -11,8 +11,8 @@ const MLSearchResults = (props) => {
         <Panel>
           <h4>{result.label}</h4>
           <div className="ml-search-result-matches">
-            {result.matches.map((match) => {
-              return <MLSearchSnippet match={match} /> ;
+            {result.matches.map((match, index) => {
+              return <MLSearchSnippet match={match} key={index} /> ;
             })}
           </div>
         </Panel>

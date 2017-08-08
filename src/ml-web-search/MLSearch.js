@@ -6,12 +6,34 @@ import  MLSearchResults  from './MLSearchResults.js';
 const results = [
   {
     label: 'A Search Result',
-    matches: [],
+    matches: [
+      {
+        'match-text': [
+          'We found the word ',
+          {highlight: 'clandestine '},
+          'for you.'
+        ]
+      }
+    ],
     uri: '/uri/1.json'
   },
   {
     label: 'Another Search Result',
-    matches: [],
+    matches: [
+      {
+        'match-text': [
+          {highlight: 'Waldo'},
+          '\'s over here.'
+        ]
+      },
+      {
+        'match-text': [
+          'He (',
+          {highlight: 'Waldo'},
+          ') is over here too.'
+        ]
+      }
+    ],
     uri: '/uri/2.json'
   },
   {
@@ -20,7 +42,7 @@ const results = [
     uri: '/uri/3.json'
   },
   {
-    label: 'A Search Result',
+    label: 'Result',
     matches: [],
     uri: '/uri/4.json'
   },
