@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Col, FormGroup, FormControl, InputGroup, Glyphicon, Button } from 'react-bootstrap';
 import './MLSearchBar.css';
 
-export class MLSearchBar extends Component {
+class MLSearchBar extends Component {
   render() {
     return (
       <Col md={12} className="ml-web-search-bar">
@@ -26,3 +26,5 @@ export class MLSearchBar extends Component {
     );
   }
 }
+
+export default MLSearchBar;

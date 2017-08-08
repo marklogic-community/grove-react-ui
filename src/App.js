@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Navbar } from 'react-bootstrap';
-import { MLSearch } from './ml-web-search/MLSearch.js';
+import MLSearch from './ml-web-search/MLSearch.js';
 
 class App extends Component {
   render() {
