@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { FormGroup, FormControl, InputGroup, Glyphicon, Button } from 'react-bootstrap';
+import { Col, FormGroup, FormControl, InputGroup, Glyphicon, Button } from 'react-bootstrap';
 import './MLSearchBar.css';
 
 export class MLSearchBar extends Component {
   render() {
     return (
-      <div className="ml-web-search-bar">
+      <Col md="12" className="ml-web-search-bar">
         <form role="search">
           <FormGroup controlId="searchBox">
             <InputGroup>
@@ -22,7 +22,7 @@ export class MLSearchBar extends Component {
             </InputGroup>
           </FormGroup>
 				</form>
-      </div>
+      </Col>
     );
   }
 }
