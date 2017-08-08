@@ -16,7 +16,7 @@ class App extends Component {
             </Navbar.Header>
           </Grid>
         </Navbar>
-        <Grid fluid="true">
+        <Grid fluid={true}>
           <MLSearch />
         </Grid>
       </div>

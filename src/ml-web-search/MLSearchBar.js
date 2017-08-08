@@ -5,7 +5,7 @@ import './MLSearchBar.css';
 export class MLSearchBar extends Component {
   render() {
     return (
-      <Col md="12" className="ml-web-search-bar">
+      <Col md={12} className="ml-web-search-bar">
         <form role="search">
           <FormGroup controlId="searchBox">
             <InputGroup>

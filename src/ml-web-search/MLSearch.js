@@ -6,43 +6,53 @@ import  MLSearchResults  from './MLSearchResults.js';
 const results = [
   {
     label: 'A Search Result',
-    matches: []
+    matches: [],
+    uri: '/uri/1.json'
   },
   {
     label: 'Another Search Result',
-    matches: []
+    matches: [],
+    uri: '/uri/2.json'
   },
   {
     label: 'A Search Result With a Particularly Long Label, Don\'t You Think?',
-    matches: []
+    matches: [],
+    uri: '/uri/3.json'
   },
   {
     label: 'A Search Result',
-    matches: []
+    matches: [],
+    uri: '/uri/4.json'
   },
   {
     label: 'A Search Result',
-    matches: []
+    matches: [],
+    uri: '/uri/5.json'
   },
   {
     label: 'A Search Result',
-    matches: []
+    matches: [],
+    uri: '/uri/6.json'
   },
   {
     label: 'A Search Result',
-    matches: []
+    matches: [],
+    uri: '/uri/7.json'
   },
   {
     label: 'A Search Result',
-    matches: []
+    matches: [],
+    uri: '/uri/8.json'
   },
   {
     label: 'A Search Result',
-    matches: []
+    matches: [],
+    uri: '/uri/9.json'
   },
   {
     label: 'A Search Result',
-    matches: []
+    matches: [],
+    uri: '/uri/10.json'
   },
 ];
 
