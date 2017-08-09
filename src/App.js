@@ -1,21 +1,13 @@
 import React, { Component } from 'react';
-import { Grid, Navbar } from 'react-bootstrap';
-import MLSearch from './ml-web-search/MLSearch.js';
+import { Grid } from 'react-bootstrap';
+import MLSearch from './ml-treehouse-search/MLSearch';
+import MLNavbar from './ml-treehouse-navbar/MLNavbar';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Navbar>
-          <Grid>
-            <Navbar.Header>
-              <Navbar.Brand>
-                <a href="/">MarkLogic Treehouse</a>
-              </Navbar.Brand>
-              <Navbar.Toggle />
-            </Navbar.Header>
-          </Grid>
-        </Navbar>
+        <MLNavbar title="MarkLogic Treehouse"/>
         <Grid fluid={true}>
           <MLSearch />
         </Grid>
