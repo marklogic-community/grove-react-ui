@@ -1,8 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow, mount } from 'enzyme';
 import MLSearch from '../MLSearch';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<MLSearch />, div);
+  shallow(<MLSearch />);
+});
+
+it('renders, integrated with children, without crashing', () => {
+  mount(<MLSearch />);
 });

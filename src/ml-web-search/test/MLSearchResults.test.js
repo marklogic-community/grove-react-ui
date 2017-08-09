@@ -1,15 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 import MLSearchResults from '../MLSearchResults';
 
 import { mockResults } from './mockData';
 
 it('renders empty results without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<MLSearchResults results={[]} />, div);
+  shallow(<MLSearchResults results={[]} />);
 });
 
 it('renders results without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<MLSearchResults results={mockResults} />, div);
+  shallow(<MLSearchResults results={mockResults} />);
 });
