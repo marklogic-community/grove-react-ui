@@ -1,0 +1,33 @@
+{
+  "name": "treehouse",
+  "version": "0.1.0",
+  "description": "Turning MarkLogic forests into a place for users to live",
+  "dependencies": {
+    "concurrently": "^3.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\" ",
+    "server": "node server/node-app.js",
+    "client": "node start-client.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://project.marklogic.com:7999/nacw/ml-treehouse.git"
+  },
+  "contributors": [
+    {
+      "name": "Patrick McElwee",
+      "email": "patrick.mcelwee@marklogic.com"
+    },
+    {
+      "name": "Frank Sanders",
+      "email": "frank.sanders@marklogic.com"
+    },
+    {
+      "name": "Fei Xue", 
+      "email": "fei.xue@marklogic.com"
+    }
+  ]
+}

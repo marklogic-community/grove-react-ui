@@ -2,11 +2,9 @@
 
 'use strict';
 
-var config = require('../../gulp.config')();
-
 module.exports = function() {
 
-  var environment = process.env.NODE_ENV;
+  var environment = process.env.NODE_ENV || 'local';
   environment = environment === 'build' ? 'prod' : environment;
 
   var envJson = getEnvOptions(environment);
@@ -19,14 +17,14 @@ module.exports = function() {
     mlCertificate: process.env.ML_CERTIFICATE || envJson.mlCertificate || '',
     nodeJsCertificate: process.env.NODEJS_CERTIFICATE || envJson.nodeJsCertificate || '',
     nodeJsPrivateKey: process.env.NODEJS_PRIVATE_KEY || envJson.nodeJsPrivateKey || '',
-    appPort: process.env.APP_PORT || process.env.PORT || envJson['node-port'] || config.defaultPort,
-    mlHost: process.env.ML_HOST || envJson['ml-host'] || config.marklogic.host,
-    mlHttpPort: process.env.ML_PORT || envJson['ml-http-port'] || config.marklogic.httpPort,
-    defaultUser: process.env.ML_APP_USER || envJson['ml-app-user'] || config.marklogic.user,
-    defaultPass: process.env.ML_APP_PASS || envJson['ml-app-pass'] || config.marklogic.password,
-    guestAccess: bool(process.env.GUEST_ACCESS || envJson['guest-access'] || config.marklogic.guestAccess || false),
-    disallowUpdates: bool(process.env.DISALLOW_UPDATES || envJson['disallow-updates'] || config.marklogic.disallowUpdates || false),
-    appUsersOnly: bool(process.env.APP_USERS_ONLY || envJson['appusers-only'] || config.marklogic.appUsersOnly || false)
+    appPort: process.env.APP_PORT || process.env.PORT || envJson['node-port'] || '9003',
+    mlHost: process.env.ML_HOST || envJson['ml-host'] || 'localhost',
+    mlHttpPort: process.env.ML_PORT || envJson['ml-http-port'] || '8003',
+    defaultUser: process.env.ML_APP_USER || envJson['ml-app-user'] || 'admin',
+    defaultPass: process.env.ML_APP_PASS || envJson['ml-app-pass'] || 'admin',
+    guestAccess: bool(process.env.GUEST_ACCESS || envJson['guest-access'] || false),
+    disallowUpdates: bool(process.env.DISALLOW_UPDATES || envJson['disallow-updates'] || false),
+    appUsersOnly: bool(process.env.APP_USERS_ONLY || envJson['appusers-only'] || false)
   };
 
   if (options.httpsStrict) {
@@ -41,6 +39,7 @@ module.exports = function() {
   function getEnvOptions(env) {
     var envJson;
     var envFile = '../../' + env + '.json';
+    console.log('envFile:', envFile);
 
     try {
       envJson = require(envFile);

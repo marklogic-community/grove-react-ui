@@ -17,6 +17,8 @@ this application by default.
 3. Install java.
 4. Install gradle.
 
+`npm install` in both client and server and at top-level? (We should package this up.)
+
 ### Configure MarkLogic
 
 Run:
