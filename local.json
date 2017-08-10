@@ -1,0 +1,14 @@
+{
+  "app-name": "treehouse",
+  "ml-version": "9",
+  "ml-host": "localhost",
+  "ml-admin-user": "admin",
+  "ml-admin-pass": "admin",
+  "ml-app-user": "treehouse-reader",
+  "ml-app-pass": "fUPTd#5LIi5I]Mne..",
+  "ml-http-port": "8003",
+  "node-port": "9003",
+  "guest-access": "false",
+  "disallow-updates": "false",
+  "appusers-only": "false"
+}
