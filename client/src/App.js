@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Grid } from 'react-bootstrap';
-import MLSearch from './ml-treehouse-search/MLSearch';
-import MLNavbar from './ml-treehouse-navbar/MLNavbar';
+import { MLNavbar, MLSearchView } from 'ml-treehouse';
 
 class App extends Component {
   render() {
@@ -9,7 +8,7 @@ class App extends Component {
       <div>
         <MLNavbar title="MarkLogic Treehouse"/>
         <Grid fluid={true}>
-          <MLSearch />
+          <MLSearchView />
         </Grid>
       </div>
     );

@@ -13,7 +13,7 @@
     "start": "concurrently \"npm run server\" \"npm run client\" ",
     "server": "node server/node-app.js",
     "client": "node start-client.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cd client && npm test"
   },
   "repository": {
     "type": "git",
