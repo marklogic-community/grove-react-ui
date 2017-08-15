@@ -62,7 +62,7 @@ module.exports = {
       'always'
     ],
     'react/prop-types': [
-      'ignore'
+      'off'
     ]
   }
 };

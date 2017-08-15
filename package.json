@@ -5,7 +5,10 @@
   "dependencies": {
     "concurrently": "^3.5.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^4.4.1",
+    "eslint-plugin-react": "^7.1.0"
+  },
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\" ",
     "server": "node server/node-app.js",
