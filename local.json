@@ -5,10 +5,10 @@
   "ml-admin-user": "admin",
   "ml-admin-pass": "admin",
   "ml-app-user": "treehouse-reader",
-  "ml-app-pass": "fUPTd#5LIi5I]Mne..",
+  "ml-app-pass": "treehouse-reader",
   "ml-http-port": "8003",
   "node-port": "9003",
-  "guest-access": "false",
+  "guest-access": "true",
   "disallow-updates": "false",
   "appusers-only": "false"
 }
