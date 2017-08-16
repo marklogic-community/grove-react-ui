@@ -12,7 +12,10 @@ import appReducer from './appReducer';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-let store = createStore(appReducer);
+let store = createStore(
+  appReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 render(
   <Provider store={store}>
