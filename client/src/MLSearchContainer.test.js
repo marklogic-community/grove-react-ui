@@ -5,7 +5,9 @@ import { shallow, mount } from 'enzyme';
 describe('<MLSearchContainer />', () => {
   const mockStore = {
     getState: () => ({
-      results: []
+      search: {
+        results: []
+      }
     }),
     dispatch: () => {},
     subscribe: () => {}

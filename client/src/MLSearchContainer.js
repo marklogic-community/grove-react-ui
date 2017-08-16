@@ -31,7 +31,7 @@ let MLSearchContainer = class MLSearchContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    results: state.results,
+    results: state.search.results,
   };
 };
 

@@ -25,6 +25,12 @@ Run:
 
     cd marklogic && gradle mlDeploy && cd ..
 
+### Load Data
+
+Run this to load sample data:
+
+  cd marklogic && gradle importSampleData && cd ..
+
 ### Start the web application
 
 Run:

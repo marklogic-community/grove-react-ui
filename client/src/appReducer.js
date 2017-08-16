@@ -46,9 +46,9 @@ function appReducer(state = initialState, action) {
     // Case for Reducer composition, or just an assignDeep alternative?
     return Object.assign({}, state, {
       search: {
-        query: action.query
+        query: action.query,
+        results: action.results
       },
-      results: action.results,
     });
   default:
     return state;
