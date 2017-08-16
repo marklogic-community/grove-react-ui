@@ -6,6 +6,7 @@ it('renders without crashing', () => {
   shallow(<App />);
 });
 
-it('renders, integrated with children, without crashing', () => {
-  mount(<App />);
-});
+// Do we need such a test? Maybe just from the highest level
+// it('renders, integrated with children, without crashing', () => {
+//   mount(<App />);
+// });
