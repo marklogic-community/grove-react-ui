@@ -1,4 +1,4 @@
-// import { RECEIVE_SEARCH_RESULTS } from './actionTypes';
+import { RECEIVE_SEARCH_RESULTS } from './actionTypes';
 
 // const exampleStore = {
 //   search: {
@@ -41,12 +41,15 @@ const initialState = {
 
 function appReducer(state = initialState, action) {
   switch (action.type) {
-  // case RECEIVE_SEARCH_RESULTS:
-  //   // This overwrites all of the query object. Problematic?
-  //   // Case for Reducer composition, or just an assignDeep alternative?
-  //   return Object.assign({}, state, {
-  //     query: action.query
-  //   });
+  case RECEIVE_SEARCH_RESULTS:
+    // This overwrites all of the query object. Problematic?
+    // Case for Reducer composition, or just an assignDeep alternative?
+    return Object.assign({}, state, {
+      search: {
+        query: action.query
+      },
+      results: action.results,
+    });
   default:
     return state;
   }

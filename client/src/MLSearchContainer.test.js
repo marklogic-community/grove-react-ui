@@ -18,7 +18,9 @@ describe('<MLSearchContainer />', () => {
   it('runs a search', () => {
     const searchSpy = jest.fn();
     searchSpy.mockReturnValue(Promise.resolve([]));
-    const wrapper = mount(<MLSearchContainer search={searchSpy} store={mockStore}/>);
+    const wrapper = mount(
+      <MLSearchContainer search={searchSpy} store={mockStore}/>
+    );
     wrapper.find('.ml-execute-search').simulate('click');
     expect(searchSpy.mock.calls.length).toBe(1);
   });
