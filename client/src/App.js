@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid } from 'react-bootstrap';
-import MLSearchContainer from './MLSearchContainer';
+import MLSearchContainer from './containers/MLSearchContainer';
 import { MLNavbar } from 'ml-treehouse';
 
 class App extends Component {

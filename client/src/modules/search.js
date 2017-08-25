@@ -103,16 +103,15 @@ function constraintQuery (constraints) {
   }))
 }
 
-export const search = (qtext) => {
+export const runSearch = (qtext) => {
   return (dispatch, getState) => {
-    console.log('searching')
     dispatch({ type: SEARCH_REQUESTED, payload: qtext })
 
     let state = getState().search
     let params = {
       start: 1 + (state.page - 1) * state.pageLength,
       pageLength: state.pageLength,
-      options: 'all'
+      options: 'treehouse-options' // TODO: put into store
       // TODO: transform
     }
     let query = qb.ext.combined(constraintQuery(state.constraints), state.qtext)
@@ -177,28 +176,28 @@ export const qtext = (t) => {
 export const paginate = (n) => {
   return dispatch => {
     dispatch({ type: PAGINATE, payload: n })
-    return dispatch(search())
+    return dispatch(runSearch())
   }
 }
 
 export const pageLength = (l) => {
   return dispatch => {
     dispatch({ type: PAGE_LENGTH, payload: l })
-    return dispatch(search())
+    return dispatch(runSearch())
   }
 }
 
 export const addConstraint = (c) => {
   return dispatch => {
     dispatch({ type: CONSTRAINT_ADD, payload: c })
-    return dispatch(search())
+    return dispatch(runSearch())
   }
 }
 
 export const rmConstraint = (c) => {
   return dispatch => {
     dispatch({ type: CONSTRAINT_REMOVE, payload: c })
-    return dispatch(search())
+    return dispatch(runSearch())
   }
 }
 
