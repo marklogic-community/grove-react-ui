@@ -1,23 +1,32 @@
 import * as types from './actionTypes';
 
-const initialResponse = {
-  results: [],
-  facets: {},
-  error: undefined
-};
-
 const initialState = {
-  searchPending: false,
   suggestPending: false,
   optionsPending: false,
-  page: 1,
-  pageLength: 10,
+  // TODO? Separate out queryReducer?
   qtext: '',
   suggestQtext: '',
-  response: initialResponse,
+  executedSearch: {
+    pending: false,
+    id: null, // TODO: Eliminate race conditions
+    //  TODO: getSearchStatus
+    results: [],
+    facets: {},
+    error: undefined,
+    query: {
+      qtext: '',
+      page: 1,
+      pageLength: 10,
+      constraints: {},  // (activeFacets)
+    }
+  },
   options: {},
-  constraints: {},  // (activeFacets)
   suggestions: []
+};
+
+const emptyResponse = {
+  results: [],
+  facets: {},
 };
 
 export default (state = initialState, action) => {
@@ -93,28 +102,43 @@ export default (state = initialState, action) => {
   case types.SEARCH_REQUESTED:
     return {
       ...state,
-      searchPending: true,
-      qtext: action.payload || ''
+      executedSearch: {
+        // TODO: re-initialize results and facets each time
+        ...state.executedSearch,
+        pending: true,
+        id: Math.random().toString().substr(2, 10),
+        query: {
+          ...state.executedSearch.query,
+          // TODO: nest qtext within payload object, so it is extensible
+          qtext: action.payload || ''
+        }
+      },
     };
 
-  case types.SEARCH_SUCCESS:
+  case types.SEARCH_SUCCESS: {
+    const response = action.payload || emptyResponse;
     return {
       ...state,
-      searchPending: false,
+      executedSearch: {
+        ...state.executedSearch,
+        pending: false,
+        results: response.results,
+        facets: response.facets
+      },
       // suggestQtext: '',
-      response: action.payload || initialResponse
     };
+  }
 
   case types.SEARCH_FAILURE:
     return {
       ...state,
-      // TODO: put error somewhere
-      searchPending: false,
-      suggestQtext: '',
-      response: {
-        ...initialResponse,
+      executedSearch: {
+        ...state.executedSearch,
+        ...emptyResponse,
+        pending: false,
         error: action.payload && action.payload.error
       }
+      // suggestQtext: '',
     };
 
   // case types.OPTIONS_REQUESTED:

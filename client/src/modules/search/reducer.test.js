@@ -5,24 +5,42 @@ import deepFreeze from 'deep-freeze';
 
 describe('search reducer', () => {
 
+  // TODO: should there be a separate dirtySearch with separate constraints?
+  // TODO: should the search options name be part of the Redux store?
+
   const initialState = {
-    searchPending: false,
     suggestPending: false,
     optionsPending: false,
-    page: 1,
-    pageLength: 10,
+    // TODO? Separate out queryReducer?
     qtext: '',
     suggestQtext: '',
-    response: { results: [], facets: {} },
+    executedSearch: {
+      id: null, // TODO: Eliminate race conditions
+      //  TODO: getSearchStatus
+      pending: false,
+      results: [],
+      facets: {},
+      error: undefined,
+      query: {
+        qtext: '',
+        page: 1,
+        pageLength: 10,
+        constraints: {},  // (activeFacets)
+      }
+    },
     options: {},
-    constraints: {},  // (activeFacets)
     suggestions: []
   };
   deepFreeze(initialState);
 
-  const initialPendingState = Object.assign(
-    {}, initialState, {searchPending: true}
-  );
+  const initialPendingState = {
+    ...initialState,
+    executedSearch: {
+      ...initialState.executedSearch,
+      id: 'pendingID',
+      pending: true
+    }
+  };
   deepFreeze(initialPendingState);
 
   it('returns the initial state', () => {
@@ -30,23 +48,36 @@ describe('search reducer', () => {
   });
 
   describe('SEARCH_REQUESTED', () => {
-    const expectedState = Object.assign(
-      {}, initialState, {searchPending: true}
-    );
-    deepFreeze(expectedState);
+    const pendingState = {
+      ...initialState,
+      executedSearch: {
+        ...initialState.executedSearch,
+        pending: true,
+        id: expect.anything()
+      }
+    };
+    deepFreeze(pendingState);
 
-    it('sets search pending', () => {
+    it('gives executedSearch an id and pending state', () => {
       expect(
         reducer(initialState, {
           type: types.SEARCH_REQUESTED
         })
-      ).toEqual(expectedState);
+      ).toEqual( pendingState );
     });
 
+    const expectedStateWithQtext = {
+      ...pendingState,
+      executedSearch: {
+        ...pendingState.executedSearch,
+        query: {
+          ...pendingState.executedSearch.query,
+          qtext: 'qtext'
+        }
+      }
+    };
+
     it('sets qtext', () => {
-      const expectedStateWithQtext = Object.assign(
-        {}, expectedState, { qtext: 'qtext' }
-      );
       expect(
         reducer(initialState, {
           type: types.SEARCH_REQUESTED,
@@ -55,30 +86,31 @@ describe('search reducer', () => {
       ).toEqual(expectedStateWithQtext);
     });
 
-    it('resets qtext', () => {
-      const newInitialState = Object.assign(
-        {}, initialState, {qtext: 'initial qtext'}
-      );
+    it('resets executedSearch', () => {
+      const newInitialState = {
+        ...initialState,
+        executedSearch: {
+          ...initialState.executedSearch,
+          id: 'earlierSearchId',
+          query: {
+            ...initialState.executedSearch.query,
+            qtext: 'earlier search qtext'
+          }
+        }
+      };
+
       expect(
         reducer(newInitialState, {
-          type: types.SEARCH_REQUESTED
-          // No qtext payload
+          type: types.SEARCH_REQUESTED,
+          payload: 'qtext'
         })
-      ).toEqual(expectedState);
+      ).toEqual(expectedStateWithQtext);
     });
   });
 
   describe('SEARCH_SUCCESS', () => {
 
-    it('removes pending status from search', () => {
-      expect(
-        reducer(initialPendingState, {
-          type: types.SEARCH_SUCCESS
-        })
-      ).toEqual(initialState);
-    });
-
-    it('sets response based on payload', () => {
+    it('updates executedSearch with results, facets, and turns off pending', () => {
       const mockResponse = {
         results: [{
           uri: '1.json',
@@ -89,37 +121,40 @@ describe('search reducer', () => {
           Category: {type: 'xs:string', facetValues: []}
         }
       };
-      const expectedState = Object.assign(
-        {}, initialState, {response: mockResponse}
-      );
+      const expectedState = {
+        ...initialPendingState,
+        executedSearch: {
+          ...initialPendingState.executedSearch,
+          pending: false,
+          ...mockResponse
+        }
+      };
       expect(
         reducer(initialPendingState, {
           type: types.SEARCH_SUCCESS,
-          payload: mockResponse
+          payload: {
+            ...mockResponse,
+            id: 'pendingID',
+          },
         })
       ).toEqual(expectedState);
     });
+
+    it('eliminates race conditions');
 
   });
 
   describe('SEARCH_FAILURE', () => {
 
-    it('removes pending status from search', () => {
-      expect(
-        reducer(initialPendingState, {
-          type: types.SEARCH_FAILURE
-        })
-      ).toEqual(initialState);
-    });
-
-    it('adds error', () => {
-      const expectedState = Object.assign(
-        {}, initialState, {response: {
-          error: 'An error',
-          results: [],
-          facets: {}
-        }}
-      );
+    it('adds error and removes pending state', () => {
+      const expectedState = {
+        ...initialPendingState,
+        executedSearch: {
+          ...initialPendingState.executedSearch,
+          pending: false,
+          error: 'An error'
+        }
+      };
       expect(
         reducer(initialPendingState, {
           type: types.SEARCH_FAILURE,
@@ -127,6 +162,8 @@ describe('search reducer', () => {
         })
       ).toEqual(expectedState);
     });
+
+    it('eliminates race conditions');
 
   });
 
