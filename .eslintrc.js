@@ -1,8 +1,10 @@
 module.exports = {
+  'parser': 'babel-eslint',
   'parserOptions': {
     'sourceType': 'module',
     'ecmaFeatures': {
-      'jsx': true
+      'jsx': true,
+      'experimentalObjectRestSpread': true
     }
   },
   'plugins': [
