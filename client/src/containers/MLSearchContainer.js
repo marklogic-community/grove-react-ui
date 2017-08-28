@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { MLSearchView } from 'ml-treehouse';
-import { runSearch } from '../modules/search';
 
 let MLSearchContainer = class MLSearchContainer extends Component {
 
@@ -21,8 +20,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  runSearch
+const mapDispatchToProps = (dispatch, ownProps) => bindActionCreators({
+  runSearch: ownProps.runSearch
 }, dispatch);
 
 MLSearchContainer = connect(
