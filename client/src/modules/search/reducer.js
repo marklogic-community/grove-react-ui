@@ -110,7 +110,7 @@ export default (state = initialState, action) => {
         query: {
           ...state.executedSearch.query,
           // TODO: nest qtext within payload object, so it is extensible
-          qtext: action.payload || ''
+          qtext: action.payload && action.payload.qtext || ''
         }
       },
     };

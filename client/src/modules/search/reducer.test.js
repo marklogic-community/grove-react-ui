@@ -1,37 +1,10 @@
 import reducer, { selectors } from './reducer';
 import * as types from './actionTypes';
 
+import { initialState } from './test-helpers';
 import deepFreeze from 'deep-freeze';
 
 describe('search reducer', () => {
-
-  // TODO: should there be a separate dirtySearch with separate constraints?
-  // TODO: should the search options name be part of the Redux store?
-
-  const initialState = {
-    suggestPending: false,
-    optionsPending: false,
-    // TODO? Separate out queryReducer?
-    qtext: '',
-    suggestQtext: '',
-    executedSearch: {
-      id: null, // TODO: Eliminate race conditions
-      //  TODO: getSearchStatus
-      pending: false,
-      results: [],
-      facets: {},
-      error: undefined,
-      query: {
-        qtext: '',
-        page: 1,
-        pageLength: 10,
-        constraints: {},  // (activeFacets)
-      }
-    },
-    options: {},
-    suggestions: []
-  };
-  deepFreeze(initialState);
 
   const initialPendingState = {
     ...initialState,
@@ -81,7 +54,7 @@ describe('search reducer', () => {
       expect(
         reducer(initialState, {
           type: types.SEARCH_REQUESTED,
-          payload: 'qtext'
+          payload: {qtext: 'qtext'}
         })
       ).toEqual(expectedStateWithQtext);
     });
@@ -102,7 +75,7 @@ describe('search reducer', () => {
       expect(
         reducer(newInitialState, {
           type: types.SEARCH_REQUESTED,
-          payload: 'qtext'
+          payload: {qtext: 'qtext'}
         })
       ).toEqual(expectedStateWithQtext);
     });
