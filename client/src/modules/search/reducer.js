@@ -178,4 +178,5 @@ export const selectors = {
   getConstraints: state => state.search.executedSearch.query.constraints,
   getPage: state => state.search.executedSearch.query.page,
   getPageLength: state => state.search.executedSearch.query.pageLength,
+  getExecutedSearchQtext: state => state.search.executedSearch.query.qtext,
 };

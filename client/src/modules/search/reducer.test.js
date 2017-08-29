@@ -222,4 +222,22 @@ describe('search reducer', () => {
     });
   });
 
+  describe('getExecutedSearchQtext', () => {
+    const mockState = {
+      search : {
+        ...initialState,
+        executedSearch: {
+          ...initialState.executedSearch,
+          query: {
+            ...initialState.executedSearch.query,
+            qtext: 'executed qtext'
+          }
+        }
+      }
+    };
+    it('works', () => {
+      expect(selectors.getExecutedSearchQtext(mockState)).toEqual('executed qtext');
+    });
+  });
+
 });
