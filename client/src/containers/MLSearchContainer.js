@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { MLSearchView } from 'ml-treehouse';
 
 let MLSearchContainer = class MLSearchContainer extends Component {
-
   render() {
     return (
       <MLSearchView {...this.props} />
@@ -13,10 +12,9 @@ let MLSearchContainer = class MLSearchContainer extends Component {
   }
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    // TODO: getter for such things
-    results: state.search.response.results,
+    results: ownProps.selectors.getSearchResults(state),
   };
 };
 

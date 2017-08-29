@@ -3,7 +3,10 @@ import qb from 'ml-query-builder.js';
 
 import * as types from './search/actionTypes';
 
-// TODO: export reducer
+// TODO: keep in an index.js
+import { selectors } from './search/reducer';
+export { selectors };
+
 // TODO: export actionCreator
 
 const client = MLRest.create();
@@ -84,14 +87,17 @@ export const runSearch = (qtext) => {
   return (dispatch, getState) => {
     dispatch({ type: types.SEARCH_REQUESTED, payload: qtext });
 
-    let state = getState().search;
+    let state = getState();
     let params = {
-      start: 1 + (state.page - 1) * state.pageLength,
-      pageLength: state.pageLength,
+      start: 1 + (selectors.getPage(state) - 1) * selectors.getPageLength(state),
+      pageLength: selectors.getPageLength(state),
       options: 'treehouse-options' // TODO: put into store
       // TODO: transform
     };
-    let query = qb.ext.combined(constraintQuery(state.constraints), state.qtext);
+    let query = qb.ext.combined(
+      constraintQuery(selectors.getConstraints(state)),
+      state.search.qtext
+    );
     return client.search(query, params).then(resp => {
       if (!resp.ok) throw new Error('bad search');
       return resp.json();

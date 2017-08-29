@@ -4,26 +4,30 @@ import { shallow, mount } from 'enzyme';
 
 describe('<MLSearchContainer />', () => {
   const mockStore = {
-    getState: () => ({
-      search: {
-        response: {
-          results: []
-        }
-      }
-    }),
+    // we mock the selectors instead of knowing state structure
+    getState: () => ({}),
     dispatch: () => {},
     subscribe: () => {}
   };
 
+  const mockSelectors = {
+    getSearchResults: jest.fn().mockReturnValue([])
+  };
+
   it('works', () => {
-    shallow(<MLSearchContainer store={mockStore}/>);
+    shallow(<MLSearchContainer
+      store={mockStore}
+      selectors={mockSelectors}/>);
   });
 
   it('runs a search', () => {
     const searchSpy = jest.fn();
     searchSpy.mockReturnValue(Promise.resolve([]));
     const wrapper = mount(
-      <MLSearchContainer runSearch={searchSpy} store={mockStore}/>
+      <MLSearchContainer
+        runSearch={searchSpy}
+        store={mockStore}
+        selectors={mockSelectors} />
     );
     wrapper.find('.ml-execute-search').simulate('click');
     expect(searchSpy.mock.calls.length).toBe(1);

@@ -1,4 +1,4 @@
-import reducer from './reducer';
+import reducer, { selectors } from './reducer';
 import * as types from './actionTypes';
 
 import deepFreeze from 'deep-freeze';
@@ -165,6 +165,61 @@ describe('search reducer', () => {
 
     it('eliminates race conditions');
 
+  });
+
+  describe('getSearchResults', () => {
+    it('works', () => {
+      const results = [{
+        uri: '1.json',
+        label: 'Label',
+        matches: []
+      }];
+      const mockState = {
+        search: {
+          ...initialState,
+          executedSearch: {
+            ...initialState.executedSearch,
+            results: results
+          }
+        }
+      };
+      expect(selectors.getSearchResults(mockState)).toEqual(results);
+    });
+  });
+
+  describe('getConstraints', () => {
+    it('works', () => {
+      const constraints = [
+        {
+          Products: 'Hammer'
+        }
+      ];
+      const mockState = {
+        search: {
+          ...initialState,
+          executedSearch: {
+            ...initialState.executedSearch,
+            query: {
+              ...initialState.executedSearch.query,
+              constraints: constraints
+            }
+          }
+        }
+      };
+      expect(selectors.getConstraints(mockState)).toEqual(constraints);
+    });
+  });
+
+  describe('getPage', () => {
+    it('works', () => {
+      expect(selectors.getPage({search: initialState})).toEqual(1);
+    });
+  });
+
+  describe('getPageLength', () => {
+    it('works', () => {
+      expect(selectors.getPageLength({search: initialState})).toEqual(10);
+    });
   });
 
 });
