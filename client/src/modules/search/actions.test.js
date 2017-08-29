@@ -42,6 +42,34 @@ describe('search actions', () => {
       });
     });
 
+    it('creates SEARCH_FAILURE when search failed', () => {
+      nock('http://localhost')
+        .post(/search/)
+        .reply(400, {
+          errorResponse: {
+            statusCode: 400,
+            status: 'Bad Request',
+            message: 'REST-INVALIDTYPE: (rest:INVALIDTYPE) Invalid type',
+            messageCode: 'REST-INVALIDTYPE'
+          },
+        });
+      const expectedActions = [
+        { type: types.SEARCH_REQUESTED, payload: {qtext: 'qtext'} },
+        {
+          type: types.SEARCH_FAILURE,
+          payload: {
+            error: 'Search error: Bad Request'
+          }
+        }
+      ];
+      const store = mockStore({
+        search: initialState
+      });
+      return store.dispatch(actions.runSearch('qtext')).then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
+    });
+
   });
 
 });

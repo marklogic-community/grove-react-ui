@@ -104,11 +104,16 @@ export const runSearch = (qtext) => {
       selectors.getExecutedSearchQtext(state)
     );
     return client.search(query, params).then(resp => {
-      if (!resp.ok) throw new Error('bad search');
+      if (!resp.ok) throw new Error(resp.statusText);
       return resp.json();
     }).then(
       resp => dispatch({ type: types.SEARCH_SUCCESS, payload: resp }),
-      resp => dispatch({ type: types.SEARCH_FAILURE, payload: resp })
+      error => dispatch({
+        type: types.SEARCH_FAILURE,
+        payload: {
+          error: 'Search error: ' + error.message
+        }
+      })
     );
   };
 };
