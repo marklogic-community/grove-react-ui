@@ -4,7 +4,7 @@ import { Grid } from 'react-bootstrap';
 import MLSearchContainer from './containers/MLSearchContainer';
 import { MLNavbar } from 'ml-treehouse';
 
-import { searchActions, searchSelectors } from './modules/search';
+import { searchActions, searchSelectors } from 'ml-search-redux';
 
 class App extends Component {
   render() {

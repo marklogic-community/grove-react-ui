@@ -5,8 +5,7 @@
   "proxy": "http://localhost:9003/",
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "ml-query-builder.js": "^1.0.0",
-    "ml-rest.js": "^1.0.0-2",
+    "ml-search-redux": "^0.1.0",
     "ml-treehouse": "^0.1.0",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.2",
