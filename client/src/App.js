@@ -4,7 +4,7 @@ import { Grid } from 'react-bootstrap';
 import MLSearchContainer from './containers/MLSearchContainer';
 import { MLNavbar } from 'ml-treehouse';
 
-import { runSearch, selectors as searchSelectors } from './modules/search';
+import { searchActions, searchSelectors } from './modules/search';
 
 class App extends Component {
   render() {
@@ -13,7 +13,7 @@ class App extends Component {
         <MLNavbar title="MarkLogic Treehouse"/>
         <Grid fluid={true}>
           <MLSearchContainer
-            runSearch={runSearch}
+            runSearch={searchActions.runSearch}
             selectors={searchSelectors}/>
         </Grid>
       </div>

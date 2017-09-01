@@ -1,7 +1,8 @@
 // Public API for the search module
-import { selectors } from './reducer';
-import { runSearch } from './actions';
-export { selectors, runSearch };
+import searchReducer, { searchSelectors } from './reducers';
+import * as searchActions from './actions';
+export default searchReducer;
+export { searchSelectors, searchActions };
 
 // export const suggest = (qtext) => {
 //   return (dispatch, getState) => {

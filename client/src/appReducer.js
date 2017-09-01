@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import search from './modules/search/reducer';
+import search from './modules/search';
 
 // const exampleStore = {
 //   search: {

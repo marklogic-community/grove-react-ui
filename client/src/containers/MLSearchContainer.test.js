@@ -29,7 +29,7 @@ describe('<MLSearchContainer />', () => {
         store={mockStore}
         selectors={mockSelectors} />
     );
-    wrapper.find('.ml-execute-search').simulate('click');
+    wrapper.find('.ml-execute-search').simulate('submit');
     expect(searchSpy.mock.calls.length).toBe(1);
   });
 

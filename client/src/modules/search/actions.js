@@ -1,6 +1,6 @@
 import * as types from './actionTypes';
-import { selectors } from './reducer';
-import searchAPI from '../../api/search';
+import { searchSelectors as selectors } from './reducers';
+import searchAPI from './api/search';
 
 export const runSearch = (submittedQtext) => {
   return (dispatch, getState) => {

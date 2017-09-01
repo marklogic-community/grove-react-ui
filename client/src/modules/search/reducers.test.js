@@ -1,4 +1,4 @@
-import reducer, { selectors } from './reducer';
+import reducer, { searchSelectors as selectors } from './reducers';
 import * as types from './actionTypes';
 
 import { initialState } from './test-helpers';

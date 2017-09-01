@@ -173,7 +173,7 @@ export default (state = initialState, action) => {
   }
 };
 
-export const selectors = {
+export const searchSelectors = {
   getSearchResults: state => state.search.executedSearch.results,
   getConstraints: state => state.search.executedSearch.query.constraints,
   getPage: state => state.search.executedSearch.query.page,
