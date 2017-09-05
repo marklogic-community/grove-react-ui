@@ -7,15 +7,15 @@ import './index.css';
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'remote-redux-devtools';
 import thunk from 'redux-thunk';
 
 import appReducer from './appReducer';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-// TODO: only in development?
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = composeWithDevTools({realtime: true, port: 8055});
 
 // TODO: extract to store.js?
 let store = createStore(
