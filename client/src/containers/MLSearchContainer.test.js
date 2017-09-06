@@ -11,11 +11,13 @@ describe('<MLSearchContainer />', () => {
   };
 
   const mockSelectors = {
-    getSearchResults: jest.fn().mockReturnValue([])
+    getSearchResults: jest.fn().mockReturnValue([]),
+    getVisibleQtext: jest.fn().mockReturnValue('')
   };
 
   it('works', () => {
     shallow(<MLSearchContainer
+      actions={{}}
       store={mockStore}
       selectors={mockSelectors}/>);
   });
@@ -23,9 +25,12 @@ describe('<MLSearchContainer />', () => {
   it('runs a search', () => {
     const searchSpy = jest.fn();
     searchSpy.mockReturnValue(Promise.resolve([]));
+    const mockActions = {
+      runSearch: searchSpy
+    };
     const wrapper = mount(
       <MLSearchContainer
-        runSearch={searchSpy}
+        actions={mockActions}
         store={mockStore}
         selectors={mockSelectors} />
     );

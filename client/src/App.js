@@ -13,7 +13,7 @@ class App extends Component {
         <MLNavbar title="MarkLogic Treehouse"/>
         <Grid fluid={true}>
           <MLSearchContainer
-            runSearch={searchActions.runSearch}
+            actions={searchActions}
             selectors={searchSelectors}/>
         </Grid>
       </div>

@@ -14,12 +14,14 @@ let MLSearchContainer = class MLSearchContainer extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    qtext: ownProps.selectors.getVisibleQtext(state),
     results: ownProps.selectors.getSearchResults(state),
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => bindActionCreators({
-  runSearch: ownProps.runSearch
+  runSearch: ownProps.actions.runSearch,
+  handleQtextChange: ownProps.actions.setQtext
 }, dispatch);
 
 MLSearchContainer = connect(
