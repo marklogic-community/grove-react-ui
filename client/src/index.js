@@ -15,7 +15,11 @@ import appReducer from './appReducer';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-const composeEnhancers = composeWithDevTools({realtime: true, port: 8055});
+const composeEnhancers = composeWithDevTools({
+  name: 'react-ml-treehouse',
+  realtime: true,
+  port: 8055
+});
 
 // TODO: extract to store.js?
 let store = createStore(
