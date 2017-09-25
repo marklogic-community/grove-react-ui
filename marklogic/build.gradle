@@ -35,7 +35,7 @@ dependencies {
   mlcp files('lib')
 }
 
-task importSampleData(type: com.marklogic.gradle.task.MlcpTask) {
+task loadSampleData(type: com.marklogic.gradle.task.MlcpTask) {
     classpath = configurations.mlcp
     command = "IMPORT"
     database = mlAppConfig.contentDatabaseName

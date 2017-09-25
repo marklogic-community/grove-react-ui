@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { MLSearchView } from 'ml-treehouse';
+import { MLSearchView } from 'ml-treehouse-react';
 
 let MLSearchContainer = class MLSearchContainer extends Component {
   render() {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Grid } from 'react-bootstrap';
 
 import MLSearchContainer from './containers/MLSearchContainer';
-import { MLNavbar } from 'ml-treehouse';
+import { MLNavbar } from 'ml-treehouse-react';
 
 import { searchActions, searchSelectors } from 'ml-search-redux';
 

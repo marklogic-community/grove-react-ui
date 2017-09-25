@@ -1,20 +1,20 @@
 {
-  "name": "treehouse",
+  "name": "ml-treehouse-react-reference",
   "version": "0.1.0",
   "description": "Turning MarkLogic forests into a place for users to live",
   "dependencies": {
     "concurrently": "^3.5.0"
   },
-  "devDependencies": {
-    "babel-eslint": "^7.2.3",
-    "eslint": "^4.4.1",
-    "eslint-plugin-react": "^7.1.0"
-  },
+  "devDependencies": {},
   "scripts": {
+    "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
     "start": "concurrently \"npm run server\" \"npm run client\" ",
     "server": "node server/node-app.js",
     "client": "node start-client.js",
-    "test": "cd client && npm test"
+    "test": "cd client && npm test",
+    "mlDeploy": "cd marklogic && ./gradlew mlDeploy",
+    "loadSampleData": "cd marklogic && ./gradlew loadSampleData",
+    "setupEverything": "npm install && npm run mlDeploy && npm run loadSampleData && npm start"
   },
   "repository": {
     "type": "git",
@@ -28,10 +28,6 @@
     {
       "name": "Frank Sanders",
       "email": "frank.sanders@marklogic.com"
-    },
-    {
-      "name": "Fei Xue",
-      "email": "fei.xue@marklogic.com"
     }
   ]
 }

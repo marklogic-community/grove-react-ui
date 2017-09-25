@@ -22,7 +22,7 @@ const composeEnhancers = composeWithDevTools({
 });
 
 // TODO: extract to store.js?
-let store = createStore(
+const store = createStore(
   appReducer,
   composeEnhancers(
     applyMiddleware(thunk)
