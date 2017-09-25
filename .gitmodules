@@ -1,0 +1,3 @@
+[submodule "server"]
+	path = server
+	url = ssh://git@project.marklogic.com:7999/nacw/ml-treehouse-node.git
