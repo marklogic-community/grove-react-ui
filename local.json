@@ -6,7 +6,7 @@
   "ml-admin-pass": "admin",
   "ml-app-user": "treehouse-reader",
   "ml-app-pass": "treehouse-reader",
-  "ml-http-port": "8003",
+  "ml-http-port": "8063",
   "node-port": "9003",
   "guest-access": "true",
   "disallow-updates": "false",
