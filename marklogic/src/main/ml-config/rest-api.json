@@ -6,8 +6,6 @@
     "modules-database" : "%%MODULES_DATABASE%%",
     "port" : %%PORT%%,
     "xdbc-enabled" : true,
-    "error-format" : "json",
-    "authentication": "application-level",
-    "default-user": "admin"
+    "error-format" : "json"
   }
 }
