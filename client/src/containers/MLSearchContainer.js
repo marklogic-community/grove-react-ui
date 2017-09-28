@@ -15,7 +15,7 @@ let MLSearchContainer = class MLSearchContainer extends Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     qtext: ownProps.selectors.getVisibleQtext(state),
-    results: ownProps.selectors.getSearchResults(state),
+    executedSearch: ownProps.selectors.getExecutedSearch(state)
   };
 };
 

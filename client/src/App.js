@@ -10,11 +10,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <MLNavbar title="MarkLogic Treehouse"/>
+        <MLNavbar title="MarkLogic Treehouse" />
         <Grid fluid={true}>
           <MLSearchContainer
             actions={searchActions}
-            selectors={searchSelectors}/>
+            selectors={searchSelectors}
+          />
         </Grid>
       </div>
     );
