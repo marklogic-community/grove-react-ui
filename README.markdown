@@ -54,10 +54,6 @@ Run:
 
     npm run mlDeploy
 
-### Temporary Intermediate Step
-
-A temporary workaround is required until authentication is supported.  Via the MarkLogic Admin Console (http://localhost:8001), reconfigure the HTTP server created for `treehouse`.  Set `authentication` to `application-level` and change `default-user` to `admin`.
-
 ### Load Data
 
 Run this to load 3000 sample documents (about people):
