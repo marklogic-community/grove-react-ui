@@ -6,6 +6,14 @@ import { MLNavbar } from 'ml-treehouse-react';
 
 import { searchActions, searchSelectors } from 'ml-search-redux';
 
+const wrappedSearchSelectors = Object.keys(searchSelectors).reduce(
+  (newSelectors, name) => {
+    newSelectors[name] = state => searchSelectors[name](state.search)
+    return newSelectors;
+  },
+  {}
+);
+
 class App extends Component {
   render() {
     return (
@@ -14,7 +22,7 @@ class App extends Component {
         <Grid fluid={true}>
           <MLSearchContainer
             actions={searchActions}
-            selectors={searchSelectors}
+            selectors={wrappedSearchSelectors}
           />
         </Grid>
       </div>
