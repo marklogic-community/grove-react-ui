@@ -13,7 +13,7 @@ import thunk from 'redux-thunk';
 
 import appReducer from './appReducer';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 
 const composeEnhancers = composeWithDevTools({
   name: 'react-ml-treehouse',
@@ -29,10 +29,34 @@ const store = createStore(
   )
 );
 
+// TODO: extract to store.js?
+// Hot reloading
+// https://github.com/facebookincubator/create-react-app/issues/2317
+if (process.env.NODE_ENV !== "production") {
+	if (module.hot) {
+		module.hot.accept('./appReducer', () => {
+			store.replaceReducer(appReducer)
+		})
+	}
+}
+
 render(
   <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root')
 );
-registerServiceWorker();
+
+// Hot reloading
+// https://github.com/facebookincubator/create-react-app/issues/2317
+if (module.hot) {
+  module.hot.accept('./App', () => {
+		render(
+			<Provider store={store}>
+				<App />
+			</Provider>,
+			document.getElementById('root')
+		);
+  })
+}
+// registerServiceWorker();
