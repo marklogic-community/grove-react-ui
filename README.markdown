@@ -31,8 +31,6 @@ The commands listed below should be typed into a terminal/console window.
     cd ml-treehouse
     npm run setupEverything
 
-A temporary workaround is required until authentication is supported.  Via the MarkLogic Admin Console (http://localhost:8001), reconfigure the HTTP server created for `treehouse`.  Set `authentication` to `application-level` and change `default-user` to `admin`.
-
 Go to `localhost:3000` and view your running app, with sample data loaded. If
 it works, you can skip the remaining steps. If you prefer to go more slowly and see each step (or load different data), please follow the steps below.
 
