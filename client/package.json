@@ -1,15 +1,15 @@
 {
   "name": "treehouse-client",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "private": true,
   "proxy": "http://localhost:9003/",
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "ml-search-redux": "^0.2.1",
-    "ml-treehouse-react": "^0.1.1",
-    "react": "^15.6.1",
+    "ml-search-redux": "^0.3.0",
+    "ml-treehouse-react": "^0.3.0",
+    "react": "^16.0.0",
     "react-bootstrap": "^0.31.2",
-    "react-dom": "^15.6.1",
+    "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
     "react-scripts": "1.0.10",
     "redux": "^3.7.2",
@@ -24,9 +24,10 @@
   },
   "devDependencies": {
     "concurrently": "^3.5.0",
-    "enzyme": "^2.9.1",
-    "jest-enzyme": "^3.7.0",
-    "react-test-renderer": "^15.6.1",
+    "enzyme": "^3.0.0",
+    "enzyme-adapter-react-16": "^1.0.0",
+    "jest-enzyme": "^4.0.0",
+    "react-test-renderer": "^16.0.0",
     "remote-redux-devtools": "^0.5.12",
     "remotedev-server": "^0.2.3"
   }

@@ -12,7 +12,14 @@ describe('<MLSearchContainer />', () => {
 
   const mockSelectors = {
     getSearchResults: jest.fn().mockReturnValue([]),
-    getVisibleQtext: jest.fn().mockReturnValue('')
+    getVisibleQtext: jest.fn().mockReturnValue(''),
+    getSearchExecutionTime: jest.fn(),
+    getSearchTotal: jest.fn(),
+    getSearchTotalPages: jest.fn(),
+    getPage: jest.fn(),
+    getPreExecutedQuery: jest.fn(),
+    isSearchPending: jest.fn(),
+    isSearchComplete: jest.fn(),
   };
 
   it('works', () => {
@@ -34,7 +41,7 @@ describe('<MLSearchContainer />', () => {
         store={mockStore}
         selectors={mockSelectors} />
     );
-    wrapper.find('.ml-execute-search').simulate('submit');
+    wrapper.find('button.ml-execute-search').simulate('submit');
     expect(searchSpy.mock.calls.length).toBe(1);
   });
 
