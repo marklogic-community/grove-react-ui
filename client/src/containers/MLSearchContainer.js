@@ -14,17 +14,19 @@ let MLSearchContainer = class MLSearchContainer extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   // TODO: shorten method names by removing 'get' and 'Search'?
+  const sel = ownProps.selectors;
   return {
     // TODO: get visible qtext from the stagedSearch?
-    qtext: ownProps.selectors.getVisibleQtext(state),
-    stagedSearch: ownProps.selectors.getStagedQuery(state),
-    results: ownProps.selectors.getSearchResults(state),
-    executionTime: ownProps.selectors.getSearchExecutionTime(state),
-    total: ownProps.selectors.getSearchTotal(state),
-    totalPages: ownProps.selectors.getSearchTotalPages(state),
-    page: ownProps.selectors.getPage(state),
-    isSearchPending: ownProps.selectors.isSearchPending(state),
-    isSearchComplete: ownProps.selectors.isSearchComplete(state)
+    qtext: sel.getVisibleQtext(state),
+    stagedSearch: sel.getStagedQuery(state),
+    results: sel.getSearchResults(state),
+    executionTime: sel.getSearchExecutionTime(state),
+    total: sel.getSearchTotal(state),
+    totalPages: sel.getSearchTotalPages(state),
+    page: sel.getPage(state),
+    isSearchPending: sel.isSearchPending(state),
+    isSearchComplete: sel.isSearchComplete(state),
+    getError: sel.getError(state)
   };
 };
 

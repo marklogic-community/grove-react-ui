@@ -20,6 +20,7 @@ describe('<MLSearchContainer />', () => {
     getPage: jest.fn(),
     isSearchPending: jest.fn(),
     isSearchComplete: jest.fn(),
+    getError: jest.fn()
   };
 
   it('works', () => {
