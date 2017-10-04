@@ -29,7 +29,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => bindActionCreators({
   runSearch: ownProps.actions.runSearch,
-  handleQtextChange: ownProps.actions.setQtext
+  handleQtextChange: ownProps.actions.setQtext,
+  changePage: ownProps.actions.changePage
 }, dispatch);
 
 MLSearchContainer = connect(
