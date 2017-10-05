@@ -18,7 +18,7 @@ import App from './App';
 const composeEnhancers = composeWithDevTools({
   name: 'react-ml-treehouse',
   realtime: true,
-  port: 8055
+  port: 18055
 });
 
 // TODO: extract to store.js?
