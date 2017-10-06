@@ -54,24 +54,9 @@ Check out our [Installation Guide](INSTALL.markdown) for more detailed, step-by-
 
 The reference application includes three directories: client (for Vue.js front-end and Redux client-state management code), server (for a reference Node implementation of a middle-tier), and marklogic (for database configuration and sample data loading).
 
-### Client code
-
-TODO: Vue.js and Redux
-
-### ML-Treehouse-Node Server
-
-The ML-Treehouse-Node server is present in this repository as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules). You can learn more about this reference implementation of a ML-Treehouse middle-tier in [its repository](https://project.marklogic.com/repo/projects/NACW/repos/ml-treehouse-node/browse).
-
-If you forgot to use the `--recursive` flag while cloning and have an empty `server directory`, you should pull in the code in the server directory by running:
-
-    git submodule init
-    git submodule update
-
-### MarkLogic
-
-TODO: explain ml-gradle and mlcp
-
 ## Developing
+
+TODO: Flesh out how to work with and change this application in development.
 
 Start the test runner:
 

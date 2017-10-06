@@ -50,26 +50,52 @@ We selected React in large part because there are many excellent resources for l
 
 The presentational React components are provided through a separate libary: [ml-treehouse-react](https://project.marklogic.com/repo/projects/NACW/repos/ml-treehouse-react/browse). These components are 'dumb', presentation-only React components that render html based on provided properties and invoke callback functions based on user interaction. (Here is a [good article](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) on the useful pattern of dividing an application between 'dumb', presentational components and 'smart' containers. We lean heavily on this pattern in ML-Treehouse.)
 
-The ml-treehouse-react components are imported and used in [`client/src/App.js`](`client/src/App.js`) and [`client/src/containers/MLSearchContainer.js`](`client/src/containers/MLSearchContainer.js`). If you want to change them, you can provide your own components and import those instead. (Your components may also import some of the ml-treehouse-react components, so you don't have to recreate everything.)
+In particular, the React components are unaware of the Redux layer. They simply define properties and functions that they expect to be passed to them. They are only responsible for rendering an appropriate view based on those properties and for wiring user actions to the passed-in functions.
 
-## Client-Side State-Management System (using Redux)
+The ml-treehouse-react components are imported and used in [`client/src/App.js`](`client/src/App.js`) and [`client/src/containers/MLSearchContainer.js`](`client/src/containers/MLSearchContainer.js`).
 
-TODO
-- describe Redux
-- arranged as pluggable features ('ducks')
-  - store (subscriptions, according to how it is handled in React / Angular)
-  - action creators
-    - thunks for async actions (middleware)
-  - selectors
-- the Redux libraries define an interface to the service tier (for example, for communicating with MarkLogic or other Web services)
+If you want to change the React components, you can provide your own components and import those instead. (Your components may also import some of the ml-treehouse-react components, so you don't have to recreate everything.)
 
-## Default middle-tier
+### Client-Side State-Management System (using Redux)
 
-TODO
+Redux provides a popular pattern to manage state in a single-page Web or mobile application. Like React, it is surrounded by a rich ecosystem, and the [official Redux docs](http://redux.js.org/) are the best starting point for learning about it. Please read those first! We will not try to explain all of Redux here.
 
-- Node
-- resource-oriented
+ML-Treehouse provides Redux modules [organized as 'ducks'](https://github.com/alexnm/re-ducks). This means that your application can import [reducers](http://redux.js.org/docs/basics/Reducers.html) defined in the Redux module to respond to actions and manage part of your Redux state tree.
 
-## TODO: mix and match
+Each module exposes selectors that your application can use to get information from that part of the state tree.
 
-REWRITE: However, these are designed to be modular: our React components can be used without Redux, and our Redux components could be used with a different front-end framework, including AngularJS and Vue.js.
+Each module also defines [actionCreators](http://redux.js.org/docs/basics/Actions.html) that your application can call to, for example, run a search. We are using the [redux-thunk](https://github.com/gaearon/redux-thunk) library to handle asynchronous actions, [as described in the Redux docs](http://redux.js.org/docs/advanced/AsyncActions.html).
+
+Finally, each Redux module currently defines an interface to the service tier (for example, for communicating with MarkLogic or other Web services to run a search). It calls out to a specific endpoint and expects a certain shape of response. We are still fleshing this out, but the goal is to make the service tier completely swappable, so long as an adapter is provided that provides the Redux module the interface that it requires.
+
+*At the moment, we only provide one module:[ ml-search-redux.](https://github.com/gaearon/redux-thunk)*
+
+Your application needs to provide some glue to connect the Redux modules to the 'dumb' React components, which are not aware of Redux. This reference application does that, in [`client/src/App.js`](`client/src/App.js`) and [`client/src/containers/MLSearchContainer.js`](`client/src/containers/MLSearchContainer.js`), which are 'smart' React containers that are Redux-aware and pass the appropriate properties and functions down to the 'dumb' React components.
+
+If you need to modify the way selectors or actionCreators work, you can create functions that call out to them but also do other work. Then, pass your decorator functions down to the 'dumb' React components instead. Or you could define your own actionCreators or selectors from scratch.
+
+If you are extending this application, you will have to decide whether you are adding new state and whether it should be managed by Redux or not. It is not mandatory. Redux adds some indirection, complexity and constraints in exchange for making state easier to reason about and for assistance integrating different parts of your application. The author of Redux has a good article exploring these trade-offs, called, "[You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)." 
+
+For example, if you create a component that toggle a pop-up on or off, the `popUpStatus` bit of state might properly belong just to your component and would not need to go into the global Redux store. Redux modules are also a central part of the ML-Treehouse architecture, so if you are planning to make your extension reusable, that would be a point in favor of using Redux for application-wide state. There are many articles out there on this, here is [one of them](https://github.com/gaearon/redux-thunk).
+
+### Default Node middle-tier
+
+The ML-Treehouse-Node server is present in this repository as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules). You can learn more about this reference implementation of a ML-Treehouse middle-tier in [its repository](https://project.marklogic.com/repo/projects/NACW/repos/ml-treehouse-node/browse).
+
+## Advanced Use: Mix and Match
+
+We are providing this reference application for ease of use. We may eventually provide a generator for new applications. This allows users to take advantage of defaults and get running quickly.
+
+However, the various parts are designed to be modular.
+
+Our React components can be used without Redux, so long as you pass them the properties and functions that they require. You can even [add React components into an existing application that does not use React elsewhere](https://medium.com/nthrive-analytics/introducing-react-into-an-existing-application-17490841796e).
+
+Our Redux components could be used with a different front-end framework, including AngularJS and Vue.js. We have proved this ourselves, by creating reference applications in AngularJS and Vue.js which reuse the ml-search-redux module.
+
+Similarly, the provided Node middle tier could be swapped out for one implemented in Java or, indeed, in MarkLogic itself.
+
+Feel free to use this reference application for ideas on how to pull in just the ML-Treehouse pieces that you need for your use case.
+
+## Contributing
+
+We welcome contributions! A big motivation behind this project is to improve code quality through code reuse. Please read our [Best Practices](BEST_PRACTICES.markdown) document to better understand the practices and philosophies that we hope will keep this project cohesive.
