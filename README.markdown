@@ -1,16 +1,20 @@
 # MarkLogic Treehouse
 
-This project is the primary reference application for the MarkLogic Treehouse project. Eventually, we anticipate providing a generator that will generate a simple, application starter. For now, clone this repository in order to get the latest Treehouse functionality using React.
+ML-Treehouse is a set of components designed to help developers and architects build UI-rich applications backed by MarkLogic, the powerful NoSQL database built for enterprises.
 
-This reference application uses React as the front-end framework and Node.js as a default, swappable middle-tier implementation. We aim to deliver a search and discovery application, along with a pluggable architecture, that can be the basis for single-page Web applications backed by MarkLogic.
+This project is the primary reference application for ML-Treehouse. Eventually, we anticipate providing a generator that will generate a simple, application starter. For now, clone this repository in order to get the latest Treehouse functionality using React.
+
+This reference application uses React as the front-end framework and Node.js as a default, swappable middle-tier implementation. We aim to deliver a search and discovery application, along with a pluggable architecture, that can be the foundation for single-page Web applications backed by MarkLogic.
 
 ML-Treehouse and this application are VERY alpha and will change considerably in many breaking ways.
 
-## About ML Treehouse
+## READ THIS FIRST
 
-TODO: Coming soon, an overview.
+For most people, it is most important to understand how to use ML-Treehouse and customize it to fit your use cases.
 
-- Our evolving [Best Practices document](BEST_PRACTICES.markdown), designed to get contributors on the same page, communicates some of our goals.
+For thi, please *read the [ML-Treehouse Guide](GUIDE.markdown)*.
+
+For those seeking to contribute to the project, our evolving [Best Practices document](BEST_PRACTICES.markdown) are designed to get contributors on the same page and to communicate some of our goals.
 
 ## Other Supported Front-end Frameworks
 
