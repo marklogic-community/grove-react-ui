@@ -26,14 +26,18 @@ const mapStateToProps = (state, ownProps) => {
     page: sel.getPage(state),
     isSearchPending: sel.isSearchPending(state),
     isSearchComplete: sel.isSearchComplete(state),
-    getError: sel.getError(state)
+    getError: sel.getError(state),
+    isDetailPending: sel.isDetailPending(state),
+    isDetailComplete: sel.isDetailComplete(state),
+    detail: sel.getDetail(state)
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => bindActionCreators({
   runSearch: ownProps.actions.runSearch,
   handleQtextChange: ownProps.actions.setQtext,
-  changePage: ownProps.actions.changePage
+  changePage: ownProps.actions.changePage,
+  loadDetail: ownProps.actions.loadDetail
 }, dispatch);
 
 MLSearchContainer = connect(

@@ -6,6 +6,7 @@ import { MLNavbar } from 'ml-treehouse-react';
 
 import { searchActions, searchSelectors } from 'ml-search-redux';
 
+
 const wrappedSearchSelectors = Object.keys(searchSelectors).reduce(
   (newSelectors, name) => {
     newSelectors[name] = state => searchSelectors[name](state.search)

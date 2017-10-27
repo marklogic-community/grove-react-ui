@@ -10,10 +10,25 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'remote-redux-devtools';
 import thunk from 'redux-thunk';
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
 
 import appReducer from './appReducer';
 import App from './App';
 // import registerServiceWorker from './registerServiceWorker';
+
+import MLDetailContainer from './containers/MLDetailContainer';
+
+import { searchActions, searchSelectors } from 'ml-search-redux';
+
+
+const wrappedSearchSelectors = Object.keys(searchSelectors).reduce(
+  (newSelectors, name) => {
+    newSelectors[name] = state => searchSelectors[name](state.search)
+    return newSelectors;
+  },
+  {}
+);
 
 const composeEnhancers = composeWithDevTools({
   name: 'react-ml-treehouse',
@@ -42,7 +57,16 @@ if (process.env.NODE_ENV !== "production") {
 
 render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+    {/* Decompose app more */}
+    <Switch>
+      <Route exact path="/" component={App}/>
+      <Route path="/detail/:uri*" render={(props) => 
+        ( <MLDetailContainer uri={props.match.params.uri} actions={searchActions}
+            selectors={wrappedSearchSelectors} />)} />
+    </Switch>
+    {/* <App /> */}    
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );
@@ -52,9 +76,16 @@ render(
 if (module.hot) {
   module.hot.accept('./App', () => {
 		render(
-			<Provider store={store}>
-				<App />
-			</Provider>,
+      <Provider store={store}>
+    <BrowserRouter>
+    <Switch>
+    {/* Consider refactoring this for cleaner encapsulation */}
+    <Route exact path="/" component={App}/>
+    <Route path="/detail/:uri*" render={(props) => 
+        ( <MLDetailContainer uri={props.match.params.uri} actions={searchActions}
+            selectors={wrappedSearchSelectors} />)} />  </Switch>      {/* <App /> */}
+    </BrowserRouter>
+  </Provider>,
 			document.getElementById('root')
 		);
   })

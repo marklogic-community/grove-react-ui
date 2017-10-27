@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Turning MarkLogic forests into a place for users to live",
   "dependencies": {
-    "concurrently": "^3.5.0"
+    "concurrently": "^3.5.0",
+    "history": "^4.7.2"
   },
   "devDependencies": {},
   "scripts": {
