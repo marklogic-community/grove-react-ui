@@ -7,7 +7,7 @@ import { MLSearchView } from 'ml-treehouse-react';
 let MLSearchContainer = class MLSearchContainer extends Component {
   render() {
     return (
-      <MLSearchView {...this.props} />
+      <MLSearchView {...this.props} detailPath="/detail/" />
     );
   }
 };
