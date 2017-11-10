@@ -4,7 +4,10 @@ import { Grid } from 'react-bootstrap';
 import MLSearchContainer from './containers/MLSearchContainer';
 import { MLNavbar } from 'ml-treehouse-react';
 
-import { searchActions, searchSelectors } from 'ml-search-redux';
+import {
+  actions as searchActions,
+  selectors as searchSelectors
+} from 'ml-search-redux';
 
 const wrappedSearchSelectors = Object.keys(searchSelectors).reduce(
   (newSelectors, name) => {
