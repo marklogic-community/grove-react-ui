@@ -34,11 +34,25 @@ TODO: Redux
 
 - actions and selectors as primary interface (plus the store itself, but should only be used for dispatch and passing to selectors; sometimes sharing actionTypes as well)
 
+#### Model Application State for Front-End Needs
+
+Application state structure should not be oriented toward the needs of your back-end. Otherwise put: don't let the back-end abstractions leak into the front end.
+
+Instead, model the state as it makes sense for the front-end, then create adapters for communication with the backend.
+
+This allows you to support other backends and makes it clear exactly what properties and functions the front-end needs to do its job.
+
 ### Middle-Tier as Interface
 
 Wrap the middle tier in a service object: code against the documented interface of that service object.
 
 Service objects themselves define a documented interface with the middle-tier and should code against that interface.
+
+#### Wrap APIs in Javascript objects
+
+TODO: create API wrappers as objects containing functions. Your application should work against these objects, which translate function calls into API calls - and API responses into front-end Javascript objects. Whenever possible, inject this API object as a dependency into your components, etc.
+
+Setting things up this way allows someone else to provide a new API object to wrap a different API (perhaps running directly against MarkLogic and dispensing with a middle-tier altogether), but reuse the same front-end.
 
 ### Separate "Smart" and "Dumb" (or "Presentational") Components
 
