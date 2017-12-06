@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Grid } from 'react-bootstrap';
+import { Switch, Route } from 'react-router-dom';
 
 import MLSearchContainer from './containers/MLSearchContainer';
+import MLDetailContainer from './containers/MLDetailContainer';
 import { MLNavbar } from 'ml-treehouse-react';
 
 import { searchActions, searchSelectors } from 'ml-search-redux';
-
 
 const wrappedSearchSelectors = Object.keys(searchSelectors).reduce(
   (newSelectors, name) => {
@@ -21,10 +22,25 @@ class App extends Component {
       <div>
         <MLNavbar title="MarkLogic Treehouse" />
         <Grid fluid={true}>
-          <MLSearchContainer
-            actions={searchActions}
-            selectors={wrappedSearchSelectors}
-          />
+          <Switch>
+            <Route exact path="/"
+              render={() => (
+                <MLSearchContainer
+                  actions={searchActions}
+                  selectors={wrappedSearchSelectors}
+                />
+              )}
+            />
+            <Route path="/detail/:uri*"
+              render={(props) => (
+                <MLDetailContainer
+                  uri={props.match.params.uri}
+                  actions={searchActions}
+                  selectors={wrappedSearchSelectors}
+                />
+              )}
+            />
+          </Switch>
         </Grid>
       </div>
     );
