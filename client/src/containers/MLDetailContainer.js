@@ -15,19 +15,14 @@ let MLDetailContainer = class MLDetailContainer extends Component {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  // TODO: shorten method names by removing 'get' and 'Search'?
   const sel = ownProps.selectors;
   return {
-    // TODO: get visible qtext from the stagedSearch?
-    getError: sel.getError(state),
-    isDetailPending: sel.isDetailPending(state),
-    isDetailComplete: sel.isDetailComplete(state),
-    detail: sel.getDetail(state)
+    detail: sel.documentByUri(state, ownProps.uri)
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => bindActionCreators({
-  loadDetail: ownProps.actions.loadDetail
+  loadDetail: ownProps.actions.fetchDoc
 }, dispatch);
 
 MLDetailContainer = connect(

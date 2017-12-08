@@ -13,7 +13,9 @@ import {
 
 const wrappedSearchSelectors = Object.keys(searchSelectors).reduce(
   (newSelectors, name) => {
-    newSelectors[name] = state => searchSelectors[name](state.search)
+    newSelectors[name] = (state, ...args) => (
+      searchSelectors[name](state.search, ...args)
+    )
     return newSelectors;
   },
   {}
@@ -37,7 +39,7 @@ class App extends Component {
             <Route path="/detail/:uri*"
               render={(props) => (
                 <MLDetailContainer
-                  uri={props.match.params.uri}
+                  uri={decodeURIComponent(props.match.params.uri)}
                   actions={searchActions}
                   selectors={wrappedSearchSelectors}
                 />
