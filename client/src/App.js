@@ -10,16 +10,26 @@ import {
   actions as searchActions,
   selectors as searchSelectors
 } from 'ml-search-redux';
+import {
+  actions as documentActions,
+  selectors as documentSelectors
+} from 'ml-documents-redux';
 
-const wrappedSearchSelectors = Object.keys(searchSelectors).reduce(
-  (newSelectors, name) => {
-    newSelectors[name] = (state, ...args) => (
-      searchSelectors[name](state.search, ...args)
-    )
-    return newSelectors;
-  },
-  {}
-);
+// TODO: extract into a utility: also used within redux modules
+const bindSelector = (selector, mountPoint) => {
+  return (state, ...args) => {
+    return selector(state[mountPoint], ...args)
+  }
+}
+const bindSelectors = (selectors, mountPoint) => {
+  return Object.keys(selectors).reduce((bound, key) => {
+    bound[key] = bindSelector(selectors[key], mountPoint)
+    return bound
+  }, {})
+}
+
+const boundSearchSelectors = bindSelectors(searchSelectors, 'search');
+const boundDocumentSelectors = bindSelectors(documentSelectors, 'documents');
 
 class App extends Component {
   render() {
@@ -32,7 +42,7 @@ class App extends Component {
               render={() => (
                 <MLSearchContainer
                   actions={searchActions}
-                  selectors={wrappedSearchSelectors}
+                  selectors={boundSearchSelectors}
                 />
               )}
             />
@@ -40,8 +50,8 @@ class App extends Component {
               render={(props) => (
                 <MLDetailContainer
                   uri={decodeURIComponent(props.match.params.uri)}
-                  actions={searchActions}
-                  selectors={wrappedSearchSelectors}
+                  actions={documentActions}
+                  selectors={boundDocumentSelectors}
                 />
               )}
             />

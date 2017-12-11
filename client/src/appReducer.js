@@ -1,8 +1,5 @@
 import { combineReducers } from 'redux';
 import search from 'ml-search-redux';
+import documents from 'ml-documents-redux';
 
-// const exampleStore = {
-//   search: searchStore
-// }
-
-export default combineReducers({search});
+export default combineReducers({search, documents});
