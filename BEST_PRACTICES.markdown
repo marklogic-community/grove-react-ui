@@ -30,9 +30,11 @@ First, present simplicity (search bar plus facets). Then offer easy ways to laye
 
 ### Application-State Management Layer
 
-TODO: Redux
+A clearly defined state management system running on the client-side is a core abstraction of the ML-Treehouse framework. We use [Redux](https://redux.js.org/) for this.
 
-- actions and selectors as primary interface (plus the store itself, but should only be used for dispatch and passing to selectors; sometimes sharing actionTypes as well)
+There are many benefits of the Redux approach. An important one for ML-Treehouse is that the same Redux modules can be used with a wide variety of front-end frameworks, including AngularJS and Vue.js in addition to React.
+
+In ML-Treehouse, Redux modules should be [organized as "ducks."](https://github.com/alexnm/re-ducks) This [link](https://github.com/alexnm/re-ducks) contains more details. This means that a Redux module bundles together all related code and exposes actionCreators and state selectors as its primary interface. (It also exposes its top-level "reducer", so it can be integrated into an application's single Redux store.) Testing these "duck" Redux module should focus primarily on testing actionCreators and selectors together (more below in the section on testing).
 
 #### Model Application State for Front-End Needs
 
@@ -50,30 +52,30 @@ Service objects themselves define a documented interface with the middle-tier an
 
 #### Wrap APIs in Javascript objects
 
-TODO: create API wrappers as objects containing functions. Your application should work against these objects, which translate function calls into API calls - and API responses into front-end Javascript objects. Whenever possible, inject this API object as a dependency into your components, etc.
+Within your Redux modules, create default API wrappers as objects containing functions. Your application should work against these objects, which translate function calls into API calls - and API responses into front-end Javascript objects. These should be an argument to actionCreators so that consumers of your actionCreators can provide alternative API adapters. (There are other ways to organize this, and other ideas are welcome, particularly if we could standardize on an approach.)
 
 Setting things up this way allows someone else to provide a new API object to wrap a different API (perhaps running directly against MarkLogic and dispensing with a middle-tier altogether), but reuse the same front-end.
 
-### Separate "Smart" and "Dumb" (or "Presentational") Components
+### Separate "Smart" Containers and "Dumb" Components in the UI
 
-As componentization as taken over Web frameworks, there is a cross-framework pattern of separating presentational components from smart containers.
+As component-based architecture has taken over Web frameworks, a useful cross-framework pattern has emerged of separating presentational components from smart containers.
 
 TODO: further reading
 
-#### Presentational ("Dumb")
+#### Presentational ("Dumb") Components
 
 Presentational components are concerned only with:
 
 - rendering a view based on input properties
 - responding to user interaction by invoking passed-in callbacks or emitting events
   - AngularJS and Vue.js tend to expect event emission, but can also take callbacks
-  - TODO: should we always pass in functions (which tend to be bound action creators in the context of Redux?)
+  - in ML-Treehouse to-date, we have adopted the convention of always passing in callbacks. In the context of Redux, these callbacks are bound action creators.
 
-Presentational components should be kept unaware of overall state. They should not know that Redux is managing state for them. They should not know how to invoke middle-tier APIs. Pull them into some other application and pass them the right inputs (data properties and input functions), and they should happily function in any context.
+Presentational components should be unaware of overall state. They should not know that Redux is managing state for them. They should not know how to invoke middle-tier APIs. Pull them into some other application and pass them the right inputs (data properties and callback functions), and they should happily function in any context.
 
-Presentational components can render children components, including 'smart' children.
+Presentational components can include children components, including 'smart' children.
 
-#### Smart Components (or "Containers")
+#### Smart Containers
 
 Smart components are concerned only with:
 
@@ -95,23 +97,33 @@ could apply themes by conditionally
 
 ## Tests
 
+### Integration (End-to-End) Tests
+
+#### Integration Testing Redux Modules
+
+Since much of our client-side business logic lives in the Redux layer, integration tests can provide the biggest bang for the buck. "Integration" tests here mean tests against a Redux module as a whole. This means asserting what specific selectors should return before and after invoking actions. It also means mocking out the API, either at the level of an API object or at the level of a mock network response to the default API object included in the Redux module.
+
+TODO: Provide examples. In the meantime, look at "...integration.test.js" files in existing Redux modules for examples. Many actionCreators are asynchronous because they deal with network requests. Some of the apparent complexity in these tests is due to that asynchronicity.
+
 ### Unit Tests
 
 #### Unit Testing Redux
 
-TODO: just link to the Redux docs and mention any overrides of the advice there?
+We have found that unit tests for Redux actions and reducers tend to be brittle and overly tied to the structure of Redux state, which really should be an implementation detail. If you find unit tests useful (particularly if you have some complicated logic somewhere), see the Redux documentation for advice on approaches to testing various parts of your Redux module.
+
+Instead of unit test, we have adopted an integration-test-first method, which is documented elsewhere in this document.
 
 #### Unit Testing Presentational ("Dumb") Components
 
-- Start with smoke tests.
+- Start with [smoke tests](http://acco.io/a-practical-guide-to-testing-react-apps/#Smoke_tests).
 - Test that the component renders correctly, given various inputs.
 - Test that the component invokes the right functions or emits the correct events with the correct arguments, given events such as user-interaction.
+- TODO: examples. For now, look at ml-treehouse-react for examples, though we have not exhaustively tested everything there.
 
 #### Unit Testing Smart Components
 
-- Start with smoke tests.
-
-### Integration (End-to-End) Tests
+- Start with [smoke tests](http://acco.io/a-practical-guide-to-testing-react-apps/#Smoke_tests).
+- TODO: examples. For now, look at ml-treehouse itself for examples, though we have not exhaustively tested everything in this repository either.
 
 ## Linting
 
