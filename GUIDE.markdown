@@ -18,9 +18,9 @@ At the moment, the easiest way to get started with the current standard stack is
 
 This project will eventually be accompanied by tutorials to help developers and architects learn to work with MarkLogic.
 
-## Learning to Customize and Extend Your Application
+## Learning to Customize and Extend Your Application<a name="developing-your-app"></a>
 
-If this repository works for you as-is, great. But odds are good that you will need to customize or extend it. This is a guide to learning how to do that.
+If this application works for you as-is, great. But odds are good that you will need to customize or extend it. This is a guide to learning how to do that.
 
 ### MarkLogic Configuration
 
@@ -68,11 +68,11 @@ Each module also defines [actionCreators](http://redux.js.org/docs/basics/Action
 
 Finally, each Redux module currently defines an interface to the service tier (for example, for communicating with MarkLogic or other Web services to run a search). It calls out to a specific endpoint and expects a certain shape of response. We are still fleshing this out, but the goal is to make the service tier completely swappable, so long as an adapter is provided that provides the Redux module the interface that it requires.
 
-*At the moment, we only provide one module:[ ml-search-redux.](https://github.com/gaearon/redux-thunk)*
+At the moment, we provide two modules: [ml-search-redux](https://project.marklogic.com/repo/projects/NACW/repos/ml-search-redux/browse) and [ml-documents-redux](https://project.marklogic.com/repo/users/pmcelwee/repos/ml-documents-redux/browse).
 
-Your application needs to provide some glue to connect the Redux modules to the 'dumb' React components, which are not aware of Redux. This reference application does that, in [`client/src/App.js`](`client/src/App.js`) and [`client/src/containers/MLSearchContainer.js`](`client/src/containers/MLSearchContainer.js`), which are 'smart' React containers that are Redux-aware and pass the appropriate properties and functions down to the 'dumb' React components.
+Your application needs to provide some glue to connect the Redux modules to the 'dumb' React components, which are not aware of Redux. This reference application does that, in [`client/src/App.js`](`client/src/App.js`) and [`client/src/containers/`](`client/src/containers/`), which contains 'smart' React containers that are Redux-aware and pass the appropriate properties and functions down to the 'dumb' React components.
 
-If you need to modify the way selectors or actionCreators work, you can create functions that call out to them but also do other work. Then, pass your decorator functions down to the 'dumb' React components instead. Or you could define your own actionCreators or selectors from scratch.
+If you need to modify the way selectors or actionCreators work, you can create decorator functions that call out to them but also do other work. Then, pass your decorator functions down to the 'dumb' React components instead. Or you could define your own actionCreators or selectors from scratch.
 
 If you are extending this application, you will have to decide whether you are adding new state and whether it should be managed by Redux or not. It is not mandatory. Redux adds some indirection, complexity and constraints in exchange for making state easier to reason about and for assistance integrating different parts of your application. The author of Redux has a good article exploring these trade-offs, called, "[You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)." 
 
