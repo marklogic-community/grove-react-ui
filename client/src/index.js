@@ -7,8 +7,7 @@ import './index.css';
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'remote-redux-devtools';
+
 import thunk from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom'
 
@@ -16,11 +15,18 @@ import appReducer from './appReducer';
 import App from './App';
 // import registerServiceWorker from './registerServiceWorker';
 
-const composeEnhancers = composeWithDevTools({
-  name: 'react-ml-treehouse',
-  realtime: true,
-  port: 18055
-});
+// For remote Devtools, remove compose import from Redux, uncomment
+// composeWithDevTools lines, and comment out the bottom line
+// You will also have to change 'start' in client/package.json to be:
+//    "start": "concurrently \"react-scripts start\" \"npm run devtools-server\" ",
+import { compose, createStore, applyMiddleware } from 'redux';
+// import { composeWithDevTools } from 'remote-redux-devtools';
+// const composeEnhancers = composeWithDevTools({
+//   name: 'react-ml-treehouse',
+//   realtime: true,
+//   port: 18055
+// });
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // TODO: extract to store.js?
 const store = createStore(
