@@ -25,7 +25,8 @@ const mapStateToProps = (state, ownProps) => {
     totalPages: sel.getSearchTotalPages(state),
     page: sel.getPage(state),
     isSearchPending: sel.isSearchPending(state),
-    isSearchComplete: sel.isSearchComplete(state)
+    isSearchComplete: sel.isSearchComplete(state),
+    error: sel.getSearchError(state)
   };
 };
 
