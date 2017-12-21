@@ -16,8 +16,8 @@ const mapStateToProps = (state, ownProps) => {
   // TODO: shorten method names by removing 'get' and 'Search'?
   const sel = ownProps.selectors;
   return {
-    // TODO: get visible qtext from the stagedSearch?
-    qtext: sel.getVisibleQtext(state),
+    // TODO: get visible queryText from the stagedSearch?
+    queryText: sel.getVisibleQueryText(state),
     stagedSearch: sel.getStagedQuery(state),
     results: sel.getSearchResults(state),
     executionTime: sel.getSearchExecutionTime(state),
@@ -32,7 +32,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => bindActionCreators({
   runSearch: ownProps.actions.runSearch,
-  handleQtextChange: ownProps.actions.setQtext,
+  handleQueryTextChange: ownProps.actions.setQueryText,
   changePage: ownProps.actions.changePage
 }, dispatch);
 
