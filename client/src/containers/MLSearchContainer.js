@@ -20,6 +20,7 @@ const mapStateToProps = (state, ownProps) => {
     queryText: sel.getVisibleQueryText(state),
     stagedSearch: sel.getStagedQuery(state),
     results: sel.getSearchResults(state),
+    facets: sel.searchFacets(state),
     executionTime: sel.getSearchExecutionTime(state),
     total: sel.getSearchTotal(state),
     totalPages: sel.getSearchTotalPages(state),

@@ -1,4 +1,14 @@
 <options xmlns='http://marklogic.com/appservices/search'>
   <search-option>unfiltered</search-option>
   <quality-weight>0</quality-weight>
+
+  <!-- Example facet -->
+  <constraint name="eyeColor">
+    <range type="xs:string" facet="true" collation="http://marklogic.com/collation/">
+      <facet-option>limit=5</facet-option>
+      <facet-option>frequency-order</facet-option>
+      <facet-option>descending</facet-option>
+      <element ns="" name="eyeColor"/>
+    </range>
+  </constraint>
 </options>
