@@ -21,6 +21,7 @@ const mapStateToProps = (state, ownProps) => {
     stagedSearch: sel.getStagedQuery(state),
     results: sel.getSearchResults(state),
     facets: sel.searchFacets(state),
+    activeConstraints: sel.stagedConstraints(state),
     executionTime: sel.getSearchExecutionTime(state),
     total: sel.getSearchTotal(state),
     totalPages: sel.getSearchTotalPages(state),
@@ -34,7 +35,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => bindActionCreators({
   runSearch: ownProps.actions.runSearch,
   handleQueryTextChange: ownProps.actions.setQueryText,
-  changePage: ownProps.actions.changePage
+  changePage: ownProps.actions.changePage,
+  addConstraint: ownProps.actions.addConstraint,
+  removeConstraint: ownProps.actions.removeConstraint
 }, dispatch);
 
 MLSearchContainer = connect(
