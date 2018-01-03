@@ -13,13 +13,16 @@ describe('<MLSearchContainer />', () => {
   const mockSelectors = {
     getSearchResults: jest.fn().mockReturnValue([]),
     getStagedQuery: jest.fn(),
-    getVisibleQtext: jest.fn().mockReturnValue(''),
+    getVisibleQueryText: jest.fn().mockReturnValue(''),
     getSearchExecutionTime: jest.fn(),
     getSearchTotal: jest.fn(),
     getSearchTotalPages: jest.fn(),
     getPage: jest.fn(),
+    getSearchError: jest.fn(),
     isSearchPending: jest.fn(),
-    isSearchComplete: jest.fn()
+    isSearchComplete: jest.fn(),
+    searchFacets: jest.fn(),
+    stagedConstraints: jest.fn()
   };
 
   it('works', () => {
