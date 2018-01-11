@@ -35,7 +35,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <MLNavbar title="MarkLogic Treehouse" />
+        <MLNavbar title="MarkLogic UI Toolkit" />
         <Grid fluid={true}>
           <Switch>
             <Route exact path="/"
