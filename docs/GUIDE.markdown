@@ -1,6 +1,6 @@
-# Guide to the ML-UI-Toolkit
+# Advanced Guide to the ML-UI-Toolkit
 
-The ML-UI-Toolkit is a set of components designed to help developers build UI-rich applications backed by MarkLogic, the powerful NoSQL database built for enterprises.
+The ML-UI-Toolkit is designed to help developers and architects build UI-rich applications backed by MarkLogic, the multi-model, enterprise NoSQL database.
 
 The standard front-end stack for the ML-UI-Toolkit is React + Redux. In the absence of other requirements, we anticipate most users will stick to that stack - but everything is modular and pluggable, so advanced users can mix-and-match (more below).
 
