@@ -12,6 +12,12 @@ This tutorial will also expose you to core MarkLogic concepts in action. MarkLog
 
 Let's get started.
 
+## Prerequisites
+
+This tutorial requires you to interact, at times, with a command line. Before continuing, you should be sure you have a command-line terminal you are comfortable using.
+
+Other dependencies will be pointed out when the need for them arises.
+
 ## Get MarkLogic Running
 
 1. **[Download MarkLogic 9.](https://developer.marklogic.com/products)**
@@ -30,6 +36,8 @@ Let's get started.
 
     The first time you start MarkLogic, you are going to initialize it to run on a single host. Again, [the docs are clear on how to do it](https://docs.marklogic.com/guide/installation/procedures#id_60220). (MarkLogic can powerfully scale and prevent data loss when hardware fails by [running in clusters](https://docs.marklogic.com/guide/cluster), but you won't need all that power for this tutorial.)
 
+    Remember what admin password you set up. You'll need that later, but you probably realized that.
+
 You are ready to move on if you can point a browser  to [localhost:8001](http://localhost:8001) and it looks a bit like [this](https://docs.marklogic.com/guide/concepts/admin-monitoring#id_14747): 
 
 ![MarkLogic Admin UI](https://docs.marklogic.com/media/apidoc/9.0/guide/concepts/admin-monitoring/images/admin-ui.gif)
@@ -37,3 +45,14 @@ You are ready to move on if you can point a browser  to [localhost:8001](http://
 (We recommend using the [Chrome browser](https://www.google.com/chrome/) for this tutorial, by the way, so you can use all the great developer tools available for React and Redux.)
 
 ## Get the UI-Toolkit Source Code
+
+Clone down the reference application provided by the UI-Toolkit. For this, you will need to have a command-line terminal and [git](https://git-scm.com/downloads) for version-control.
+
+    git clone ssh://git@project.marklogic.com:7999/nacw/ml-treehouse.git ml-ui-toolkit
+    cd ml-ui-toolkit
+ 
+The reference application has everything you need to get a search-and-discovery application running. We'll describe it all in more detail below, but just to orient you, be aware that this source code includes:
+
+- a `marklogic` directory, with tools and configuration files to configure and administer your MarkLogic server,
+- a `server` directory, with a Node server that will form the middle-tier of this application, and
+- a `client` directory, which contains code that will run in the browser.
