@@ -12,9 +12,9 @@ ML-Treehouse and this application are VERY alpha and will change considerably in
 
 For most people, it is most important to understand how to use ML-Treehouse and customize it to fit your use cases.
 
-For this, please *read the [ML-Treehouse Guide](GUIDE.markdown)*.
+For this, please *read the [ML-Treehouse Guide](docs/GUIDE.markdown)*.
 
-For those seeking to contribute to the project, our evolving [Best Practices document](BEST_PRACTICES.markdown) are designed to get contributors on the same page and to communicate some of our goals. The [Contributing document](CONTRIBUTING.markdown) has additional concrete advice for contributors. Please read both.
+For those seeking to contribute to the project, our evolving [Best Practices document](docs/BEST_PRACTICES.markdown) are designed to get contributors on the same page and to communicate some of our goals. The [Contributing document](docs/CONTRIBUTING.markdown) has additional concrete advice for contributors. Please read both.
 
 ## Other Supported Front-end Frameworks
 
@@ -48,7 +48,7 @@ it works, you can skip the remaining steps. If you prefer to go more slowly and 
 
 ### More About Installation: Step-by-Step
 
-Check out our [Installation Guide](INSTALL.markdown) for more detailed, step-by-step installation instructions.
+Check out our [Installation Guide](docs/INSTALL.markdown) for more detailed, step-by-step installation instructions.
 
 ## About the Reference Application
 
@@ -68,8 +68,8 @@ To start a development server at `localhost:3000`:
 
     npm start
 
-For more discussion about how to make changes to your application see the "Learning to Customize and Extend Your Application" section of [GUIDE.markdown](GUIDE.markdown#developing-your-app) in this repository.
+For more discussion about how to make changes to your application see the "Learning to Customize and Extend Your Application" section of [GUIDE.markdown](docs/GUIDE.markdown#developing-your-app) in this repository.
 
 ## Developing the ML-Treehouse Framework Itself
 
-For those seeking to contribute to the project, our evolving [Best Practices document](BEST_PRACTICES.markdown) are designed to get contributors on the same page and to communicate some of our goals. The [Contributing document](CONTRIBUTING.markdown) has additional concrete advice for contributors. Please read both.
+For those seeking to contribute to the project, our evolving [Best Practices document](docs/BEST_PRACTICES.markdown) are designed to get contributors on the same page and to communicate some of our goals. The [Contributing document](docs/CONTRIBUTING.markdown) has additional concrete advice for contributors. Please read both.
