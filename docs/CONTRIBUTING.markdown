@@ -1,8 +1,8 @@
-# Contributing to ML-Treehouse
+# Contributing to the ML-UI-Toolkit
 
 ## Creating a new reusable feature
 
-When developing a new reusable feature for the Sawyer (formerly "Treehouse") project (that is, one destined to become part of the framework), there are basically 5 design layers. (These might be important considerations if you are developing something app-specific too, but that's up to you.)
+When developing a new reusable feature for the ML-UI-Toolkit project (that is, one destined to become part of the framework), there are basically 5 design layers. (These might be important considerations if you are developing something app-specific too, but that's up to you.)
 
 1. UI (React components) and what they need in terms of pieces of information and functions to invoke - if using Redux, they will get the info from "selectors" and the functions will be "action creators" -> but Redux doesn't absolutely need to be used here, any functions / data will do.
 

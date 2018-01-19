@@ -1,14 +1,14 @@
-# Guide to ML-Treehouse
+# Guide to the ML-UI-Toolkit
 
-ML-Treehouse is a set of components designed to help developers build UI-rich applications backed by MarkLogic, the powerful NoSQL database built for enterprises.
+The ML-UI-Toolkit is a set of components designed to help developers build UI-rich applications backed by MarkLogic, the powerful NoSQL database built for enterprises.
 
-The standard front-end stack for ML-Treehouse is React + Redux. In the absence of other requirements, we anticipate most users will stick to that stack - but everything is modular and pluggable, so advanced users can mix-and-match (more below).
+The standard front-end stack for the ML-UI-Toolkit is React + Redux. In the absence of other requirements, we anticipate most users will stick to that stack - but everything is modular and pluggable, so advanced users can mix-and-match (more below).
 
 The standard back-end is currently a Node.js middle-tier talking to a MarkLogic REST server. It is bundled into this reference application. But, again, other back-ends can be swapped in, such as a Java middle-tier or simply MarkLogic REST extensions themselves, so long as they meet the API contracts defined by our Redux modules.
 
-## What ML-Treehouse Provides
+## What the ML-UI-Toolkit Provides
 
-ML-Treehouse provides the following tools for building applications:
+The ML-UI-Toolkit provides the following tools for building applications:
 
 - reusable front-end React components (we also have some AngularJS and Vue.js components, and more could be ported to those frameworks if needed),
 - Redux modules to manage client-side state and handle interactions with back-end API,
@@ -38,7 +38,7 @@ The next part of your application you may want to update is the front-end, which
 
 #### Styling (Look and Feel)
 
-ML-Treehouse React components are styled using [Bootstrap 3](https://getbootstrap.com/docs/3.3/). There are [many](https://startbootstrap.com/) [themes](https://themes.getbootstrap.com/collections/all) [available](https://www.google.com/search?q=bootstrap+themes) to update the look-and-feel of standard Bootstrap classes.
+ML-UI-Toolkit React components are styled using [Bootstrap 3](https://getbootstrap.com/docs/3.3/). There are [many](https://startbootstrap.com/) [themes](https://themes.getbootstrap.com/collections/all) [available](https://www.google.com/search?q=bootstrap+themes) to update the look-and-feel of standard Bootstrap classes.
 
 You could, of course, also provide your own custom CSS in `client/src/index.css`.
 
@@ -48,7 +48,7 @@ If you find yourself editing React components, take a look at the [documentation
 
 We selected React in large part because there are many excellent resources for learning to work with the framework (as well as extending it). To learn React, you should [start with the official React docs](https://reactjs.org/docs/hello-world.html) or [tutorial](https://reactjs.org/tutorial/tutorial.html), which will introduce you to the framework in a highly intuitive way.
 
-The presentational React components are provided through a separate libary: [ml-treehouse-react](https://project.marklogic.com/repo/projects/NACW/repos/ml-treehouse-react/browse). These components are 'dumb', presentation-only React components that render html based on provided properties and invoke callback functions based on user interaction. (Here is a [good article](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) on the useful pattern of dividing an application between 'dumb', presentational components and 'smart' containers. We lean heavily on this pattern in ML-Treehouse.)
+The presentational React components are provided through a separate libary: [ml-treehouse-react](https://project.marklogic.com/repo/projects/NACW/repos/ml-treehouse-react/browse). These components are 'dumb', presentation-only React components that render html based on provided properties and invoke callback functions based on user interaction. (Here is a [good article](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) on the useful pattern of dividing an application between 'dumb', presentational components and 'smart' containers. We lean heavily on this pattern in the ML-UI-Toolkit.)
 
 In particular, the React components are unaware of the Redux layer. They simply define properties and functions that they expect to be passed to them. They are only responsible for rendering an appropriate view based on those properties and for wiring user actions to the passed-in functions.
 
@@ -60,7 +60,7 @@ If you want to change the React components, you can provide your own components 
 
 Redux provides a popular pattern to manage state in a single-page Web or mobile application. Like React, it is surrounded by a rich ecosystem, and the [official Redux docs](http://redux.js.org/) are the best starting point for learning about it. Please read those first! We will not try to explain all of Redux here.
 
-ML-Treehouse provides Redux modules [organized as 'ducks'](https://github.com/alexnm/re-ducks). This means that your application can import [reducers](http://redux.js.org/docs/basics/Reducers.html) defined in the Redux module to respond to actions and manage part of your Redux state tree.
+The ML-UI-Toolkit provides Redux modules [organized as 'ducks'](https://github.com/alexnm/re-ducks). This means that your application can import [reducers](http://redux.js.org/docs/basics/Reducers.html) defined in the Redux module to respond to actions and manage part of your Redux state tree.
 
 Each module exposes selectors that your application can use to get information from that part of the state tree.
 
@@ -76,11 +76,11 @@ If you need to modify the way selectors or actionCreators work, you can create d
 
 If you are extending this application, you will have to decide whether you are adding new state and whether it should be managed by Redux or not. It is not mandatory. Redux adds some indirection, complexity and constraints in exchange for making state easier to reason about and for assistance integrating different parts of your application. The author of Redux has a good article exploring these trade-offs, called, "[You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)." 
 
-For example, if you create a component that toggle a pop-up on or off, the `popUpStatus` bit of state might properly belong just to your component and would not need to go into the global Redux store. Redux modules are also a central part of the ML-Treehouse architecture, so if you are planning to make your extension reusable, that would be a point in favor of using Redux for application-wide state. There are many articles out there on this, here is [one of them](https://github.com/gaearon/redux-thunk).
+For example, if you create a component that toggle a pop-up on or off, the `popUpStatus` bit of state might properly belong just to your component and would not need to go into the global Redux store. Redux modules are also a central part of the ML-UI-Toolkit architecture, so if you are planning to make your extension reusable, that would be a point in favor of using Redux for application-wide state. There are many articles out there on this, here is [one of them](https://github.com/gaearon/redux-thunk).
 
 ### Default Node middle-tier
 
-The ML-Treehouse-Node server is present in this repository as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules). You can learn more about this reference implementation of a ML-Treehouse middle-tier in [its repository](https://project.marklogic.com/repo/projects/NACW/repos/ml-treehouse-node/browse).
+The ML-UI-Toolkit Node server is present in this repository as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules). You can learn more about this reference implementation of an ML-UI-Toolkit middle-tier in [its repository](https://project.marklogic.com/repo/projects/NACW/repos/ml-treehouse-node/browse).
 
 ## Advanced Use: Mix and Match
 
@@ -94,7 +94,7 @@ Our Redux components could be used with a different front-end framework, includi
 
 Similarly, the provided Node middle tier could be swapped out for one implemented in Java or, indeed, in MarkLogic itself.
 
-Feel free to use this reference application for ideas on how to pull in just the ML-Treehouse pieces that you need for your use case.
+Feel free to use this reference application for ideas on how to pull in just the ML-UI-Toolkit pieces that you need for your use case.
 
 ## Contributing
 

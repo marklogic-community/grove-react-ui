@@ -1,18 +1,18 @@
-# MarkLogic Treehouse
+# MarkLogic UI Toolkit
 
-ML-Treehouse is a set of components designed to help developers and architects build UI-rich applications backed by MarkLogic, the powerful NoSQL database built for enterprises.
+The ML-UI-Toolkit is a set of components designed to help developers and architects build UI-rich applications backed by MarkLogic, the powerful NoSQL database built for enterprises.
 
-This project is the primary reference application for ML-Treehouse. Eventually, we anticipate providing a generator that will generate a simple, application starter. For now, clone this repository in order to get the latest Treehouse functionality using React.
+This project is the primary reference application for the ML-UI-Toolkit. Eventually, we anticipate providing a generator that will generate a simple, application starter. For now, clone this repository in order to get the latest UI-Toolkit functionality using React.
 
 This reference application uses React as the front-end framework and Node.js as a default, swappable middle-tier implementation. We aim to deliver a search and discovery application, along with a pluggable architecture, that can be the foundation for single-page Web applications backed by MarkLogic.
 
-ML-Treehouse and this application are VERY alpha and will change considerably in many breaking ways.
+The ML-UI-Toolkit and this application are VERY alpha and will change considerably in many breaking ways.
 
 ## READ THIS FIRST
 
-For most people, it is most important to understand how to use ML-Treehouse and customize it to fit your use cases.
+For most people, it is most important to understand how to use the ML-UI-Toolkit and customize it to fit your use cases.
 
-For this, please *read the [ML-Treehouse Guide](docs/GUIDE.markdown)*.
+For this, please *read the [the ML-UI-Toolkit Guide](docs/GUIDE.markdown)*.
 
 For those seeking to contribute to the project, our evolving [Best Practices document](docs/BEST_PRACTICES.markdown) are designed to get contributors on the same page and to communicate some of our goals. The [Contributing document](docs/CONTRIBUTING.markdown) has additional concrete advice for contributors. Please read both.
 
@@ -70,6 +70,5 @@ To start a development server at `localhost:3000`:
 
 For more discussion about how to make changes to your application see the "Learning to Customize and Extend Your Application" section of [GUIDE.markdown](docs/GUIDE.markdown#developing-your-app) in this repository.
 
-## Developing the ML-Treehouse Framework Itself
-
+## Developing Pieces of the ML-UI-Toolkit Itself 
 For those seeking to contribute to the project, our evolving [Best Practices document](docs/BEST_PRACTICES.markdown) are designed to get contributors on the same page and to communicate some of our goals. The [Contributing document](docs/CONTRIBUTING.markdown) has additional concrete advice for contributors. Please read both.

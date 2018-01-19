@@ -1,4 +1,4 @@
-# Install this reference application for ML-Treehouse
+# Install this reference application for the ML-UI-Toolkit
 
 First, make sure you have installed [the prerequisites](README.markdown#prerequisites).
 
