@@ -32,11 +32,10 @@ This command uses [ml-gradle](https://github.com/marklogic-community/ml-gradle) 
 
 ### Start the web application
 
-This command will actually start three servers concurrently:
+This command will actually start two servers concurrently:
 
-- a Webpack development server, defaulting to port 3000, to serve the Web app files and proxy other requests to the Node middle-tier,
-- the Node middle-tier express.js server, defaulting to port 9003, and
-- a Redux DevTools Websockets server at 18055. This allows you to use [Redux Remote DevTools](https://github.com/zalmoxisus/remote-redux-devtools) to monitor and inspect your application.
+- a Webpack development server, defaulting to port 3000, to serve the Web app files and proxy other requests to the Node middle-tier, and
+- the Node middle-tier express.js server, defaulting to port 9003
 
     npm start
 
