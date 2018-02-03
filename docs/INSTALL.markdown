@@ -1,4 +1,4 @@
-# Install this reference application for the ML-UI-Toolkit
+# Install this reference application for Muir
 
 First, make sure you have installed [the prerequisites](README.markdown#prerequisites).
 

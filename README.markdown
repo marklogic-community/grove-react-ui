@@ -1,20 +1,22 @@
-# MarkLogic UI Toolkit
+# MarkLogic UI React and other Resources (Muir)
 
-The ML-UI-Toolkit is designed to help developers and architects build UI-rich applications backed by MarkLogic, the multi-model, enterprise NoSQL database.
+Muir (rhymes with 'pure') is a framework to help developers and architects build UI-rich applications backed by MarkLogic, the multi-model, enterprise NoSQL database.
 
-This specific repository contains the primary reference application for the ML-UI-Toolkit. Eventually, we envision an application generator ([contributions](docs/CONTRIBUTING.markdown) welcome). For now, clone this repository in order to get the latest UI-Toolkit functionality.
+Every Muir project consists of a host application and plugins. This specific repository contains the initial reference application for Muir. Eventually, we envision an application generator ([contributions](docs/CONTRIBUTING.markdown) welcome). For now, clone this repository in order to get a working host application.
 
-This reference application uses React as the front-end Javascript framework (we also provide tools for other frameworks) and Node.js as a default, swappable middle-tier implementation. It provides a search and discovery application, along with a pluggable architecture, that can be the foundation for single-page Web applications backed by MarkLogic.
+This reference application uses React as the front-end Javascript framework and Node.js as a default, swappable middle-tier implementation. Muir plugins can be used in front-end frameworks other than React, though you may need to create your own rendering components in your framework of choice.
 
-The ML-UI-Toolkit and this application are *beta* and may change in breaking ways.
+At the moment, this reference application provides a simple search and discovery application similar to what is delivered with slush-marklogic-node.
+
+Muir and this application are *beta* and are still changing often in breaking ways.
 
 ## DO THIS FIRST
 
-If this is your first time using the MarkLogic UI-Toolkit, we recommend following our [Welcome Tutorial](docs/WELCOME_TUTORIAL.markdown). The Welcome Tutorial will show you how to quickly create a MarkLogic-backed application using the UI-Toolkit. It also aims to expose new developers and architects to core MarkLogic concepts.
+If this is your first time using Muir, we recommend following the [Welcome Tutorial](docs/WELCOME_TUTORIAL.markdown). The Welcome Tutorial will show you how to quickly create an application using Muir. It also aims to expose new developers and architects to core MarkLogic concepts.
 
 ## THEN READ THIS
 
-As you work with the ML-UI-Toolkit, you will soon want to customize it. To understand the design of the UI-Toolkit and how to customize it to your needs, is most important to understand how to use the ML-UI-Toolkit to quickly create a MarkLogic-backed application - and then to customize it. For this, please *read [the Advanced Guide to the ML-UI-Toolkit Guide](docs/GUIDE.markdown)*.
+As you work with Muir, you will soon want to customize it. To understand the design of the UI-Toolkit and how to customize it to your needs, is most important to understand how to use Muir to quickly create a MarkLogic-backed application - and then to customize it. For this, please *read [the Advanced Guide to Muir Guide](docs/GUIDE.markdown)*.
 
 For those seeking to contribute to the project, our evolving [Best Practices document](docs/BEST_PRACTICES.markdown) are designed to get contributors on the same page and to communicate some of our goals. The [Contributing document](docs/CONTRIBUTING.markdown) has additional concrete advice for contributors. Please read both.
 
@@ -72,5 +74,5 @@ To start a development server at `localhost:3000`:
 
 For more discussion about how to make changes to your application see the "Learning to Customize and Extend Your Application" section of [GUIDE.markdown](docs/GUIDE.markdown#developing-your-app) in this repository.
 
-## Developing Pieces of the ML-UI-Toolkit Itself 
+## Developing Pieces of Muir Itself 
 For those seeking to contribute to the project, our evolving [Best Practices document](docs/BEST_PRACTICES.markdown) are designed to get contributors on the same page and to communicate some of our goals. The [Contributing document](docs/CONTRIBUTING.markdown) has additional concrete advice for contributors. Please read both.

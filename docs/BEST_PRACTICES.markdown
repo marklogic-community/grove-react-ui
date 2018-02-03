@@ -1,4 +1,4 @@
-# ML-UI-Toolkit Best Practices Guide
+# ML-UI-React / Resources (Muir) Best Practices Guide
 
 This is a living, breathing document describing our current understanding of best practices when building a single-page Web application backed by MarkLogic. Building software is half-craft, half-engineering and specific requirements vary, so your mileage may vary.
 
@@ -12,7 +12,7 @@ We want to encourage adoption and learning, not to burden users who may not be u
 
 That advice is a bit vague, but it includes:
 
-- presenting a simple interface to developers using the ML-UI-Toolkit. This might include:
+- presenting a simple interface to developers using Muir. This might include:
   - providing a single executable to start an application,
   - wrapping up common command-line commands into a simple build script and diverting complex STDOUT into a log file, accessible for debugging,
 
@@ -30,11 +30,11 @@ First, present simplicity (search bar plus facets). Then offer easy ways to laye
 
 ### Application-State Management Layer
 
-A clearly defined state management system running on the client-side is a core abstraction of the ML-UI-Toolkit framework. We use [Redux](https://redux.js.org/) for this.
+A clearly defined state management system running on the client-side is a core abstraction of the Muir framework. We use [Redux](https://redux.js.org/) for this.
 
-There are many benefits of the Redux approach. An important one for the ML-UI-Toolkit is that the same Redux modules can be used with a wide variety of front-end frameworks, including AngularJS and Vue.js in addition to React.
+There are many benefits of the Redux approach. An important one for Muir is that the same Redux modules can be used with a wide variety of front-end frameworks, including AngularJS and Vue.js in addition to React.
 
-In the ML-UI-Toolkit, Redux modules should be [organized as "ducks."](https://github.com/alexnm/re-ducks) This [link](https://github.com/alexnm/re-ducks) contains more details. This means that a Redux module bundles together all related code and exposes actionCreators and state selectors as its primary interface. (It also exposes its top-level "reducer", so it can be integrated into an application's single Redux store.) Testing these "duck" Redux module should focus primarily on testing actionCreators and selectors together (more below in the section on testing).
+In Muir, Redux modules should be [organized as "ducks."](https://github.com/alexnm/re-ducks) This [link](https://github.com/alexnm/re-ducks) contains more details. This means that a Redux module bundles together all related code and exposes actionCreators and state selectors as its primary interface. (It also exposes its top-level "reducer", so it can be integrated into an application's single Redux store.) Testing these "duck" Redux module should focus primarily on testing actionCreators and selectors together (more below in the section on testing).
 
 #### Model Application State for Front-End Needs
 
@@ -69,7 +69,7 @@ Presentational components are concerned only with:
 - rendering a view based on input properties
 - responding to user interaction by invoking passed-in callbacks or emitting events
   - AngularJS and Vue.js tend to expect event emission, but can also take callbacks
-  - in the ML-UI-Toolkit to-date, we have adopted the convention of always passing in callbacks. In the context of Redux, these callbacks are bound action creators.
+  - in Muir to-date, we have adopted the convention of always passing in callbacks. In the context of Redux, these callbacks are bound action creators.
 
 Presentational components should be unaware of overall state. They should not know that Redux is managing state for them. They should not know how to invoke middle-tier APIs. Pull them into some other application and pass them the right inputs (data properties and callback functions), and they should happily function in any context.
 
@@ -125,6 +125,10 @@ Instead of unit test, we have adopted an integration-test-first method, which is
 - Start with [smoke tests](http://acco.io/a-practical-guide-to-testing-react-apps/#Smoke_tests).
 - TODO: examples. For now, look at ml-treehouse itself for examples, though we have not exhaustively tested everything in this repository either.
 
+## Use React Error Boundaries
+
+An error in part of your UI does not have to cause the whole app to crash: https://reactjs.org/docs/error-boundaries.html
+
 ## Linting
 
 Javascript is an overly permissive language, and there are many "bad parts." A good linter prevents you from using those bad parts and can also create a consistent style among may developers.
@@ -144,3 +148,12 @@ That said, it may be useful for a library to adopt a typing system and it may be
 ## Version Control
 
 Use git.
+
+FROM WIKI: 
+Define what actions are issued as well as the fields each action has so that other components can trigger off them if necessary and services can be written to respond to them.
+Document what actions components are expected to handle and generate as well as state so that from a framework perspective different components for the same "slot" in the framework could be generated.
+Search Bar
+Results Item
+From a Services perspective document actions that they will respond to and state that they will provide for the same reason.
+Document the expected state relied on by the component so that various middle tiers can provide this information, other components can leverage it, or be written to replace default functionality/components.
+Define any required ids/classes or other markup/information that may be required in the case of container elements. i.E. Search results table may require certain markup in order to sort based on a given field, or may issue specific actions for the same.

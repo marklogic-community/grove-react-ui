@@ -1,10 +1,10 @@
-# MarkLogic UI-Toolkit Welcome Tutorial
+# MarkLogic UI-React / UI-Resources (Muir) Welcome Tutorial
 
 Welcome!
 
 If you are here, you probably already know that [MarkLogic](http://www.marklogic.com/what-is-marklogic/) is a powerful, multi-model, NoSQL database with ACID transactions and top-grade security. You can use it to build all kinds of applications.
 
-While working through this tutorial, you will use pieces of the ML-UI-Toolkit to quickly build a single-page Web application backed by MarkLogic.
+While working through this tutorial, you will use pieces of this Muir (rhymes with 'pure') library to quickly build a single-page Web application backed by MarkLogic.
 
 A quick, but important, aside: The tech stack used here (React, NodeJS, etc) is by no means required to work with MarkLogic. **You can use your preferred tools to build a Web application backed by MarkLogic.** MarkLogic exposes a rich and extensible [REST API](https://docs.marklogic.com/guide/rest-dev). Any tool capable of making http requests can be used to build an app against MarkLogic.
 
@@ -38,21 +38,53 @@ Other dependencies will be pointed out when the need for them arises.
 
     Remember what admin password you set up. You'll need that later, but you probably realized that.
 
-You are ready to move on if you can point a browser  to [localhost:8001](http://localhost:8001) and it looks a bit like [this](https://docs.marklogic.com/guide/concepts/admin-monitoring#id_14747): 
+You are ready to move on if you can point a browser to [localhost:8001](http://localhost:8001) and it looks a bit like [this](https://docs.marklogic.com/guide/concepts/admin-monitoring#id_14747): 
 
 ![MarkLogic Admin UI](https://docs.marklogic.com/media/apidoc/9.0/guide/concepts/admin-monitoring/images/admin-ui.gif)
 
+There is a [complete description of the Admin Interface in the docs](https://docs.marklogic.com/guide/admin/admin_inter), but for now, it is enough for us to know that MarkLogic is running.
+
 (We recommend using the [Chrome browser](https://www.google.com/chrome/) for this tutorial, by the way, so you can use all the great developer tools available for React and Redux.)
 
-## Get the UI-Toolkit Source Code
+## Get the ML-UI-React Source Code
 
-Clone down the reference application provided by the UI-Toolkit. For this, you will need to have a command-line terminal and [git](https://git-scm.com/downloads) for version-control.
+Clone down the reference application provided by the Muir project. For this, you will need to have a command-line terminal and [git](https://git-scm.com/downloads) for version-control.
 
-    git clone ssh://git@project.marklogic.com:7999/nacw/ml-treehouse.git ml-ui-toolkit
-    cd ml-ui-toolkit
+    git clone --recursive ssh://git@project.marklogic.com:7999/nacw/ml-treehouse.git ml-ui-react
+    cd ml-ui-react
  
 The reference application has everything you need to get a search-and-discovery application running. We'll describe it all in more detail below, but just to orient you, be aware that this source code includes:
 
 - a `marklogic` directory, with tools and configuration files to configure and administer your MarkLogic server,
 - a `server` directory, with a Node server that will form the middle-tier of this application, and
 - a `client` directory, which contains code that will run in the browser.
+
+## Provision MarkLogic
+
+### Install Java Locally
+
+### Provision MarkLogic with ml-gradle
+
+## Start the ML-UI-React Application
+
+### Install Node.js Locally
+
+As you develop your application, you will use Node.js in development for things like pulling down useful code libraries from Node's package management system. Don't worry, this doesn't mean that you have to use it in production if you don't want to or can't in your environment.
+
+Check if you have Node version 6 or above by running the following command:
+
+    node -v
+
+If not [follow the instructions at the Node.js website to install a Node for your operating system](https://nodejs.org). 
+
+Once `node -v` is showing you version 6 or above, let's double-check that you have version 5 or above of Node's package manager, npm:
+
+    npm -v
+
+If it is less than version 5, or you just want the latest, run the following to install the latest globally on your computer:
+
+    npm install -g npm
+
+Great, time to get the application running ...
+
+## Load Some Sample Data with the MarkLogic Content Pump (mlcp)
