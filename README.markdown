@@ -10,24 +10,6 @@ At the moment, this reference application provides a simple search and discovery
 
 Muir and this application are *beta* and are still changing often in breaking ways.
 
-## DO THIS FIRST
-
-If this is your first time using Muir, we recommend following the [Welcome Tutorial](docs/WELCOME_TUTORIAL.markdown). The Welcome Tutorial will show you how to quickly create an application using Muir. It also aims to expose new developers and architects to core MarkLogic concepts.
-
-## THEN READ THIS
-
-As you work with Muir, you will soon want to customize it. To understand the design of the UI-Toolkit and how to customize it to your needs, is most important to understand how to use Muir to quickly create a MarkLogic-backed application - and then to customize it. For this, please *read [the Advanced Guide to Muir Guide](docs/GUIDE.markdown)*.
-
-For those seeking to contribute to the project, our evolving [Best Practices document](docs/BEST_PRACTICES.markdown) are designed to get contributors on the same page and to communicate some of our goals. The [Contributing document](docs/CONTRIBUTING.markdown) has additional concrete advice for contributors. Please read both.
-
-## Other Supported Front-end Frameworks
-
-React is one of three supported front-end frameworks. We also support AngularJS and Vue.js for tutorials demonstrating how to work with MarkLogic. 
-
-There is also a reference application for Angular. --> TODO: Link coming soon.
-
-There is a reference application for Vue.js. --> TODO: Link coming soon.
-
 ## Quick Start
 
 The commands listed below should be typed into a terminal/console window.
@@ -73,6 +55,20 @@ To start a development server at `localhost:3000`:
     npm start
 
 For more discussion about how to make changes to your application see the "Learning to Customize and Extend Your Application" section of [GUIDE.markdown](docs/GUIDE.markdown#developing-your-app) in this repository.
+
+## Customizing
+
+As you work with Muir, you will soon want to customize it. To understand the design of the UI-Toolkit and how to customize it to your needs, is most important to understand how to use Muir to quickly create a MarkLogic-backed application - and then to customize it. For this, please *read [the Advanced Guide to Muir Guide](docs/GUIDE.markdown)*.
+
+For those seeking to contribute to the project, our evolving [Best Practices document](docs/BEST_PRACTICES.markdown) are designed to get contributors on the same page and to communicate some of our goals. The [Contributing document](docs/CONTRIBUTING.markdown) has additional concrete advice for contributors. Please read both.
+
+## Other Supported Front-end Frameworks
+
+React is one of three supported front-end frameworks. We also support AngularJS and Vue.js for tutorials demonstrating how to work with MarkLogic. 
+
+There is also a reference application for Angular. --> TODO: Link coming soon.
+
+There is a reference application for Vue.js. --> TODO: Link coming soon.
 
 ## Developing Pieces of Muir Itself 
 For those seeking to contribute to the project, our evolving [Best Practices document](docs/BEST_PRACTICES.markdown) are designed to get contributors on the same page and to communicate some of our goals. The [Contributing document](docs/CONTRIBUTING.markdown) has additional concrete advice for contributors. Please read both.

@@ -63,7 +63,17 @@ The reference application has everything you need to get a search-and-discovery 
 
 ### Install Java Locally
 
+On your command-line, run the following command to see if you have Java 1.7 or higher installed:
+
+    java -version
+
+If not, [install Java](https://www.java.com/en/download/help/download_options.xml).
+
+Once the command above shows version 1.7 or above, you are ready to provision MarkLogic using ml-gradle.
+
 ### Provision MarkLogic with ml-gradle
+
+ml-gradle is a community-supported tool that lets you and your team manage MarkLogic via automated tasks that run based on configuration files placed under version control. In this tutorial, we will use some of the most common ml-gradle tasks. For background and an appreciation of all the MarkLogic management tasks that you can automate, [take a look at the ml-gradle docs](https://github.com/marklogic-community/ml-gradle).
 
 ## Start the ML-UI-React Application
 
@@ -88,3 +98,5 @@ If it is less than version 5, or you just want the latest, run the following to 
 Great, time to get the application running ...
 
 ## Load Some Sample Data with the MarkLogic Content Pump (mlcp)
+
+
