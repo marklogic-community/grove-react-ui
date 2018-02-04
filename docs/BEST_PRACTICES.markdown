@@ -123,7 +123,7 @@ Instead of unit test, we have adopted an integration-test-first method, which is
 #### Unit Testing Smart Components
 
 - Start with [smoke tests](http://acco.io/a-practical-guide-to-testing-react-apps/#Smoke_tests).
-- TODO: examples. For now, look at ml-treehouse itself for examples, though we have not exhaustively tested everything in this repository either.
+- TODO: examples. For now, look at muir itself for examples, though we have not exhaustively tested everything in this repository either.
 
 ## Use React Error Boundaries
 
@@ -141,7 +141,7 @@ Over code style, developers could argue endlessly. For this reason, we recommend
 
 ## Typing
 
-We are trying to minimize the learning curve for new developers, so adoption of a typing system should be completely optional for applications consuming ml-treehouse libraries. 
+We are trying to minimize the learning curve for new developers, so adoption of a typing system should be completely optional for applications consuming muir libraries. 
 
 That said, it may be useful for a library to adopt a typing system and it may be possible to hide that bit of complexity from the consuming application. TypeScript and Flow are options. Feedback welcome on recommendations here.
 

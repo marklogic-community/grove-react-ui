@@ -25,8 +25,8 @@ The commands listed below should be typed into a terminal/console window.
 
 First, start MarkLogic. Then, the following three commands will clone the application source code, create a content database, create a modules database, create a MarkLogic REST server, load sample people data, install the Web app dependencies locally, and start your application.
 
-    git clone --recursive ssh://git@project.marklogic.com:7999/nacw/ml-treehouse.git
-    cd ml-treehouse
+    git clone --recursive ssh://git@project.marklogic.com:7999/nacw/muir.git
+    cd muir
     npm run setupEverything
 
 Go to `localhost:3000` and view your running app, with sample data loaded. If

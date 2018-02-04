@@ -46,12 +46,16 @@ There is a [complete description of the Admin Interface in the docs](https://doc
 
 (We recommend using the [Chrome browser](https://www.google.com/chrome/) for this tutorial, by the way, so you can use all the great developer tools available for React and Redux.)
 
+## If You are Impatient
+
+In case you missed it, the README has [VERY Quick Start instructions that show you how to get everything running with three commands](README.markdown#very-quick). Here, we are going to take our time, soe we discuss things a bit as we move along.
+
 ## Get the ML-UI-React Source Code
 
 Clone down the reference application provided by the Muir project. For this, you will need to have a command-line terminal and [git](https://git-scm.com/downloads) for version-control.
 
-    git clone --recursive ssh://git@project.marklogic.com:7999/nacw/ml-treehouse.git ml-ui-react
-    cd ml-ui-react
+    git clone --recursive ssh://git@project.marklogic.com:7999/nacw/muir.git
+    cd muir
  
 The reference application has everything you need to get a search-and-discovery application running. We'll describe it all in more detail below, but just to orient you, be aware that this source code includes:
 
@@ -75,6 +79,18 @@ Once the command above shows version 1.7 or above, you are ready to provision Ma
 
 ml-gradle is a community-supported tool that lets you and your team manage MarkLogic via automated tasks that run based on configuration files placed under version control. In this tutorial, we will use some of the most common ml-gradle tasks. For background and an appreciation of all the MarkLogic management tasks that you can automate, [take a look at the ml-gradle docs](https://github.com/marklogic-community/ml-gradle).
 
+We'll work from the `marklogic` directory of our source code when managing and provisioning MarkLogic:
+
+    cd marklogic
+
+Now, run the ml-gradle task to create a content database, a modules database, a MarkLogic REST server, and application users and security roles, based on configuration files in the `marklogic` directory of this source code. It also loads custom MarkLogic server-side code for this application [TODO: explain each of these with links to the docs][TODO: a word about ./gradlew]:
+
+    ./gradlew mlDeploy
+
+When we are done, move back up to the top-level directory of our source code:
+
+    cd ..
+
 ## Start the ML-UI-React Application
 
 ### Install Node.js Locally
@@ -97,6 +113,30 @@ If it is less than version 5, or you just want the latest, run the following to 
 
 Great, time to get the application running ...
 
+### Install Javascript Dependencies
+
+This command instructs npm, the Node.js package manager, to install javascript dependencies for client and server code. These will be stored locally in the `node_modules` directories within `client` and `server` [TODO: say more]:
+
+    npm install
+
+### Start the Development and Middle-Tier Servers
+
+This command will actually start two servers concurrently:
+
+- a Webpack development server, defaulting to port 3000, to serve the Web app files and proxy other requests to the Node middle-tier, and
+- the Node middle-tier express.js server, defaulting to port 9003
+
+    npm start
+
+Then navigate to `localhost:3000` to see your running application!
+
 ## Load Some Sample Data with the MarkLogic Content Pump (mlcp)
 
+In this very simple, initial tutorial, you are getting introduced to the basics of setting up Muir and MarkLogic. We are going to load a little bit of data as-is and demonstrate how MarkLogic automatically indexes both the words and the structure, making the documents instantly searchable upon ingest. We will then explore additional indexes that allow you to answer useful queries even more quickly.
+
+This is all just a little taste, though, of how to get value from MarkLogic. MarkLogic is the world's best database at integrating data from silos, and its incredible value really shines through once you load in large amounts of data from multiple sources. Like in this tutorial, you can load it all as-is and instantly search against it, but that's only the beginning. After completing this tutorial, you can learn how to use MarkLogic as an Operational Data Hub using the [MarkLogic Data Hub Framework](https://marklogic-community.github.io/marklogic-data-hub/).
+
+This command uses [ml-gradle](https://github.com/marklogic-community/ml-gradle) and [mlcp]() to load 3000 sample json documents, about people. These documents are stored in the `marklogic/data` directory of this source code. [TODO: say more]
+
+    npm run loadSampleData
 

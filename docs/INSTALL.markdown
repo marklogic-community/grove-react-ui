@@ -6,9 +6,9 @@ If you prefer, you can follow the [VERY Quick Start instructions](README.markdow
 
 ## Clone the Application Source Code
 
-You can simply clone this repository in order to get a working version of a Vue application using ml-treehouse modules and reference middle-tier Node server. To do this, you will clone using the `--recursive` flag. This is because we are using a git submodule to pull in the Node middle-tier from a separate repository. Your clone operation will look like this:
+You can simply clone this repository in order to get a working version of a Vue application using muir modules and reference middle-tier Node server. To do this, you will clone using the `--recursive` flag. This is because we are using a git submodule to pull in the Node middle-tier from a separate repository. Your clone operation will look like this:
 
-    git clone --recursive  ssh://git@project.marklogic.com:7999/nacw/ml-treehouse.git
+    git clone --recursive  ssh://git@project.marklogic.com:7999/nacw/muir.git
 
 If you forgot to add the `--recursive` flag and your `server` directory is empty, there are instructions below on how to update the git submodule.
 
@@ -16,6 +16,7 @@ If you forgot to add the `--recursive` flag and your `server` directory is empty
 
 This command instructs npm, the Node.js package manager, to install javascript dependencies for client and server code. These will be stored locally in the `node_modules` directories within `client` and `server`:
 
+    cd muir
     npm install
 
 ## Configure MarkLogic

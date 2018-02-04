@@ -1,5 +1,5 @@
 {
-  "name": "treehouse-client",
+  "name": "muir-client",
   "version": "0.5.1",
   "private": true,
   "proxy": "http://localhost:9003/",
@@ -8,8 +8,7 @@
     "bootstrap-material-design": "^0.5.10",
     "ml-documents-redux": "^0.1.2",
     "ml-search-redux": "^0.5.1",
-    "ml-treehouse-react": "^0.5.1",
-    "react": "^16.2.0",
+    "ml-treehouse-react": "^0.5.1", "react": "^16.2.0",
     "react-bootstrap": "^0.31.2",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
