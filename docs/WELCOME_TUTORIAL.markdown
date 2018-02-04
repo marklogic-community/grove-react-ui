@@ -12,6 +12,10 @@ This tutorial will also expose you to core MarkLogic concepts in action. MarkLog
 
 Let's get started.
 
+## What We Are Going to Build
+
+TODO: give this a story, an overall narrative that is at least mildly engaging.
+
 ## Prerequisites
 
 This tutorial requires you to interact, at times, with a command line. Before continuing, you should be sure you have a command-line terminal you are comfortable using.
@@ -73,23 +77,66 @@ On your command-line, run the following command to see if you have Java 1.7 or h
 
 If not, [install Java](https://www.java.com/en/download/help/download_options.xml).
 
-Once the command above shows version 1.7 or above, you are ready to provision MarkLogic using ml-gradle.
+Once the command above shows that you have version 1.7 or above, you are ready to provision MarkLogic using ml-gradle.
 
 ### Provision MarkLogic with ml-gradle
 
-ml-gradle is a community-supported tool that lets you and your team manage MarkLogic via automated tasks that run based on configuration files placed under version control. In this tutorial, we will use some of the most common ml-gradle tasks. For background and an appreciation of all the MarkLogic management tasks that you can automate, [take a look at the ml-gradle docs](https://github.com/marklogic-community/ml-gradle).
+[TODO: configure marklogic/gradle-local.properties with the admin username and password]
+
+[ml-gradle](https://github.com/marklogic-community/ml-gradle) is a community-supported tool that lets you and your team manage MarkLogic via automated tasks that run based on configuration files placed under version control. In this tutorial, we will use some of the most common ml-gradle tasks. For background and an appreciation of all the MarkLogic management tasks that you can automate, [take a look at the ml-gradle docs](https://github.com/marklogic-community/ml-gradle).
 
 We'll work from the `marklogic` directory of our source code when managing and provisioning MarkLogic:
 
     cd marklogic
 
-Now, run the ml-gradle task to create a content database, a modules database, a MarkLogic REST server, and application users and security roles, based on configuration files in the `marklogic` directory of this source code. It also loads custom MarkLogic server-side code for this application [TODO: explain each of these with links to the docs][TODO: a word about ./gradlew]:
+Now, run the ml-gradle task to provision MarkLogic with what we need. This command uses `gradlew`, a [way of invoking Gradle](https://docs.gradle.org/current/userguide/gradle_wrapper.html) that ensures all the developers on this new project have the same version and dispenses with manual gradle installation:
 
     ./gradlew mlDeploy
+
+That should have just worked! You can verify that by pointing your browser to the [MarkLogic Admin UI](http://localhost:8001). On the right, under "Databases", you should see "muir-content" and "muir-modules" (you will also see "muir-triggers", a helpful database that, alas, we won't use in this tutorial). Under "App Servers", you should see "muir", an HTTP server running on port 8063. There will be several "muir" entries under "Forests". And if you were to click on "Users" or "Roles" under "Security", you should see some muir-related users and roles. [TODO: add screenshots]
+
+Congratulations, you've got MarkLogic configured and all the configuration is under version control, so you will be on the same page as the rest of your [Friend Finder; TODO: connect to overall narrative] team. Any changes you make will be shared using `git` and everyone can stay in sync, as well as your production and staging systems and any automated testing builds.
 
 When we are done, move back up to the top-level directory of our source code:
 
     cd ..
+
+But before rushing on, let's dig a little deeper into what we accomplished using this command, in order to understand some basics of how MarkLogic works. If you already understand MarkLogic basics, you can skip to the next section.
+
+#### Content Database
+
+TODO
+
+#### Modules Database
+
+TODO
+
+#### MarkLogic REST server
+
+TODO
+
+#### Users and Security Roles
+
+TODO
+
+Users:
+
+- muir-reader
+- muir-writer
+- muir-admin
+
+Roles:
+
+- muir-nobody
+- muir-reader
+- muir-writer
+- muir-internal (amping)
+- muir-admin
+- rest-reader
+- rest-writer
+- rest-admin
+- manage-admin
+- admin
 
 ## Start the ML-UI-React Application
 
@@ -120,6 +167,8 @@ This command instructs npm, the Node.js package manager, to install javascript d
     npm install
 
 ### Start the Development and Middle-Tier Servers
+
+[TODO: configure local.json with the admin username and password]
 
 This command will actually start two servers concurrently:
 
