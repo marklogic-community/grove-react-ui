@@ -1,5 +1,0 @@
-{
-  "role-name" : "treehouse-internal",
-  "description" : "Internal role used for amping",
-  "role" : [ "treehouse-writer" ]
-}

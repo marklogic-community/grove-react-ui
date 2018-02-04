@@ -1,7 +1,7 @@
 {
-  "role-name" : "treehouse-admin",
+  "role-name" : "muir-admin",
   "description" : "Non-admin administrator",
-  "role" : [ "rest-admin", "manage-admin", "treehouse-writer" ],
+  "role" : [ "rest-admin", "manage-admin", "muir-writer" ],
   "privilege" : [ {
     "privilege-name" : "any-uri",
     "action" : "http://marklogic.com/xdmp/privileges/any-uri",

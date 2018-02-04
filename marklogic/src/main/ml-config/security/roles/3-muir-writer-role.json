@@ -1,7 +1,7 @@
 {
-  "role-name" : "treehouse-writer",
+  "role-name" : "muir-writer",
   "description" : "Can read and write documents",
-  "role" : [ "rest-writer", "treehouse-reader" ],
+  "role" : [ "rest-writer", "muir-reader" ],
   "privilege" : [ {
     "privilege-name" : "any-uri",
     "action" : "http://marklogic.com/xdmp/privileges/any-uri",
