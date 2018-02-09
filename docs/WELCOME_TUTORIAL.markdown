@@ -179,13 +179,21 @@ This command will actually start two servers concurrently:
 
 Then navigate to `localhost:3000` to see your running application!
 
+When you search, you won't see any results yet, because we have not yet loaded any data. We'll do that in the next section.
+
 ## Load Some Sample Data with the MarkLogic Content Pump (mlcp)
 
-In this very simple, initial tutorial, you are getting introduced to the basics of setting up Muir and MarkLogic. We are going to load a little bit of data as-is and demonstrate how MarkLogic automatically indexes both the words and the structure, making the documents instantly searchable upon ingest. We will then explore additional indexes that allow you to answer useful queries even more quickly.
+In this very simple, initial tutorial, you are being introduced to the basics of setting up Muir and MarkLogic. We are going to load a little bit of data as-is and demonstrate how MarkLogic automatically indexes both the words and the structure, making the documents instantly searchable upon ingest. We will then explore additional indexes that allow you to answer useful queries even more quickly.
 
-This is all just a little taste, though, of how to get value from MarkLogic. MarkLogic is the world's best database at integrating data from silos, and its incredible value really shines through once you load in large amounts of data from multiple sources. Like in this tutorial, you can load it all as-is and instantly search against it, but that's only the beginning. After completing this tutorial, you can learn how to use MarkLogic as an Operational Data Hub using the [MarkLogic Data Hub Framework](https://marklogic-community.github.io/marklogic-data-hub/).
+This is all just a little taste, though, of the value of MarkLogic. MarkLogic is the world's best database at integrating data from silos; its true value shines through once you load in large amounts of data from multiple sources. Like in this tutorial, you can load it all as-is and instantly search against it, *all* of it, in once place, but that's only the beginning. After completing this tutorial, you can learn how to use MarkLogic as an Operational Data Hub using the [MarkLogic Data Hub Framework](https://marklogic-community.github.io/marklogic-data-hub/).
 
-This command uses [ml-gradle](https://github.com/marklogic-community/ml-gradle) and [mlcp]() to load 3000 sample json documents, about people. These documents are stored in the `marklogic/data` directory of this source code. [TODO: say more]
+You already have your search-and-discovery application running in a console window, so open a new one to launch your MarkLogic data load. (This is a common practice when developing using Muir, dedicating one console window to running the application while you can use the other to make changes. For most changes the running application will not need to be restarted.)
 
-    npm run loadSampleData
+Data loading is well handled by ml-gradle, so change directories into `marklogic`:
+
+    cd marklogic
+
+This command uses [ml-gradle](https://github.com/marklogic-community/ml-gradle) and [mlcp](https://docs.marklogic.com/guide/mlcp) to load 3000 sample json documents, about people. These documents are stored in the `marklogic/data` directory of this source code. [TODO: say more]
+
+    ./gradlew loadSampleData
 
