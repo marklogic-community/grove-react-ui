@@ -2,13 +2,12 @@
   "name": "muir-react-reference",
   "version": "0.1.0",
   "description": "Turning MarkLogic forests into a place for users to live",
-  "dependencies": {
-    "concurrently": "^3.5.0",
-    "history": "^4.7.2"
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^3.5.0"
   },
-  "devDependencies": {},
   "scripts": {
-    "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
+    "postinstall": "cd client && npm install && cd ../server && npm install --no-optional && cd ..",
     "start": "concurrently \"npm run server\" \"npm run client\" ",
     "server": "node server/node-app.js",
     "client": "node start-client.js",
