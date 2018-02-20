@@ -36,6 +36,14 @@ Under the covers, ml-gradle uses the [MarkLogic Content Pump (mlcp)](http://docs
 
 The next part of your application you may want to update is the front-end, which lives inside the `client` directory of this reference application.
 
+#### Built on Create-React-App<a name="create-react-app"></a>
+
+In the Muir React reference application, we have decided to leverage Facebook's [create-react-app project](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md), rather than creating and maintaining a modern javascript build environment ourselves. create-react-app provides most of the dependencies and configuration needed to do things like run tests, start a development server, and create a production build. Best of all, when the create-react-app updates their project, it is a simple process to [update this application](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#updating-to-new-releases) to take advantage.
+
+This indirection could cause some confusion. For example, Webpack is central to build processes, but you may be surprised to see that there is no `client/webpack.config.js` file. Instead, create-react-app provides the necessary configuration.
+
+This optimizes away most maintainance of our build process over time and creates a common experience for developers across all Muir React apps. There are [many ways to customize](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md) what is provided. If, however, you find that you need to separate from create-react-app, there is a [way to "eject"](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#npm-run-eject). Careful, though, because that is a one-way step: You will not be able to stay up-to-date with create-react-app updates over time.
+
 #### Styling (Look and Feel)
 
 Muir React components are styled using [Bootstrap 3](https://getbootstrap.com/docs/3.3/). There are [many](https://startbootstrap.com/) [themes](https://themes.getbootstrap.com/collections/all) [available](https://www.google.com/search?q=bootstrap+themes) to update the look-and-feel of standard Bootstrap classes.
