@@ -36,7 +36,7 @@ Under the covers, ml-gradle uses the [MarkLogic Content Pump (mlcp)](http://docs
 
 The next part of your application you may want to update is the front-end, which lives inside the `client` directory of this reference application.
 
-#### Built on Create-React-App<a name="create-react-app"></a>
+<a name="create-react-app"></a>#### Built on Create-React-App
 
 In the Muir React reference application, we have decided to leverage Facebook's [create-react-app project](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md), rather than creating and maintaining a modern javascript build environment ourselves. create-react-app provides most of the dependencies and configuration needed to do things like run tests, start a development server, and create a production build. Best of all, when the create-react-app updates their project, it is a simple process to [update this application](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#updating-to-new-releases) to take advantage.
 
