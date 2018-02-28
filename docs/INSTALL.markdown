@@ -19,6 +19,11 @@ This command instructs npm, the Node.js package manager, to install javascript d
     cd muir
     npm install
 
+If you have not yet pulled in the Node middle-tier, which is installed as a git submodule mounted in the `./server` directory, your `server` directory will be empty and you will get an error directing you to run:
+
+    git submodule update --init --recursive 
+    npm install
+
 ## Configure MarkLogic
 
 This command uses [ml-gradle](https://github.com/marklogic-community/ml-gradle) to create a content database, a modules database, a MarkLogic REST server, and application users and security roles, based on configuration files in the `marklogic` directory of this source code. It also loads custom MarkLogic server-side code for this application:

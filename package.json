@@ -7,7 +7,7 @@
     "concurrently": "^3.5.0"
   },
   "scripts": {
-    "postinstall": "cd client && npm install && cd ../server && npm install --no-optional && cd ..",
+    "postinstall": "node scripts/postinstall.js",
     "start": "concurrently \"npm run server\" \"npm run client\" ",
     "server": "node server/node-app.js",
     "client": "node start-client.js",
