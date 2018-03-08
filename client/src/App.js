@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import MLSearchContainer from './containers/MLSearchContainer';
 import MLDetailContainer from './containers/MLDetailContainer';
-import { MLNavbar } from 'ml-treehouse-react';
+import { Navbar } from 'muir-react';
 
 import {
   actions as searchActions,
@@ -35,7 +35,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <MLNavbar title="MarkLogic UI Toolkit" />
+        <Navbar title="MarkLogic UI Toolkit" />
         <Grid fluid={true}>
           <Switch>
             <Route exact path="/"

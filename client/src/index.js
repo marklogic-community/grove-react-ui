@@ -23,7 +23,7 @@ import App from './App';
 import { compose, createStore, applyMiddleware } from 'redux';
 // import { composeWithDevTools } from 'remote-redux-devtools';
 // const composeEnhancers = composeWithDevTools({
-//   name: 'react-ml-treehouse',
+//   name: 'muir-react-reference',
 //   realtime: true,
 //   port: 18055
 // });

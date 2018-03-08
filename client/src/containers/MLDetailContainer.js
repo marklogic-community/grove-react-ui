@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { MLDetailView } from 'ml-treehouse-react';
+import { DetailView } from 'muir-react';
 
 const mapStateToProps = (state, ownProps) => {
   const sel = ownProps.selectors;
@@ -18,6 +18,6 @@ const mapDispatchToProps = (dispatch, ownProps) => bindActionCreators({
 const MLDetailContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(MLDetailView);
+)(DetailView);
 
 export default MLDetailContainer;
