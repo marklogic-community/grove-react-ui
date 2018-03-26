@@ -12,7 +12,7 @@ describe('<MLSearchContainer />', () => {
 
   const mockSelectors = {
     getSearchResults: jest.fn().mockReturnValue([]),
-    getStagedQuery: jest.fn(),
+    getStagedQuery: jest.fn().mockReturnValue({}),
     getVisibleQueryText: jest.fn().mockReturnValue(''),
     getSearchExecutionTime: jest.fn(),
     getSearchTotal: jest.fn(),
@@ -22,30 +22,37 @@ describe('<MLSearchContainer />', () => {
     isSearchPending: jest.fn(),
     isSearchComplete: jest.fn(),
     searchFacets: jest.fn(),
-    stagedConstraints: jest.fn()
+    stagedConstraints: jest.fn().mockReturnValue({})
   };
 
   it('works', () => {
-    shallow(<MLSearchContainer
-      actions={{}}
-      store={mockStore}
-      selectors={mockSelectors}/>);
+    shallow(
+      <MLSearchContainer
+        actions={{}}
+        store={mockStore}
+        selectors={mockSelectors}
+      />
+    );
   });
 
   it('runs a search', () => {
     const searchSpy = jest.fn();
     searchSpy.mockReturnValue(Promise.resolve([]));
+    const noop = () => {};
     const mockActions = {
-      runSearch: searchSpy
+      runSearch: searchSpy,
+      addConstraint: noop,
+      setQueryText: noop,
+      removeConstraint: noop
     };
     const wrapper = mount(
       <MLSearchContainer
         actions={mockActions}
         store={mockStore}
-        selectors={mockSelectors} />
+        selectors={mockSelectors}
+      />
     );
     wrapper.find('button.ml-execute-search').simulate('submit');
     expect(searchSpy.mock.calls.length).toBe(1);
   });
-
 });
