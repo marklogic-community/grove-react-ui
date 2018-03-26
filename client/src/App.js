@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Grid } from 'react-bootstrap';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import MLSearchContainer from './containers/MLSearchContainer';
 import MLDetailContainer from './containers/MLDetailContainer';
-import { Navbar } from 'muir-react';
+import Navbar from './components/Navbar';
+import Login from './components/Login';
 
 import {
   actions as searchActions,
@@ -18,27 +19,47 @@ import {
 // TODO: extract into a utility: also used within redux modules
 const bindSelector = (selector, mountPoint) => {
   return (state, ...args) => {
-    return selector(state[mountPoint], ...args)
-  }
-}
+    return selector(state[mountPoint], ...args);
+  };
+};
 const bindSelectors = (selectors, mountPoint) => {
   return Object.keys(selectors).reduce((bound, key) => {
-    bound[key] = bindSelector(selectors[key], mountPoint)
-    return bound
-  }, {})
-}
+    bound[key] = bindSelector(selectors[key], mountPoint);
+    return bound;
+  }, {});
+};
 
 const boundSearchSelectors = bindSelectors(searchSelectors, 'search');
 const boundDocumentSelectors = bindSelectors(documentSelectors, 'documents');
 
-class App extends Component {
+const currentUserSelectors = {
+  isAuthenticated: false
+};
+const ProtectedRoute = ({ render, ...props }) => (
+  <Route
+    {...props}
+    render={
+      currentUserSelectors.isAuthenticated
+        ? render
+        : () => (
+            <Redirect
+              to={{ pathname: '/login', state: { from: props.location } }}
+            />
+          )
+    }
+  />
+);
+
+class App extends React.Component {
   render() {
     return (
       <div>
-        <Navbar title="MarkLogic UI Toolkit" />
+        <Navbar />
         <Grid fluid={true}>
           <Switch>
-            <Route exact path="/"
+            <ProtectedRoute
+              exact
+              path="/"
               render={() => (
                 <MLSearchContainer
                   actions={searchActions}
@@ -46,8 +67,16 @@ class App extends Component {
                 />
               )}
             />
-            <Route path="/detail/:uri*"
-              render={(props) => (
+            <Route
+              exact
+              path="/login"
+              render={() => (
+                <Login />
+              )}
+            />
+            <ProtectedRoute
+              path="/detail/:uri*"
+              render={props => (
                 <MLDetailContainer
                   uri={decodeURIComponent(props.match.params.uri)}
                   actions={documentActions}
