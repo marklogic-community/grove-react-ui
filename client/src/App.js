@@ -33,7 +33,7 @@ const boundSearchSelectors = bindSelectors(searchSelectors, 'search');
 const boundDocumentSelectors = bindSelectors(documentSelectors, 'documents');
 
 const currentUserSelectors = {
-  isAuthenticated: false
+  isAuthenticated: true
 };
 const ProtectedRoute = ({ render, ...props }) => (
   <Route
