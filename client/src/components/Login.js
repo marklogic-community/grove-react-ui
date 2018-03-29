@@ -7,6 +7,7 @@ import {
   FormControl,
   Button
 } from 'react-bootstrap';
+import { Redirect } from 'react-router';
 require('isomorphic-fetch');
 
 class Login extends React.Component {
@@ -14,7 +15,8 @@ class Login extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      redirectToReferrer: false
     };
     this.handleLoginSubmission = this.handleLoginSubmission.bind(this);
     this.setUsername = this.setUsername.bind(this);
@@ -30,6 +32,10 @@ class Login extends React.Component {
       },
       credentials: 'same-origin',
       body: JSON.stringify(this.state)
+    }).then(response => {
+      if (response.ok) {
+        this.setState({ redirectToReferrer: true });
+      }
     });
   }
 
@@ -42,6 +48,11 @@ class Login extends React.Component {
   }
 
   render() {
+    const { from } = this.props.location.state || { from: { pathname: '/' } };
+    if (this.state.redirectToReferrer) {
+      return <Redirect to={from} />;
+    }
+
     return (
       <Row>
         <Col md={6} mdOffset={3}>
