@@ -7,6 +7,7 @@ const mapStateToProps = (state, ownProps) => {
   const sel = ownProps.selectors;
   return {
     detail: sel.documentByUri(state, ownProps.uri),
+    error: sel.errorByUri(state, ownProps.uri),
     contentType: sel.contentTypeByUri(state, ownProps.uri)
   };
 };
