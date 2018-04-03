@@ -25,18 +25,11 @@ class Login extends React.Component {
 
   handleLoginSubmission(e) {
     e.preventDefault();
-    return fetch(new URL('/api/user/login', document.baseURI).toString(), {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      credentials: 'same-origin',
-      body: JSON.stringify(this.state)
-    }).then(response => {
-      if (response.ok) {
+    this.props
+      .submitLogin(this.state.username, this.state.password)
+      .then(() => {
         this.setState({ redirectToReferrer: true });
-      }
-    });
+      });
   }
 
   setUsername(e) {
@@ -48,9 +41,8 @@ class Login extends React.Component {
   }
 
   render() {
-    const { from } = this.props.location.state || { from: { pathname: '/' } };
     if (this.state.redirectToReferrer) {
-      return <Redirect to={from} />;
+      return <Redirect to={this.props.from} />;
     }
 
     return (

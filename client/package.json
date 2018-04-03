@@ -30,6 +30,7 @@
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-16": "^1.0.0",
     "jest-enzyme": "^4.0.2",
+    "nock": "^9.2.3",
     "react-test-renderer": "^16.0.0"
   },
   "license": "Apache-2.0"
