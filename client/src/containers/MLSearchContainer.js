@@ -4,17 +4,19 @@ import { connect } from 'react-redux';
 
 import { SearchView } from 'muir-react';
 
+import { actions, selectors } from 'ml-search-redux';
+import { bindSelectors } from '../utils/redux-utils';
+const boundSelectors = bindSelectors(selectors, 'search');
+
 let MLSearchContainer = class MLSearchContainer extends Component {
   render() {
-    return (
-      <SearchView {...this.props} detailPath="/detail/" />
-    );
+    return <SearchView {...this.props} detailPath="/detail/" />;
   }
 };
 
 const mapStateToProps = (state, ownProps) => {
   // TODO: shorten method names by removing 'get' and 'Search'?
-  const sel = ownProps.selectors;
+  const sel = ownProps.selectors || boundSelectors;
   return {
     // TODO: get visible queryText from the stagedSearch?
     queryText: sel.getVisibleQueryText(state),
@@ -32,17 +34,22 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => bindActionCreators({
-  runSearch: ownProps.actions.runSearch,
-  handleQueryTextChange: ownProps.actions.setQueryText,
-  changePage: ownProps.actions.changePage,
-  addConstraint: ownProps.actions.addConstraint,
-  removeConstraint: ownProps.actions.removeConstraint
-}, dispatch);
+const mapDispatchToProps = (dispatch, ownProps) => {
+  let myActions = ownProps.actions || actions;
+  return bindActionCreators(
+    {
+      runSearch: myActions.runSearch,
+      handleQueryTextChange: myActions.setQueryText,
+      changePage: myActions.changePage,
+      addConstraint: myActions.addConstraint,
+      removeConstraint: myActions.removeConstraint
+    },
+    dispatch
+  );
+};
 
-MLSearchContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MLSearchContainer);
+MLSearchContainer = connect(mapStateToProps, mapDispatchToProps)(
+  MLSearchContainer
+);
 
 export default MLSearchContainer;

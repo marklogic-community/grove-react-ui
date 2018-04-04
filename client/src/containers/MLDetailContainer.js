@@ -3,8 +3,12 @@ import { connect } from 'react-redux';
 
 import { DetailView } from 'muir-react';
 
+import { actions, selectors } from 'ml-documents-redux';
+import { bindSelectors } from '../utils/redux-utils';
+const boundSelectors = bindSelectors(selectors, 'documents');
+
 const mapStateToProps = (state, ownProps) => {
-  const sel = ownProps.selectors;
+  const sel = boundSelectors;
   return {
     detail: sel.documentByUri(state, ownProps.uri),
     error: sel.errorByUri(state, ownProps.uri),
@@ -12,13 +16,16 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => bindActionCreators({
-  loadDetail: ownProps.actions.fetchDoc
-}, dispatch);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      loadDetail: actions.fetchDoc
+    },
+    dispatch
+  );
 
-const MLDetailContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(DetailView);
+const MLDetailContainer = connect(mapStateToProps, mapDispatchToProps)(
+  DetailView
+);
 
 export default MLDetailContainer;
