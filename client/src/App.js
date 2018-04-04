@@ -1,20 +1,42 @@
 import React from 'react';
 import { Grid } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
+
+import {
+  actions as userActions,
+  selectors as userSelectors
+} from './muir-user-redux';
+import { bindSelectors } from './utils/redux-utils';
 
 import RoutesContainer from './containers/RoutesContainer';
 import Navbar from './components/Navbar';
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <Navbar />
-        <Grid fluid={true}>
-          <RoutesContainer {...this.props} />
-        </Grid>
-      </div>
-    );
-  }
-}
+const boundUserSelectors = bindSelectors(userSelectors, 'user');
 
-export default App;
+let App = props => (
+  <div>
+    <Navbar
+      isAuthenticated={props.isAuthenticated}
+      currentUser={props.currentUser}
+      submitLogout={props.submitLogout}
+    />
+    <Grid fluid={true}>
+      <RoutesContainer {...props} />
+    </Grid>
+  </div>
+);
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    isAuthenticated: boundUserSelectors.isCurrentUserAuthenticated(state),
+    currentUser: boundUserSelectors.currentUser(state),
+    ...ownProps
+  };
+};
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ submitLogout: userActions.submitLogout }, dispatch);
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

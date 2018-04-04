@@ -10,10 +10,6 @@ describe('<LoginContainer />', () => {
   };
 
   it('works', () => {
-    shallow(
-      <LoginContainer
-        store={mockStore}
-      />
-    );
+    shallow(<LoginContainer store={mockStore} />);
   });
 });

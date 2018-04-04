@@ -1,12 +1,15 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import App from './App';
 
 it('renders without crashing', () => {
-  shallow(<App />);
-});
+  const mockStore = {
+    getState: () => ({
+      user: {}
+    }),
+    dispatch: () => {},
+    subscribe: () => {}
+  };
 
-// Do we need such a test? Maybe just from the highest level
-// it('renders, integrated with children, without crashing', () => {
-//   mount(<App />);
-// });
+  shallow(<App store={mockStore} />);
+});

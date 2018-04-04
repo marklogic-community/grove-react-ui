@@ -1,7 +1,7 @@
 import * as types from '../actionTypes';
 export default (state = {}, action) => {
   switch (action.type) {
-    case types.LOGIN_SUCCESS:
+    case types.NETWORK_LOGIN_SUCCESS:
       const username = action.payload.user.username;
       return {
         ...state,
@@ -10,11 +10,23 @@ export default (state = {}, action) => {
           isAuthenticated: true
         }
       };
+    case types.NETWORK_LOGOUT_SUCCESS:
+      return {
+        ...state,
+        [action.payload.username]: {
+          ...state[action.payload.username],
+          isAuthenticated: false
+        }
+      }
     case types.SET_CURRENT_USER:
       return {
         ...state,
         currentUser: action.payload.username
       };
+    case types.LOCAL_LOGOUT:
+      let stateClone = Object.assign({}, state);
+      delete stateClone.currentUser;
+      return stateClone;
     default:
       return state;
   }

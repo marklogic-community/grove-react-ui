@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Row,
   Col,
@@ -74,5 +75,9 @@ class Login extends React.Component {
     );
   }
 }
+
+Login.propTypes = {
+  submitLogin: PropTypes.func
+};
 
 export default Login;

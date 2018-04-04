@@ -1,7 +1,5 @@
 import React from 'react';
-import { withRouter, Switch, Route, Redirect } from 'react-router-dom';
-// import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import MLSearchContainer from './MLSearchContainer';
 import MLDetailContainer from './MLDetailContainer';
@@ -15,10 +13,6 @@ import {
   actions as documentActions,
   selectors as documentSelectors
 } from 'ml-documents-redux';
-import {
-  // actions as userActions,
-  selectors as userSelectors
-} from '../muir-user-redux';
 
 // TODO: extract into a utility: also used within redux modules
 const bindSelector = (selector, mountPoint) => {
@@ -35,7 +29,6 @@ const bindSelectors = (selectors, mountPoint) => {
 
 const boundSearchSelectors = bindSelectors(searchSelectors, 'search');
 const boundDocumentSelectors = bindSelectors(documentSelectors, 'documents');
-const boundUserSelectors = bindSelectors(userSelectors, 'user');
 
 const LoggedInRoutes = () => (
   <Switch>
@@ -75,13 +68,4 @@ const Routes = ({ isAuthenticated }, ...props) => {
   return isAuthenticated ? <LoggedInRoutes {...props}/> : <LoggedOutRoutes {...props} />;
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    isAuthenticated: boundUserSelectors.isCurrentUserAuthenticated(state),
-    ...ownProps
-  };
-};
-
-const RoutesContainer = withRouter(connect(mapStateToProps)(Routes));
-
-export default RoutesContainer;
+export default Routes;

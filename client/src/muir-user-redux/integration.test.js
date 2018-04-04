@@ -14,14 +14,17 @@ describe('muir-user-redux', () => {
   const user = { username: 'muir-user' };
 
   it('has initial state', () => {
+    expect(selectors.currentUser(store.getState())).toBeUndefined();
+    expect(selectors.isCurrentUserAuthenticated(store.getState())).toBeFalsy();
     expect(
       selectors.isAuthenticated(store.getState(), 'muir-user')
     ).toBeFalsy();
-    expect(
-      selectors.isCurrentUserAuthenticated(store.getState())
-    ).toBeFalsy();
   });
 
+  // TODO: create a simple login to mirror simple logout
+  // TODO: the current completeLogin is more like completeNetworkLogin
+  // TODO: might also have a completeNetworkLogout,
+  // for situations where we get a push fromt he auth system
   it('can complete simple login', () => {
     store.dispatch(actions.completeLogin(user));
     expect(
@@ -30,10 +33,11 @@ describe('muir-user-redux', () => {
   });
 
   it('can set current user', () => {
-    expect(selectors.currentUser(store.getState())).toBeUndefined();
     store.dispatch(actions.setCurrentUser('muir-user'));
-    expect(selectors.currentUser(store.getState())).toEqual('muir-user'); });
+    expect(selectors.currentUser(store.getState())).toEqual('muir-user');
+  });
 
+  // TODO: handle errors
   it('can request login and launch async authorization', done => {
     nock('http://localhost')
       .post(/login/)
@@ -47,6 +51,38 @@ describe('muir-user-redux', () => {
         expect(
           selectors.isCurrentUserAuthenticated(store.getState())
         ).toBeTruthy();
+        done();
+      } catch (error) {
+        done.fail(error);
+      }
+    });
+  });
+
+  it('does local log out', () => {
+    store.dispatch(actions.setCurrentUser('muir-user'));
+    store.dispatch(actions.completeLogin(user));
+    store.dispatch(actions.localLogout('muir-user'));
+    expect(selectors.currentUser(store.getState())).toBeUndefined();
+    expect(selectors.isCurrentUserAuthenticated(store.getState())).toBeFalsy();
+  });
+
+  // TODO: handle errors
+  it('does network logout', done => {
+    nock('http://localhost')
+      .get(/logout/)
+      .reply(200);
+    store.dispatch(actions.setCurrentUser('muir-user'));
+    store.dispatch(actions.completeLogin(user));
+    // TODO: pending state
+    store.dispatch(actions.submitLogout('muir-user')).then(() => {
+      try {
+        expect(
+          selectors.isAuthenticated(store.getState(), 'muir-user')
+        ).toBeFalsy();
+        expect(selectors.currentUser(store.getState())).toBeUndefined();
+        expect(
+          selectors.isCurrentUserAuthenticated(store.getState())
+        ).toBeFalsy();
         done();
       } catch (error) {
         done.fail(error);

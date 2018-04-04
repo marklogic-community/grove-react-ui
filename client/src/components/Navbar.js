@@ -3,7 +3,7 @@ import { Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Navbar as MLNavbar } from 'muir-react';
 
-const Navbar = props => (
+const Navbar = ({ isAuthenticated, currentUser, submitLogout }) => (
   <MLNavbar title="MarkLogic UI Toolkit">
     <Nav>
       <LinkContainer exact to="/">
@@ -11,20 +11,20 @@ const Navbar = props => (
       </LinkContainer>
     </Nav>
     <Nav pullRight>
-      <LinkContainer exact to="/login">
-        <NavItem>Login</NavItem>
-      </LinkContainer>
-      <NavItem
-        onClick={(e) => {
-          e.preventDefault();
-          return fetch(new URL('/api/user/logout', document.baseURI).toString(), {
-            method: 'GET',
-            credentials: 'same-origin'
-          });
-        }}
-      >
-        Logout
-      </NavItem>
+      {isAuthenticated ? (
+        <NavItem
+          onClick={e => {
+            e.preventDefault();
+            submitLogout(currentUser.username);
+          }}
+        >
+          Logout
+        </NavItem>
+      ) : (
+        <LinkContainer exact to="/login">
+          <NavItem>Login</NavItem>
+        </LinkContainer>
+      )}
     </Nav>
   </MLNavbar>
 );
