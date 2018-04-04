@@ -10,7 +10,7 @@ import {
 } from './muir-user-redux';
 import { bindSelectors } from './utils/redux-utils';
 
-import RoutesContainer from './containers/RoutesContainer';
+import Routes from './components/Routes';
 import Navbar from './components/Navbar';
 
 const boundUserSelectors = bindSelectors(userSelectors, 'user');
@@ -23,7 +23,7 @@ let App = props => (
       submitLogout={props.submitLogout}
     />
     <Grid fluid={true}>
-      <RoutesContainer {...props} />
+      <Routes {...props} />
     </Grid>
   </div>
 );

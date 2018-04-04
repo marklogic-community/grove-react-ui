@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import MLSearchContainer from './MLSearchContainer';
-import MLDetailContainer from './MLDetailContainer';
-import Login from './LoginContainer';
+import MLSearchContainer from '../containers/MLSearchContainer';
+import MLDetailContainer from '../containers/MLDetailContainer';
+import Login from '../containers/LoginContainer';
 
 import {
   actions as searchActions,
@@ -13,19 +13,7 @@ import {
   actions as documentActions,
   selectors as documentSelectors
 } from 'ml-documents-redux';
-
-// TODO: extract into a utility: also used within redux modules
-const bindSelector = (selector, mountPoint) => {
-  return (state, ...args) => {
-    return selector(state[mountPoint], ...args);
-  };
-};
-const bindSelectors = (selectors, mountPoint) => {
-  return Object.keys(selectors).reduce((bound, key) => {
-    bound[key] = bindSelector(selectors[key], mountPoint);
-    return bound;
-  }, {});
-};
+import { bindSelectors } from '../utils/redux-utils';
 
 const boundSearchSelectors = bindSelectors(searchSelectors, 'search');
 const boundDocumentSelectors = bindSelectors(documentSelectors, 'documents');
