@@ -1,5 +1,4 @@
 {
   "server-name" : "%%NAME%%",
-  "authentication" : "application-level",
-  "default-user" : "admin"
+  "authentication" : "digest"
 }
