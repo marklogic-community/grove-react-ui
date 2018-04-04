@@ -15,18 +15,28 @@ import Navbar from './components/Navbar';
 
 const boundUserSelectors = bindSelectors(userSelectors, 'user');
 
-let App = props => (
-  <div>
-    <Navbar
-      isAuthenticated={props.isAuthenticated}
-      currentUser={props.currentUser}
-      submitLogout={props.submitLogout}
-    />
-    <Grid fluid={true}>
-      <Routes {...props} />
-    </Grid>
-  </div>
-);
+class App extends React.Component {
+  componentDidMount() {
+    if (!this.props.currentUser) {
+      this.props.getAuthenticationStatus();
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <Navbar
+          isAuthenticated={this.props.isAuthenticated}
+          currentUser={this.props.currentUser}
+          submitLogout={this.props.submitLogout}
+        />
+        <Grid fluid={true}>
+          <Routes {...this.props} />
+        </Grid>
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -37,6 +47,9 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ submitLogout: userActions.submitLogout }, dispatch);
+  bindActionCreators({
+    submitLogout: userActions.submitLogout,
+    getAuthenticationStatus: userActions.getAuthenticationStatus
+  }, dispatch);
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

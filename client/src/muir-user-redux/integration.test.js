@@ -89,4 +89,27 @@ describe('muir-user-redux', () => {
       }
     });
   });
+
+  it('gets authentication status over the network', done => {
+    nock('http://localhost')
+      .get(/status/)
+      .reply(200, {
+        authenticated: true,
+        username: 'muir-user'
+      });
+    store.dispatch(actions.getAuthenticationStatus()).then(() => {
+      try {
+        expect(selectors.currentUser(store.getState())).toEqual('muir-user');
+        expect(
+          selectors.isAuthenticated(store.getState(), 'muir-user')
+        ).toBeTruthy();
+        expect(
+          selectors.isCurrentUserAuthenticated(store.getState())
+        ).toBeTruthy();
+        done();
+      } catch (error) {
+        done.fail(error);
+      }
+    });
+  });
 });
