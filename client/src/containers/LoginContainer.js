@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Login from '../components/Login';
-import { actions, selectors } from '../muir-user-redux';
+import { actions } from '../muir-user-redux';
 
 const mapStateToProps = (state, ownProps) => ({
   from: (ownProps.location && ownProps.location.state) || { pathname: '/' }

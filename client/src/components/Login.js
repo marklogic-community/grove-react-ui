@@ -8,16 +8,13 @@ import {
   FormControl,
   Button
 } from 'react-bootstrap';
-import { Redirect } from 'react-router';
-require('isomorphic-fetch');
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       username: '',
-      password: '',
-      redirectToReferrer: false
+      password: ''
     };
     this.handleLoginSubmission = this.handleLoginSubmission.bind(this);
     this.setUsername = this.setUsername.bind(this);
@@ -26,11 +23,7 @@ class Login extends React.Component {
 
   handleLoginSubmission(e) {
     e.preventDefault();
-    this.props
-      .submitLogin(this.state.username, this.state.password)
-      .then(() => {
-        this.setState({ redirectToReferrer: true });
-      });
+    this.props.submitLogin(this.state.username, this.state.password);
   }
 
   setUsername(e) {
@@ -42,10 +35,6 @@ class Login extends React.Component {
   }
 
   render() {
-    if (this.state.redirectToReferrer) {
-      return <Redirect to={this.props.from} />;
-    }
-
     return (
       <Row>
         <Col md={6} mdOffset={3}>
