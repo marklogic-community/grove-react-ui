@@ -27,7 +27,7 @@ class App extends React.Component {
       <div>
         <Navbar
           isAuthenticated={this.props.isAuthenticated}
-          currentUser={this.props.currentUser}
+          currentUsername={this.props.currentUser}
           submitLogout={this.props.submitLogout}
         />
         <Grid fluid={true}>

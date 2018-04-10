@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Login from '../components/Login';
+import { LoginJumbotron } from 'muir-react';
 import { actions } from '../muir-user-redux';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -8,8 +8,11 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({
-    submitLogin: actions.submitLogin
-  }, dispatch);
+  bindActionCreators(
+    {
+      submitLogin: actions.submitLogin
+    },
+    dispatch
+  );
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginJumbotron);
