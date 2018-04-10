@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom';
 import {
   actions as userActions,
   selectors as userSelectors
-} from './muir-user-redux';
+} from 'muir-user-redux';
 import { bindSelectors } from './utils/redux-utils';
 
 import Routes from './components/Routes';
@@ -47,9 +47,12 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({
-    submitLogout: userActions.submitLogout,
-    getAuthenticationStatus: userActions.getAuthenticationStatus
-  }, dispatch);
+  bindActionCreators(
+    {
+      submitLogout: userActions.submitLogout,
+      getAuthenticationStatus: userActions.getAuthenticationStatus
+    },
+    dispatch
+  );
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
