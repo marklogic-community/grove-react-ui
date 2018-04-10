@@ -1,63 +1,10 @@
 import * as types from './actionTypes';
-
-require('isomorphic-fetch');
+import defaultAPI from './api';
 
 export const completeLogin = user => ({
   type: types.NETWORK_LOGIN_SUCCESS,
   payload: { user }
 });
-
-const defaultAPI = {
-  login: (username, password) => {
-    return fetch(new URL('/api/user/login', document.baseURI).toString(), {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      credentials: 'same-origin',
-      body: JSON.stringify({ username, password })
-    });
-  },
-  logout: username => {
-    return fetch(new URL('/api/user/logout', document.baseURI).toString(), {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      credentials: 'same-origin'
-    }).then(
-      response => {
-        return response;
-      },
-      error => {
-        console.log('error:', error);
-        throw error;
-      }
-    );
-  },
-  status: () => {
-    return fetch(new URL('/api/user/status', document.baseURI).toString(), {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      credentials: 'same-origin'
-    }).then(
-      response => {
-        if (!response.ok) {
-          return response.json().then(error => {
-            throw new Error(error.message);
-          });
-        }
-        return response.json()
-      },
-      error => {
-        console.log('error:', error);
-        throw error;
-      }
-    );
-  }
-};
 
 export const setCurrentUser = username => ({
   type: types.SET_CURRENT_USER,
