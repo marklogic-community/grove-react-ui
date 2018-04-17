@@ -37,7 +37,7 @@ function npm_install(folder, installArgs) {
 }
 
 var rootDirectory = process.cwd();
-npm_install(path.join(rootDirectory, 'client'));
+npm_install(path.join(rootDirectory, 'ui'));
 npm_install(
   path.join(rootDirectory, 'server'),
   ['--no-optional', '--no-shrinkwrap']

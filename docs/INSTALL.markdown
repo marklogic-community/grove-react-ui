@@ -14,7 +14,7 @@ If you forgot to add the `--recursive` flag and your `server` directory is empty
 
 ## Install Application Dependencies
 
-This command instructs npm, the Node.js package manager, to install javascript dependencies for client and server code. These will be stored locally in the `node_modules` directories within `client` and `server`:
+This command instructs npm, the Node.js package manager, to install javascript dependencies for ui and server code. These will be stored locally in the `node_modules` directories within `ui` and `server`:
 
     cd muir
     npm install

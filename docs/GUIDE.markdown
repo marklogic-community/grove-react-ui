@@ -34,13 +34,13 @@ Under the covers, ml-gradle uses the [MarkLogic Content Pump (mlcp)](http://docs
 
 ### The Front-End: React + Bootstrap
 
-The next part of your application you may want to update is the front-end, which lives inside the `client` directory of this reference application.
+The next part of your application you may want to update is the front-end, which lives inside the `ui` directory of this reference application.
 
 <a name="create-react-app"></a>#### Built on Create-React-App
 
 In the Muir React reference application, we have decided to leverage Facebook's [create-react-app project](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md), rather than creating and maintaining a modern javascript build environment ourselves. create-react-app provides most of the dependencies and configuration needed to do things like run tests, start a development server, and create a production build. Best of all, when the create-react-app updates their project, it is a simple process to [update this application](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#updating-to-new-releases) to take advantage.
 
-This indirection could cause some confusion. For example, Webpack is central to build processes, but you may be surprised to see that there is no `client/webpack.config.js` file. Instead, create-react-app provides the necessary configuration.
+This indirection could cause some confusion. For example, Webpack is central to build processes, but you may be surprised to see that there is no `ui/webpack.config.js` file. Instead, create-react-app provides the necessary configuration.
 
 This optimizes away most maintainance of our build process over time and creates a common experience for developers across all Muir React apps. There are [many ways to customize](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md) what is provided. If, however, you find that you need to separate from create-react-app, there is a [way to "eject"](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#npm-run-eject). Careful, though, because that is a one-way step: You will not be able to stay up-to-date with create-react-app updates over time.
 
@@ -48,7 +48,7 @@ This optimizes away most maintainance of our build process over time and creates
 
 Muir React components are styled using [Bootstrap 3](https://getbootstrap.com/docs/3.3/). There are [many](https://startbootstrap.com/) [themes](https://themes.getbootstrap.com/collections/all) [available](https://www.google.com/search?q=bootstrap+themes) to update the look-and-feel of standard Bootstrap classes.
 
-You could, of course, also provide your own custom CSS in `client/src/index.css`.
+You could, of course, also provide your own custom CSS in `ui/src/index.css`.
 
 If you find yourself editing React components, take a look at the [documentation for React-Bootstrap](https://react-bootstrap.github.io/), which is what we use to provide Bootstrap-styled components.
 
@@ -60,7 +60,7 @@ The presentational React components are provided through a separate libary: [ml-
 
 In particular, the React components are unaware of the Redux layer. They simply define properties and functions that they expect to be passed to them. They are only responsible for rendering an appropriate view based on those properties and for wiring user actions to the passed-in functions.
 
-The ml-treehouse-react components are imported and used in [`client/src/App.js`](`client/src/App.js`) and [`client/src/containers/MLSearchContainer.js`](`client/src/containers/MLSearchContainer.js`).
+The ml-treehouse-react components are imported and used in [`ui/src/App.js`](`ui/src/App.js`) and [`ui/src/containers/MLSearchContainer.js`](`ui/src/containers/MLSearchContainer.js`).
 
 If you want to change the React components, you can provide your own components and import those instead. (Your components may also import some of the ml-treehouse-react components, so you don't have to recreate everything.)
 
@@ -78,7 +78,7 @@ Finally, each Redux module currently defines an interface to the service tier (f
 
 At the moment, we provide two modules: [ml-search-redux](https://project.marklogic.com/repo/projects/NACW/repos/ml-search-redux/browse) and [ml-documents-redux](https://project.marklogic.com/repo/users/pmcelwee/repos/ml-documents-redux/browse).
 
-Your application needs to provide some glue to connect the Redux modules to the 'dumb' React components, which are not aware of Redux. This reference application does that, in [`client/src/App.js`](`client/src/App.js`) and [`client/src/containers/`](`client/src/containers/`), which contains 'smart' React containers that are Redux-aware and pass the appropriate properties and functions down to the 'dumb' React components.
+Your application needs to provide some glue to connect the Redux modules to the 'dumb' React components, which are not aware of Redux. This reference application does that, in [`ui/src/App.js`](`ui/src/App.js`) and [`ui/src/containers/`](`ui/src/containers/`), which contains 'smart' React containers that are Redux-aware and pass the appropriate properties and functions down to the 'dumb' React components.
 
 If you need to modify the way selectors or actionCreators work, you can create decorator functions that call out to them but also do other work. Then, pass your decorator functions down to the 'dumb' React components instead. Or you could define your own actionCreators or selectors from scratch.
 

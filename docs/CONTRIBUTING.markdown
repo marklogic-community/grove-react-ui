@@ -22,15 +22,15 @@ Here are some suggested steps for learning the Treehouse stack while building a 
 
 5. **Layer in Redux.** Redux is definitely more lines of code than what you've already got. I'm sure there are cases where it isn't worth it. But, there is an enormous benefit to clearly modeling your state and clearly defining an interface to update that state. No more searching for state changes scattered all over the place. You can even use DevTools to see exactly what actions are being fired and what state changes each caused. It also creates a layer that is not dependent on React and can be re-used in other front-end frameworks.
 
-    See the Muir reference app's [index.js](client/src/index.js) for an example of connecting a Redux store to your app. Note that the reducers actually get composed together in [appReducer.js](client/src/appReducer.js).
+    See the Muir reference app's [index.js](ui/src/index.js) for an example of connecting a Redux store to your app. Note that the reducers actually get composed together in [appReducer.js](ui/src/appReducer.js).
 
-    See the Muir reference app's [App.js](client/src/App.js) for an example of importing selectors and actions and passing them to containers. Alternatively, you can do those imports in the containers themselves. I've used both approaches successfully.
+    See the Muir reference app's [App.js](ui/src/App.js) for an example of importing selectors and actions and passing them to containers. Alternatively, you can do those imports in the containers themselves. I've used both approaches successfully.
 
         i.      NOTE that App.js uses the bindSelectors() function to bind the selector functions to their 'mountPoint' with the Redux store. This is a functional pattern I am still working to crystallize: It keeps selectors from knowing too much about their parents. Such knowledge is problematic for reuse (or multiple use within the same app). I've gotten to the point where I think I can turn bindSelectors into a utility function. You'll notice I use essentially the same function at each level of reducer composition inside my Redux modules.
 
         ii.      There is a similar need for actions, but I haven't yet identified a solution. The main need there is a way to namespace actionTypes, so the same Redux module can be mounted in several different places within a single application.
 
-    Your smart container will use the 'mapStateToProps' and 'mapDispatchToProps' methods to hook up Redux. See the Muir reference app's [client/src/containers/](client/src/containers/) directory for examples.
+    Your smart container will use the 'mapStateToProps' and 'mapDispatchToProps' methods to hook up Redux. See the Muir reference app's [ui/src/containers/](ui/src/containers/) directory for examples.
 
     We have adopted the 'duck' modular approach (see ["Best Practices"](docs/BEST_PRACTICES.markdown) for details) to organize Redux code. See [ml-documents-redux](https://project.marklogic.com/repo/users/pmcelwee/repos/ml-documents-redux/browse) for a relatively simple example. Experimentation with other organization schemes is possible, but this has worked well, and I recommend just adopting it for now.
 

@@ -18,7 +18,7 @@ import App from './App';
 
 // For remote Devtools, remove compose import from Redux, uncomment
 // composeWithDevTools lines, and comment out the bottom line
-// You will also have to change 'start' in client/package.json to be:
+// You will also have to change 'start' in ui/package.json to be:
 //    "start": "concurrently \"react-scripts start\" \"npm run devtools-server\" ",
 import { compose, createStore, applyMiddleware } from 'redux';
 // import { composeWithDevTools } from 'remote-redux-devtools';

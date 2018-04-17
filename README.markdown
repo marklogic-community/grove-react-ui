@@ -38,11 +38,11 @@ Check out our [Installation Guide](docs/INSTALL.markdown) for more detailed, ste
 
 ## About the Reference Application
 
-The reference application includes three directories: client (for Vue.js front-end and Redux client-state management code), server (for a reference Node implementation of a middle-tier), and marklogic (for database configuration and sample data loading).
+The reference application includes three directories: 'ui' (for Vue.js front-end and Redux client-state management code), 'server' (for a reference Node implementation of a middle-tier), and 'marklogic' (for database configuration and sample data loading).
 
-When you run commands like `npm install` and `npm start` from the top-level, it automatically runs the relevant commands. For example, `npm install` installs npm dependencies within the Node `server` and the `client` application. Similarly, `npm start` starts the Node middle-tier, as well as a Webpack development server to serve up HTML, Javascript and CSS on port 3000.
+When you run commands like `npm install` and `npm start` from the top-level, it automatically runs the relevant commands. For example, `npm install` installs npm dependencies within the Node `server` and the `ui` application. Similarly, `npm start` starts the Node middle-tier, as well as a Webpack development server to serve up HTML, Javascript and CSS on port 3000.
 
-The `client` part of this application was built using the [Create-React-App library](https://github.com/facebookincubator/create-react-app), in order to rely on expert community help in staying up-to-date as the ecosystem changes. Much configuration is done using the tools provided by that library. Please refer to their extensive [User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md) to understand how to configure various parts of the `client` application.
+The `ui` part of this application was built using the [Create-React-App library](https://github.com/facebookincubator/create-react-app), in order to rely on expert community help in staying up-to-date as the ecosystem changes. Much configuration is done using the tools provided by that library. Please refer to their extensive [User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md) to understand how to configure various parts of the `ui` application.
 
 ## Developing your application
 
