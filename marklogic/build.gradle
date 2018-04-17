@@ -43,5 +43,5 @@ task loadSampleData(type: com.marklogic.gradle.task.MlcpTask) {
     input_compressed = true
     output_collections = "data,data/people"
     output_permissions = "rest-reader,read,rest-writer,update"
-    output_uri_replace = ".*zip,'/sample/people/'"
+    output_uri_replace = ".*zip,'/sample/people'"
 }
