@@ -20,4 +20,10 @@
       <path-index>gender</path-index>
     </range>
   </constraint>
+
+  <transform-results apply="snippet">
+    <max-matches>5</max-matches>
+    <max-snippet-chars>150</max-snippet-chars>
+    <per-match-tokens>20</per-match-tokens>
+  </transform-results>
 </options>
