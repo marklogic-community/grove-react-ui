@@ -11,7 +11,7 @@
     "postinstall": "node scripts/postinstall.js",
     "start": "concurrently \"npm run server\" \"npm run ui\" ",
     "server": "nodemon server/node-app.js",
-    "ui": "node start-ui.js",
+    "ui": "cd ui && npm start",
     "test": "cd ui && npm test",
     "mlDeploy": "cd marklogic && ./gradlew mlDeploy",
     "loadSampleData": "cd marklogic && ./gradlew loadSampleData",
