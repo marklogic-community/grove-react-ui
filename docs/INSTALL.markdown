@@ -6,7 +6,7 @@ If you prefer, you can follow the [VERY Quick Start instructions](README.markdow
 
 ## Clone the Application Source Code
 
-You can simply clone this repository in order to get a working version of a Vue application using muir modules and reference middle-tier Node server. To do this, you will clone using the `--recursive` flag. This is because we are using a git submodule to pull in the Node middle-tier from a separate repository. Your clone operation will look like this:
+You can simply clone this repository in order to get a working version of a React application using muir modules and reference middle-tier Node server. To do this, you will clone using the `--recursive` flag. This is because we are using a git submodule to pull in the Node middle-tier from a separate repository. Your clone operation will look like this:
 
     git clone --recursive  ssh://git@project.marklogic.com:7999/nacw/muir.git
 

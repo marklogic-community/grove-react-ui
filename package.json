@@ -21,6 +21,7 @@
     "type": "git",
     "url": "ssh://project.marklogic.com:7999/nacw/muir.git"
   },
+  "license": "Apache-2.0",
   "contributors": [
     {
       "name": "Patrick McElwee",
