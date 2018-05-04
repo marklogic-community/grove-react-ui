@@ -4,13 +4,12 @@
   "description": "Turning MarkLogic forests into a place for users to live",
   "dependencies": {},
   "devDependencies": {
-    "concurrently": "^3.5.0",
-    "nodemon": "^1.17.2"
+    "concurrently": "^3.5.0"
   },
   "scripts": {
     "postinstall": "node scripts/postinstall.js",
     "start": "concurrently \"npm run server\" \"npm run ui\" ",
-    "server": "nodemon server/node-app.js",
+    "server": "cd server && npm start",
     "ui": "cd ui && npm start",
     "test": "cd ui && npm test",
     "mlDeploy": "cd marklogic && ./gradlew mlDeploy",
