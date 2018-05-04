@@ -168,7 +168,7 @@ This command instructs npm, the Node.js package manager, to install javascript d
 
 ### Start the Development and Middle-Tier Servers
 
-[TODO: configure local.json with the admin username and password]
+[TODO: configure ml-gradle with the admin username and password]
 
 This command will actually start two servers concurrently:
 
