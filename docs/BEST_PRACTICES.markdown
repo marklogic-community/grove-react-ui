@@ -1,3 +1,5 @@
+**NOTE: This document is currently out-of-date! Updates coming soon.**
+
 # ML-UI-React / Resources (Muir) Best Practices Guide
 
 This is a living, breathing document describing our current understanding of best practices when building a single-page Web application backed by MarkLogic. Building software is half-craft, half-engineering and specific requirements vary, so your mileage may vary.

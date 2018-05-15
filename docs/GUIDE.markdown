@@ -1,3 +1,5 @@
+**NOTE: This document is currently out-of-date! Updates coming soon.**
+
 # Advanced Guide to ML-UI-React (Muir)
 
 Muir is designed to help developers and architects build UI-rich applications backed by MarkLogic, the multi-model, enterprise NoSQL database.

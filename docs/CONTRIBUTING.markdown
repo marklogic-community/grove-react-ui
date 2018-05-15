@@ -1,3 +1,5 @@
+**NOTE: This document is currently out-of-date! Updates coming soon.**
+
 # Contributing to Muir
 
 ## An Initial Approach to Building a New Feature While Learning the Stack
