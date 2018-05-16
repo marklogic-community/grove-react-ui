@@ -111,8 +111,6 @@ For more discussion about how to make changes to your Muir project see the "Lear
 
 ## Customizing
 
-**NOTE: This section is currently out-of-date! Updates coming soon.**
-
 As you work with your Muir Project, you will soon want to customize it. To understand the design of the UI-Toolkit and how to customize it to your needs, is most important to understand how to use Muir to quickly create a MarkLogic-backed project - and then to customize it. For this, please *read [the Advanced Guide to Muir Guide](docs/GUIDE.markdown)*.
 
 For those seeking to contribute to the project, our evolving [Best Practices document](docs/BEST_PRACTICES.markdown) are designed to get contributors on the same page and to communicate some of our goals. The [Contributing document](docs/CONTRIBUTING.markdown) has additional concrete advice for contributors. Please read both.
