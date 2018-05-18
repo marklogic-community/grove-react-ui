@@ -15,7 +15,7 @@ The commands listed below should be typed into a terminal/console window.
 ### <a name="prerequisites"></a>Prerequisites
 
 1. [Install MarkLogic 9](https://developer.marklogic.com/products), start it, and initialize it at `localhost:8001`.
-2. Check if you already have Node.js version 6 or above installed by running `node -v`. If not, [install Node.js](https://nodejs.org). 
+2. Check if you already have Node.js version 8 or above installed by running `node -v`. If not, [install Node.js](https://nodejs.org). 
 3. Check if you already have npm version 5 or above installed by running `npm -v`. If not, run `npm install -g npm` to get the latest.
 4. Check if you already have Java 1.8 or above installed by running `java -version`. If not, [install Java 1.8](https://www.java.com/en/download/help/download_options.xml).
 
