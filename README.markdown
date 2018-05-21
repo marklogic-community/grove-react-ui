@@ -46,16 +46,13 @@ This is the standard way to create a new Project using this template, if you exp
 
 #### Configure your project:
 
-    # walks you through configuration changes
-    # You are responsible for mirroring any changes to defaults
-    # in the ml-gradle project found within the `marklogic` directory
     muir config
 
-Note that you need to ensure that MarkLogic is configured appropriately. We have not yet determined how Muir will work with tools for doing this. For now, you can manually ensure that the ml-gradle configuration provided in the `marklogic` directory mirrors any changes you make to the defaults.
+This command will update settings in your React UI, Node middle-tier, and the provided ml-gradle project.
 
 #### Provision MarkLogic
 
-We provide an ml-gradle configuration that matches the Muir default as a convenience in the `marklogic` directory of your generated Project. However, `muir config` does not currently make any changes there. You will have to update ml-gradle to match any changes you make to configuration defaults.
+We provide an ml-gradle configuration that matches your Muir settings as a convenience in the `marklogic` directory of your generated Project.
 
     cd marklogic
     ./gradlew mlDeploy
