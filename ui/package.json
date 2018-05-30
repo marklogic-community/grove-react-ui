@@ -9,7 +9,7 @@
     "ml-documents-redux": "^0.3.1",
     "ml-search-redux": "^0.6.1",
     "muir-react": "^0.8.4",
-    "muir-user-redux": "git+ssh://git@project.marklogic.com:7999/~pmcelwee/muir-user-redux.git#semver:0.2.0",
+    "muir-user-redux": "^0.2.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.6",
