@@ -8,7 +8,7 @@
   "devDependencies": {},
   "scripts": {
     "postinstall": "node scripts/postinstall.js",
-    "start": "concurrently \"npm run server\" \"npm run ui\" ",
+    "start": "concurrently --raw \"npm run server\" \"npm run ui\" ",
     "start:prod": "concurrently \"npm run server:prod\" \"npm run ui\" ",
     "server": "cd server && npm start",
     "server:prod": "cd server && npm run start:prod",
