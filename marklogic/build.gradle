@@ -1,6 +1,6 @@
 plugins {
   id "net.saliman.properties" version "1.4.6"
-  id "com.marklogic.ml-gradle" version "3.6.1"
+  id "com.marklogic.ml-gradle" version "3.7.0"
 }
 
 repositories {
@@ -25,7 +25,7 @@ configurations {
 }
 
 dependencies {
-  mlcp "com.marklogic:mlcp:9.0.2"
+  mlcp "com.marklogic:mlcp:9.0.5"
 
   /** mlcp uses Log4j for logging, and if Log4j can't find a configuration
    * file, it will complain and you'll get none of mlcp's usually-useful logging.
