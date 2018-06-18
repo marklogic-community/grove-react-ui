@@ -8,10 +8,10 @@
   "devDependencies": {},
   "scripts": {
     "postinstall": "node scripts/postinstall.js",
-    "start": "concurrently --kill-others \"npm run server\" \"npm run ui\" ",
-    "start:prod": "concurrently \"npm run server:prod\" \"npm run ui\" ",
-    "server": "cd server && npm start",
-    "server:prod": "cd server && npm run start:prod",
+    "start": "concurrently --kill-others \"npm run middleTier\" \"npm run ui\" ",
+    "start:prod": "concurrently \"npm run middleTier:prod\" \"npm run ui\" ",
+    "middleTier": "cd middle-tier && npm start",
+    "middleTier:prod": "cd middle-tier && npm run start:prod",
     "ui": "cd ui && npm start",
     "test": "cd ui && npm test"
   },

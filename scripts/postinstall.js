@@ -29,8 +29,8 @@ function npm_install(folder, installArgs) {
   } else {
     var errorMessage = 'Could not run `npm install` in `' + folder +
       '` because there is no `package.json` in this directory.';
-    if (path.basename(folder) === 'server') {
-      errorMessage = errorMessage + ' This is likely because you have not initialized the Node middle-tier\'s git submodule in `./server`. Please run the following commands to initialize the submodule and rerun `npm install`: \n\n    git submodule update --init --recursive\n    npm install\n\n';
+    if (path.basename(folder) === 'middle-tier') {
+      errorMessage = errorMessage + ' This is likely because you have not initialized the Node middle-tier\'s git submodule in `./middle-tier`. Please run the following commands to initialize the submodule and rerun `npm install`: \n\n    git submodule update --init --recursive\n    npm install\n\n';
     }
     throw new Error(errorMessage);
   }
@@ -39,6 +39,6 @@ function npm_install(folder, installArgs) {
 var rootDirectory = process.cwd();
 npm_install(path.join(rootDirectory, 'ui'));
 npm_install(
-  path.join(rootDirectory, 'server'),
+  path.join(rootDirectory, 'middle-tier'),
   ['--no-optional', '--no-shrinkwrap']
 );

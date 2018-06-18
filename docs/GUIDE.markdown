@@ -3,7 +3,7 @@
 This Muir Project Template specifies a Project consisting of two Muir Applications:
 
 - a UI Application using [React](https://reactjs.org/) and [Redux](https://redux.js.org/), mounted in the `ui` directory, and
-- a middle-tier Application using [the Node Express library](https://expressjs.com/), mounted in the `server` directory
+- a middle-tier Application using [the Node Express library](https://expressjs.com/), mounted in the `middle-tier` directory
 
 In addition, it provides an ml-gradle installation in the `marklogic` directory. The default ml-gradle configuration matches the other defaults in this Template, but any changes to the application template at the moment have to also be changed manually in the ml-gradle configuration. We will likely improve this story soon.
 
@@ -93,7 +93,7 @@ For example, if you create a component that toggle a pop-up on or off, the `popU
 
 ### Default Node middle-tier
 
-The Muir Node server is present in this repository as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules). You can learn more about this Muir middle-tier Application in [its repository](https://project.marklogic.com/repo/projects/NACW/repos/muir-node/browse).
+The Muir Node middle-tier is present in this repository as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules). You can learn more about this Muir middle-tier Application in [its repository](https://project.marklogic.com/repo/projects/NACW/repos/muir-node/browse).
 
 ### MarkLogic Configuration
 

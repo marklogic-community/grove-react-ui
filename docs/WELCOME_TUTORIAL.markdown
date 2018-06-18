@@ -64,7 +64,7 @@ Clone down the reference application provided by the Muir project. For this, you
 The reference application has everything you need to get a search-and-discovery application running. We'll describe it all in more detail below, but just to orient you, be aware that this source code includes:
 
 - a `marklogic` directory, with tools and configuration files to configure and administer your MarkLogic server,
-- a `server` directory, with a Node server that will form the middle-tier of this application, and
+- a `middle-tier` directory, with a Node middle-tier that will form the middle-tier of this application, and
 - a `ui` directory, which contains code that will run in the browser.
 
 ## Provision MarkLogic
@@ -166,7 +166,7 @@ Great, time to get the application running ...
 
 ### Install Javascript Dependencies
 
-This command instructs npm, the Node.js package manager, to install javascript dependencies for ui and server code. These will be stored locally in the `node_modules` directories within `ui` and `server` [TODO: say more]:
+This command instructs npm, the Node.js package manager, to install javascript dependencies for ui and middle-tier code. These will be stored locally in the `node_modules` directories within `ui` and `middle-tier` [TODO: say more]:
 
     npm install
 
