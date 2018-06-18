@@ -1,8 +1,10 @@
-**NOTE: This document is currently out-of-date! Updates coming soon.**
-
 # Contributing to Muir
 
-## An Initial Approach to Building a New Feature While Learning the Stack
+A document about contributing to MUIR in general is found at https://wiki.marklogic.com/display/SAL/MUIR+Developer+Starters+Guide.
+
+## Contributing to the React Template Specifically
+
+### An Initial Approach to Building a New Feature While Learning the Stack
 
 (Whew! Too many words for a heading?)
 
@@ -46,9 +48,9 @@ Here are some suggested steps for learning the Treehouse stack while building a 
 
       We also want a common way to document the contract and provide a test suite for implementations. We are most likely to adopt the OpenAPI Initiative (formerly 'Swagger') as a standard. This is still a TODO.
 
-## Things to Consider
+### Things to Consider
 
-NOTE: This was written earlier than the section above, and needs review.
+**NOTE: This was written earlier than the section above, and needs review.**
 
 TODO: Do these two sections complement each other?
 
