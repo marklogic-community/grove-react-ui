@@ -1,5 +1,5 @@
 {
-  "name": "muir-react-reference",
+  "name": "muir-react-template",
   "version": "0.7.0",
   "description": "Turning MarkLogic forests into a place for users to live",
   "dependencies": {
