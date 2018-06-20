@@ -1,5 +1,0 @@
-{
-  "role-name" : "muir-internal",
-  "description" : "Internal role used for amping",
-  "role" : [ "muir-writer" ]
-}

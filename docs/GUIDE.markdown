@@ -97,7 +97,7 @@ The Muir Node middle-tier is present in this repository as a [git submodule](htt
 
 ### MarkLogic Configuration
 
-We recommend using [ml-gradle](https://github.com/marklogic-community/ml-gradle) to bootstrap and configure your MarkLogic databases, security, and app servers. This Template provides a standard configuration in the `marklogic` directory.
+We recommend using [ml-gradle](https://github.com/marklogic-community/ml-gradle) to bootstrap and configure your MarkLogic databases, security, and app servers. This Template provides a standard configuration as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) in the `marklogic` directory.
 
 You should become familiar with all the MarkLogic automation goodness that [ml-gradle](https://github.com/marklogic-community/ml-gradle) provides, [starting with the project's README](https://github.com/marklogic-community/ml-gradle).
 

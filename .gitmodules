@@ -1,3 +1,6 @@
 [submodule "server"]
 	path = middle-tier
   url = https://project.marklogic.com/repo/scm/nacw/muir-node.git
+[submodule "marklogic"]
+	path = marklogic
+	url = https://project.marklogic.com/repo/scm/~gjosten/muir-ml-gradle.git
