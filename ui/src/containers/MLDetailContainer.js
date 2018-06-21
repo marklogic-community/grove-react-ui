@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { DetailView } from 'muir-react';
 
-import { actions, selectors } from 'ml-documents-redux';
+import { actions, selectors } from 'muir-crud-redux';
 import { bindSelectors } from '../utils/redux-utils';
 const boundSelectors = bindSelectors(selectors, 'documents');
 

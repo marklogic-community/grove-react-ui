@@ -6,7 +6,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "bootstrap-material-design": "^0.5.10",
-    "ml-documents-redux": "^0.3.1",
+    "muir-crud-redux": "git+ssh://git@project.marklogic.com:7999/~pmcelwee/muir-crud-redux.git#development",
     "muir-search-redux": "git+ssh://git@project.marklogic.com:7999/nacw/muir-search-redux.git#development",
     "muir-react": "^0.9.0",
     "muir-user-redux": "^0.2.0",

@@ -81,7 +81,7 @@ Each module also defines [actionCreators](http://redux.js.org/docs/basics/Action
 
 Finally, each Redux module currently defines an interface to the service tier (for example, for communicating with MarkLogic or other Web services to run a search). It calls out to a specific endpoint and expects a certain shape of response. We are still fleshing this out, but the goal is to make the service tier completely swappable, so long as an adapter is provided that provides the Redux module the interface that it requires.
 
-At the moment, we provide three modules: [muir-search-redux](https://project.marklogic.com/repo/projects/NACW/repos/muir-search-redux/browse), [ml-documents-redux](https://project.marklogic.com/repo/users/pmcelwee/repos/ml-documents-redux/browse), and [muir-user-redux](https://project.marklogic.com/repo/users/pmcelwee/repos/muir-user-redux/browse).
+At the moment, we provide three modules: [muir-search-redux](https://project.marklogic.com/repo/projects/NACW/repos/muir-search-redux/browse), [muir-crud-redux](https://project.marklogic.com/repo/users/pmcelwee/repos/muir-crud-redux/browse), and [muir-user-redux](https://project.marklogic.com/repo/users/pmcelwee/repos/muir-user-redux/browse).
 
 Your application needs to provide some glue to connect the Redux modules to the 'dumb' React components, which are not aware of Redux. This Template does that, in [`ui/src/App.js`](`ui/src/App.js`) and [`ui/src/containers/`](`ui/src/containers/`), which contains 'smart' React containers that are Redux-aware and pass the appropriate properties and functions down to the 'dumb' React components.
 
