@@ -1,5 +1,5 @@
 {
-  "name": "muir-ui",
+  "name": "muir-react-ui",
   "version": "0.8.0",
   "private": true,
   "proxy": "http://localhost:9003/",
@@ -7,7 +7,7 @@
     "bootstrap": "^3.3.7",
     "bootstrap-material-design": "^0.5.10",
     "ml-documents-redux": "^0.3.1",
-    "ml-search-redux": "^0.7.0",
+    "muir-search-redux": "git+ssh://git@project.marklogic.com:7999/nacw/muir-search-redux.git#development",
     "muir-react": "^0.9.0",
     "muir-user-redux": "^0.2.0",
     "react": "^16.3.2",

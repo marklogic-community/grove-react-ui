@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import search from 'ml-search-redux';
+import search from 'muir-search-redux';
 import documents from 'ml-documents-redux';
 import user, { actionTypes } from 'muir-user-redux';
 
