@@ -93,6 +93,10 @@ Now, run the ml-gradle task to provision MarkLogic with what we need. This comma
 
     ./gradlew mlDeploy
 
+Or, on Windows:
+
+    gradlew.bat mlDeploy
+
 That should have just worked! You can verify that by pointing your browser to the [MarkLogic Admin UI](http://localhost:8001). On the right, under "Databases", you should see "muir-content" and "muir-modules" (you will also see "muir-triggers", a helpful database that, alas, we won't use in this tutorial). Under "App Servers", you should see "muir", an HTTP server running on port 8063. There will be several "muir" entries under "Forests". And if you were to click on "Users" or "Roles" under "Security", you should see some muir-related users and roles. [TODO: add screenshots]
 
 Congratulations, you've got MarkLogic configured and all the configuration is under version control, so you will be on the same page as the rest of your [Friend Finder; TODO: connect to overall narrative] team. Any changes you make will be shared using `git` and everyone can stay in sync, as well as your production and staging systems and any automated testing builds.
@@ -196,4 +200,8 @@ Data loading is well handled by ml-gradle, so change directories into `marklogic
 This command uses [ml-gradle](https://github.com/marklogic-community/ml-gradle) and [mlcp](https://docs.marklogic.com/guide/mlcp) to load 3000 sample json documents, about people. These documents are stored in the `marklogic/data` directory of this source code. [TODO: say more]
 
     ./gradlew loadSampleData
+
+Or, on Windows:
+
+    gradlew.bat loadSampleData
 

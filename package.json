@@ -13,10 +13,7 @@
     "server": "cd server && npm start",
     "server:prod": "cd server && npm run start:prod",
     "ui": "cd ui && npm start",
-    "test": "cd ui && npm test",
-    "mlDeploy": "cd marklogic && ./gradlew mlDeploy",
-    "loadSampleData": "cd marklogic && ./gradlew loadSampleData",
-    "setupEverything": "npm install && npm run mlDeploy && npm run loadSampleData && npm start"
+    "test": "cd ui && npm test"
   },
   "repository": {
     "type": "git",

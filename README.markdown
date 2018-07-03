@@ -55,6 +55,12 @@ We provide an ml-gradle configuration that matches your Muir settings as a conve
     ./gradlew mlDeploy
     cd ..
 
+Or, on Windows:
+
+    cd marklogic
+    gradlew.bat mlDeploy
+    cd ..
+
 #### Install npm dependencies
 
 Run from the top-level of your generated Project:
@@ -75,6 +81,12 @@ This Template includes ml-gradle in the `marklogic` directory. You must be in th
 
     cd marklogic
     ./gradlew loadSampleData
+    cd ..
+
+Or, on Windows:
+
+    cd marklogic
+    gradlew.bat loadSampleData
     cd ..
 
 ### <a name="very-quick"></a>VERY Quick Start
