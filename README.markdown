@@ -18,19 +18,16 @@ The commands listed below should be typed into a terminal/console window.
 2. Check if you already have Node.js version 8 or above installed by running `node -v`. If not, [install Node.js](https://nodejs.org). 
 3. Check if you already have npm version 5 or above installed by running `npm -v`. If not, run `npm install -g npm` to get the latest.
 4. Check if you already have Java 1.8 or above installed by running `java -version`. If not, [install Java 1.8](https://www.java.com/en/download/help/download_options.xml). Java is required because the generated Muir project will use [ml-gradle](https://github.com/marklogic-community/ml-gradle) to administer MarkLogic and [mlcp](https://developer.marklogic.com/products/mlcp) to load data.
-5. Ensure that you have a public key uploaded to [project.marklogic.com](https://project.marklogic.com/repo/plugins/servlet/ssh/account/keys). [This page will show you your public keys and provides instructions on how to create and/or upload one](https://project.marklogic.com/repo/plugins/servlet/ssh/account/keys). This requirement will go away once Muir is open-sourced.
 
 ### muir-cli
 
-The [muir-cli](https://project.marklogic.com/repo/users/pmcelwee/repos/muir-cli/browse) is the best way to install and configure new MUIR Projects. This project is currently under development and not yet published publicly. Run the following to install the Muir CLI (**note that if you receive a "Permission denied (publickey)" error, please see the last Prerequisite above**):
+The [muir-cli](https://project.marklogic.com/repo/users/pmcelwee/repos/muir-cli/browse) is the best way to install and configure new MUIR Projects. This project is currently under development and not yet published publicly. Run the following to install the Muir CLI:
 
-    git clone ssh://git@project.marklogic.com:7999/~pmcelwee/muir-cli.git
+    git clone https://project.marklogic.com/repo/scm/~pmcelwee/muir-cli.git
     cd muir-cli
     npm install -g
 
 This makes the `muir` command available on your command-line.
-
-To install the `muir-cli` and some npm dependencies, at the moment you need to have SSH access to project.marklogic.com. If you are receiving ssh permission denied errors, [be sure your public key is loaded on project.marklogic.com](https://project.marklogic.com/repo/plugins/servlet/ssh/account/keys).
 
 ### Quick Start
 
