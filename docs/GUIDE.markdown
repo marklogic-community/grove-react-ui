@@ -61,13 +61,13 @@ If you find yourself editing React components, take a look at the [documentation
 
 We selected React in large part because there are many excellent resources for learning to work with the framework (as well as extending it). To learn React, you should [start with the official React docs](https://reactjs.org/docs/hello-world.html) or [tutorial](https://reactjs.org/tutorial/tutorial.html), which will introduce you to the framework in a highly intuitive way.
 
-The presentational React components are provided through a separate libary: [muir-react](https://project.marklogic.com/repo/projects/NACW/repos/muir-react/browse). These components are 'dumb', presentation-only React components that render html based on provided properties and invoke callback functions based on user interaction. (Here is a [good article](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) on the useful pattern of dividing an application between 'dumb', presentational components and 'smart' containers. We lean heavily on this pattern in Muir.)
+The presentational React components are provided through a separate libary: [muir-core-react-components](https://project.marklogic.com/repo/projects/NACW/repos/muir-core-react-components/browse). These components are 'dumb', presentation-only React components that render html based on provided properties and invoke callback functions based on user interaction. (Here is a [good article](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) on the useful pattern of dividing an application between 'dumb', presentational components and 'smart' containers. We lean heavily on this pattern in Muir.)
 
 In particular, the React components are unaware of the Redux layer. They simply define properties and functions that they expect to be passed to them. They are only responsible for rendering an appropriate view based on those properties and for wiring user actions to the passed-in functions.
 
-The muir-react components are imported and used in [`ui/src/App.js`](`ui/src/App.js`) and [`ui/src/containers/MLSearchContainer.js`](`ui/src/containers/MLSearchContainer.js`).
+The muir-core-react-components are imported and used in [`ui/src/App.js`](`ui/src/App.js`) and [`ui/src/containers/MLSearchContainer.js`](`ui/src/containers/MLSearchContainer.js`).
 
-If you want to change the React components, you can provide your own components and import those instead. (Your components may also import some of the muir-react components, so you don't have to recreate everything.)
+If you want to change the React components, you can provide your own components and import those instead. (Your components may also import some of the muir-core-react-components, so you don't have to recreate everything.)
 
 ### Client-Side State-Management System (using Redux)
 

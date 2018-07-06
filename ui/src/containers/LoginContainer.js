@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { LoginJumbotron } from 'muir-react';
+import { LoginJumbotron } from 'muir-core-react-components';
 import { actions } from 'muir-user-redux';
 
 const mapStateToProps = (state, ownProps) => ({

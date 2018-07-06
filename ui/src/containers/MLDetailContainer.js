@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { DetailView } from 'muir-react';
+import { DetailView } from 'muir-core-react-components';
 
 import { actions, selectors } from 'muir-crud-redux';
 import { bindSelectors } from '../utils/redux-utils';
