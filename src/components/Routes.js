@@ -1,18 +1,20 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import MLSearchContainer from '../containers/MLSearchContainer';
-import MLDetailContainer from '../containers/MLDetailContainer';
-import Login from '../containers/LoginContainer';
+import {
+  SearchContainer,
+  DetailContainer,
+  LoginContainer
+} from 'muir-core-react-redux-containers';
 
 const LoggedInRoutes = () => (
   <Switch>
-    <Route exact path="/" render={() => <MLSearchContainer />} />
+    <Route exact path="/" render={() => <SearchContainer />} />
     <Route
       exact
       path="/detail/:uri*"
       render={props => (
-        <MLDetailContainer uri={decodeURIComponent(props.match.params.uri)} />
+        <DetailContainer uri={decodeURIComponent(props.match.params.uri)} />
       )}
     />
     <Redirect from="/login" to="/" />
@@ -21,7 +23,7 @@ const LoggedInRoutes = () => (
 
 const LoggedOutRoutes = props => (
   <Switch>
-    <Route exact path="/login" component={Login} />
+    <Route exact path="/login" component={LoginContainer} />
     <Redirect exact to="/login" state={{ from: props.location }} />
   </Switch>
 );
