@@ -22,7 +22,7 @@ describe('<MLSearchContainer />', () => {
     isSearchPending: jest.fn(),
     isSearchComplete: jest.fn(),
     searchFacets: jest.fn(),
-    stagedFilters: jest.fn().mockReturnValue({})
+    stagedFilters: jest.fn().mockReturnValue([])
   };
 
   it('works', () => {
