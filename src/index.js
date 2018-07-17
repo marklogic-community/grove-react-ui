@@ -10,7 +10,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
 import thunk from 'redux-thunk';
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom';
 
 import appReducer from './appReducer';
 import App from './App';
@@ -30,22 +30,17 @@ import { compose, createStore, applyMiddleware } from 'redux';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // TODO: extract to store.js?
-const store = createStore(
-  appReducer,
-  composeEnhancers(
-    applyMiddleware(thunk)
-  )
-);
+const store = createStore(appReducer, composeEnhancers(applyMiddleware(thunk)));
 
 // TODO: extract to store.js?
 // Hot reloading
 // https://github.com/facebookincubator/create-react-app/issues/2317
-if (process.env.NODE_ENV !== "production") {
-	if (module.hot) {
-		module.hot.accept('./appReducer', () => {
-			store.replaceReducer(appReducer)
-		})
-	}
+if (process.env.NODE_ENV !== 'production') {
+  if (module.hot) {
+    module.hot.accept('./appReducer', () => {
+      store.replaceReducer(appReducer);
+    });
+  }
 }
 
 render(
@@ -69,6 +64,6 @@ if (module.hot) {
       </Provider>,
       document.getElementById('root')
     );
-  })
+  });
 }
 // registerServiceWorker();

@@ -23,6 +23,6 @@ const App = appProps => (
       </div>
     )}
   />
-)
+);
 
 export default withRouter(App);
