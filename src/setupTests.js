@@ -1,3 +1,4 @@
+// TODO: can we now remove jest-enzyme dependency?
 import 'jest-enzyme';
 
 import Enzyme from 'enzyme';
