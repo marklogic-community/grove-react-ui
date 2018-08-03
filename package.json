@@ -1,13 +1,13 @@
 {
   "name": "muir-react-ui",
-  "version": "0.10.0-alpha.1",
+  "version": "0.10.0-alpha.2",
   "private": true,
   "proxy": "http://localhost:9003/",
   "dependencies": {
     "bootstrap": "^3.3.7",
     "bootstrap-material-design": "^0.5.10",
-    "muir-core-react-components": "git+https://project.marklogic.com/repo/scm/nacw/muir-core-react-components.git#semver:~0.10.0-alpha",
-    "muir-core-react-redux-containers": "git+https://project.marklogic.com/repo/scm/~pmcelwee/muir-core-react-redux-containers.git#semver:~0.10.0-alpha.1",
+    "muir-core-react-components": "git+https://project.marklogic.com/repo/scm/nacw/muir-core-react-components.git#semver:~0.10.0-alpha.2",
+    "muir-core-react-redux-containers": "git+https://project.marklogic.com/repo/scm/~pmcelwee/muir-core-react-redux-containers.git#semver:~0.10.0-alpha.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.6",
