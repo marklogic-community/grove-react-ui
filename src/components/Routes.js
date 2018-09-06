@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import {
   SearchContainer,
   DetailContainer,
+  CreateContainer,
   LoginContainer
 } from 'muir-core-react-redux-containers';
 
@@ -16,6 +17,11 @@ const LoggedInRoutes = () => (
       render={props => (
         <DetailContainer uri={decodeURIComponent(props.match.params.uri)} />
       )}
+    />
+    <Route
+      exact
+      path="/create"
+      render={() => <CreateContainer redirectPath="/detail" />}
     />
     <Redirect from="/login" to="/" />
   </Switch>
