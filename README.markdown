@@ -62,7 +62,7 @@ You can do this in `.env.development` (shared with your team) or `.env.developme
 
     HTTPS=true
 
-[See the create-reaçt-app User Guide for more details and up-to-date documentation on this feature](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#using-https-in-development).
+[See the create-react-app User Guide for more details and up-to-date documentation on this feature](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#using-https-in-development).
 
 #### Using HTTPS when making network calls
 
