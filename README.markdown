@@ -36,8 +36,36 @@ Best practice is to use the muir-cli to configure the application from the paren
 
 The only configuration needed by this UI out-of-the-box is the `proxy` setting in `package.json`. It should point to the host and port where a MUIR API-spec compliant middle-tier is running and available. (The Webpack development server uses this to proxy requests that do not refer to assets within this UI to the MUIR middle-tier. This avoids CORS issues. [See the create-react-app docs for more information.](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#proxying-api-requests-in-development))
 
-## Create-React-App User Guide: Much more information on extending this application
+### Create-React-App User Guide: Much more information on extending this application
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 You can find the most recent version of the create-react-app user guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+
+### Using HTTPS
+
+There are two places to think about HTTPS:
+
+1. When serving the files of this UI application to a client (a browser), and
+
+2. When this UI application makes network calls to a middle-tier or other backend.
+
+As the sections below make clear, in most production-like situations, nothing needs to change in this application when moving from HTTP to HTTPS or vice-versa.
+
+#### Using HTTPS when serving the UI application
+
+You will most often want to use HTTPS in a production-like environment. Typically, in such an environment, this UI will have been transpiled and minified into a set of static files (possible to achieve by running `npm run build`). A file server (which could be a Grove middle-tier, but could also be Apache, Nginx, etc, which serves static assets and proxies back to a middle-tier) will then serve those files to clients. The file server should be configured to use HTTPS - and nothing special has to be done in this UI application.
+
+Sometimes, however, you will want to use HTTPS in development, when you are making use of the Webpack development server bundled with create-react-app. This is easy to setup: Simply set the `HTTPS` environment variable to true.
+
+You can do this in `.env.development` (shared with your team) or `.env.development.local` (only for your local machine):
+
+    HTTPS=true
+
+[See the create-react-app User Guide for more details and up-to-date documentation on this feature](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#using-https-in-development).
+
+#### Using HTTPS when making network calls
+
+As in the last section, in a production situation, nothing special needs to be done. All network calls should be relative URLs, inheriting the protocol (https), host and port from which the UI application files themselves were served.
+
+In development, when your middle-tier or other backend requires HTTPS, simply change the protocol to 'https' in the `proxy` field of this UI directory's `package.json`. NOTE: the muir-cli may currently overwrite this property when run, unfortunately. There is Jira ticket to improve this: [GROVE-316](https://project.marklogic.com/jira/browse/GROVE-316)
