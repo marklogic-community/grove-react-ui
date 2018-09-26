@@ -27,6 +27,14 @@ Note that this UI expects a MUIR API-spec compliant middle-tier to be available 
 
     npm test
 
+## Build into static files
+
+You can create a static build of this application by running `npm run build`. You may want to set `NODE_ENV=production` when running that if you are building for production.
+
+By default, this will build into the `build/` directory.
+
+See the [create-react-app User Guide](https://github.com/facebook/create-react-app#readme) for more details.
+
 ## Configuration
 
 Best practice is to use the muir-cli to configure the application from the parent directory, so that it can coordinate configuration with the MUIR middle-tier:
