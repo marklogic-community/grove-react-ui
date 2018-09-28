@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "MarkLogic Grove",
+  "name": "MarkLogic Grove Application",
   "icons": [
     {
       "src": "favicon.ico",
