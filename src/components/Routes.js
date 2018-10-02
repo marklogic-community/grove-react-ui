@@ -6,7 +6,7 @@ import {
   DetailContainer,
   CreateContainer,
   LoginContainer
-} from 'muir-core-react-redux-containers';
+} from 'grove-core-react-redux-containers';
 
 const LoggedInRoutes = () => (
   <Switch>
