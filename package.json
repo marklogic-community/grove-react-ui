@@ -1,6 +1,6 @@
 {
-  "name": "muir-react-ui",
-  "version": "0.10.0-alpha.3",
+  "name": "grove-react-ui",
+  "version": "0.10.0-beta",
   "private": true,
   "proxy": "http://localhost:9003/",
   "engines": {
@@ -10,8 +10,8 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "bootstrap-material-design": "^0.5.10",
-    "muir-core-react-components": "git+https://project.marklogic.com/repo/scm/nacw/muir-core-react-components.git#development",
-    "muir-core-react-redux-containers": "git+https://project.marklogic.com/repo/scm/~pmcelwee/muir-core-react-redux-containers.git#development",
+    "grove-core-react-components": "git+https://project.marklogic.com/repo/scm/nacw/grove-core-react-components.git#development",
+    "grove-core-react-redux-containers": "git+https://project.marklogic.com/repo/scm/~pmcelwee/grove-core-react-redux-containers.git#development",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.6",
@@ -39,5 +39,19 @@
     "prettier": "^1.13.7",
     "react-test-renderer": "^16.0.0"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "contributors": [
+    {
+      "name": "Patrick McElwee",
+      "url": "https://github.com/patrickmcelwee"
+    },
+    {
+      "name": "Marianne Myers",
+      "url": "https://github.com/mariannemyers"
+    },
+    {
+      "name": "Geert Josten",
+      "url": "https://github.com/grtjn"
+    }
+  ]
 }
