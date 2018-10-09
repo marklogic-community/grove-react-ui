@@ -2,7 +2,7 @@
   "name": "grove-react-ui",
   "version": "0.10.0-beta",
   "private": true,
-  "proxy": "http://localhost:9003/",
+  "proxy": "http://localhost:9003",
   "engines": {
     "node": ">=8.0.0",
     "npm": ">=5.7.0"
