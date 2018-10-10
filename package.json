@@ -12,10 +12,10 @@
     "bootstrap-material-design": "^0.5.10",
     "grove-core-react-components": "git+https://project.marklogic.com/repo/scm/nacw/grove-core-react-components.git#development",
     "grove-core-react-redux-containers": "git+https://project.marklogic.com/repo/scm/~pmcelwee/grove-core-react-redux-containers.git#development",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
     "react-redux": "^5.0.6",
-    "react-scripts": "^1.1.4",
+    "react-scripts": "^1.1.5",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
   },
@@ -34,14 +34,14 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "enzyme": "^3.0.0",
-    "enzyme-adapter-react-16": "^1.0.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-prettier": "^2.6.2",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "eslint-config-prettier": "^2.10.0",
+    "eslint-plugin-prettier": "^2.7.0",
     "jest-enzyme": "^4.0.2",
-    "nock": "^9.2.3",
-    "prettier": "^1.13.7",
-    "react-test-renderer": "^16.0.0"
+    "nock": "^9.6.1",
+    "prettier": "^1.14.3",
+    "react-test-renderer": "^16.5.2"
   },
   "license": "Apache-2.0",
   "contributors": [
