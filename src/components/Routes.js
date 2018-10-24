@@ -13,10 +13,13 @@ const LoggedInRoutes = () => (
     <Route exact path="/" render={() => <SearchContainer />} />
     <Route
       exact
-      path="/detail/:uri*"
-      render={props => (
-        <DetailContainer uri={decodeURIComponent(props.match.params.uri)} />
-      )}
+      path="/detail/:id*"
+      render={props => {
+        const pathParts = window.location.pathname.split('/');
+        // React Router tries to decode the id, but inconsistently
+        // It breaks when back-forward clicked in browser
+        return <DetailContainer id={pathParts[pathParts.length - 1]} />;
+      }}
     />
     <Route
       exact
