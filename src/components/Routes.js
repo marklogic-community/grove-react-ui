@@ -62,14 +62,21 @@ const Routes = ({ isAuthenticated }, ...rest) => {
       <PrivateRoute
         isAuthenticated={isAuthenticated}
         exact
-        path="/detail/:id*"
+        path="/detail"
         render={props => {
-          const pathParts = window.location.pathname.split('/');
-          // React Router tries to decode the id param, but inconsistently
-          // It breaks when back-forward clicked in browser
-          // See https://github.com/ReactTraining/history/issues/505
-          // for current status or recommended workarounds.
-          return <DetailContainer id={pathParts[pathParts.length - 1]} />;
+          // Prefer to get id from the state
+          let id = props.location.state && props.location.state.id;
+          if (!id) {
+            // if it isn't in the state, try to get it from the search params
+            // Using search parameters because React Router does bad encoding
+            // for path parameters
+            // See https://github.com/ReactTraining/history/issues/505
+            const idMatch = props.location.search.match(/[?|&]id=([^&]+)/);
+            if (idMatch) {
+              id = idMatch[1];
+            }
+          }
+          return <DetailContainer id={id} />;
         }}
       />
       <PrivateRoute
