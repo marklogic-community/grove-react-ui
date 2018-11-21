@@ -12,6 +12,7 @@
     "bootstrap-material-design": "^0.5.10",
     "grove-core-react-components": "git+https://project.marklogic.com/repo/scm/nacw/grove-core-react-components.git#0.10.0-beta",
     "grove-core-react-redux-containers": "git+https://project.marklogic.com/repo/scm/~pmcelwee/grove-core-react-redux-containers.git#0.10.0-beta",
+    "query-string": "^5.1.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.6",
