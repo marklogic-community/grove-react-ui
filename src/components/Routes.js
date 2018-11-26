@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import queryString from 'query-string';
 
 import {
   SearchContainer,
@@ -8,37 +9,76 @@ import {
   LoginContainer
 } from 'grove-core-react-redux-containers';
 
-const LoggedInRoutes = () => (
-  <Switch>
-    <Route exact path="/" render={() => <SearchContainer />} />
+const PrivateRoute = ({
+  component: Component,
+  render,
+  isAuthenticated,
+  ...rest
+}) => {
+  return (
     <Route
-      exact
-      path="/detail/:uri*"
-      render={props => (
-        <DetailContainer uri={decodeURIComponent(props.match.params.uri)} />
-      )}
+      {...rest}
+      render={props =>
+        isAuthenticated ? (
+          render ? (
+            render(props)
+          ) : (
+            <Component {...props} />
+          )
+        ) : (
+          <Redirect
+            to={{
+              pathname: '/login',
+              state: { from: props.location }
+            }}
+          />
+        )
+      }
     />
-    <Route
-      exact
-      path="/create"
-      render={() => <CreateContainer redirectPath="/detail" />}
-    />
-    <Redirect from="/login" to="/" />
-  </Switch>
-);
+  );
+};
 
-const LoggedOutRoutes = props => (
-  <Switch>
-    <Route exact path="/login" component={LoginContainer} />
-    <Redirect exact to="/login" state={{ from: props.location }} />
-  </Switch>
-);
-
-const Routes = ({ isAuthenticated }, ...props) => {
-  return isAuthenticated ? (
-    <LoggedInRoutes {...props} />
-  ) : (
-    <LoggedOutRoutes {...props} />
+const Routes = ({ isAuthenticated }, ...rest) => {
+  return (
+    <Switch>
+      <Route
+        exact
+        path="/login"
+        render={props => {
+          return isAuthenticated ? (
+            <Redirect
+              to={(props.location.state && props.location.state.from) || '/'}
+            />
+          ) : (
+            <LoginContainer />
+          );
+        }}
+      />
+      <PrivateRoute
+        isAuthenticated={isAuthenticated}
+        exact
+        path="/"
+        render={() => <SearchContainer />}
+      />
+      <PrivateRoute
+        isAuthenticated={isAuthenticated}
+        exact
+        path="/detail"
+        render={props => {
+          // Prefer to get id from the state
+          const id =
+            (props.location.state && props.location.state.id) ||
+            queryString.parse(props.location.search).id;
+          return <DetailContainer id={id} />;
+        }}
+      />
+      <PrivateRoute
+        isAuthenticated={isAuthenticated}
+        exact
+        path="/create"
+        render={() => <CreateContainer redirectPath="/detail" />}
+      />
+    </Switch>
   );
 };
 
