@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import queryString from 'query-string';
 
 import {
   SearchContainer,
@@ -67,7 +68,7 @@ const Routes = ({ isAuthenticated }, ...rest) => {
           // Prefer to get id from the state
           const id =
             (props.location.state && props.location.state.id) ||
-            require('query-string').parse(props.location.search).id;
+            queryString.parse(props.location.search).id;
           return <DetailContainer id={id} />;
         }}
       />
