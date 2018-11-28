@@ -2,11 +2,11 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import {
-  SearchContainer,
   DetailContainer,
   CreateContainer,
   LoginContainer
 } from 'grove-core-react-redux-containers';
+import SearchContainer from '../containers/SearchContainer';
 
 const LoggedInRoutes = () => (
   <Switch>
