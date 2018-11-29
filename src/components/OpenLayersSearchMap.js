@@ -238,17 +238,15 @@ class OpenLayersSearchMap extends React.Component {
     let size = this.state.map.getSize();
     let extent = this.state.map.getView().calculateExtent(size);
     let convertedExtent = transformExtent(extent, 'EPSG:3857', 'EPSG:4326');
-    let geoSearch = {
-      box: [
-        {
-          south: convertedExtent[1],
-          west: convertedExtent[0],
-          north: convertedExtent[3],
-          east: convertedExtent[2]
-        }
-      ]
-    };
-    this.props.replaceFilter(this.props.geoFacetName, 'custom', geoSearch);
+    let geoSearch = [
+      {
+        south: convertedExtent[1],
+        west: convertedExtent[0],
+        north: convertedExtent[3],
+        east: convertedExtent[2]
+      }
+    ];
+    this.props.replaceFilter(this.props.geoFacetName, 'geospatial', geoSearch);
   }
 
   handleMapClick(event) {

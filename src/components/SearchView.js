@@ -77,7 +77,7 @@ class SearchView extends Component {
             <OpenLayersSearchMap
               facets={this.props.facets}
               onSearch={this.search}
-              geoFacetName={'GeoPoint'}
+              geoFacetName={'Location'}
               activeFilters={this.props.activeFilters}
               replaceFilter={this.props.replaceFilter}
               addFilter={this.props.addFilter}
