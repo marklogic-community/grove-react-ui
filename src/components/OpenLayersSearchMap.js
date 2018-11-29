@@ -276,6 +276,7 @@ class OpenLayersSearchMap extends React.Component {
       if (layers['primary'] && layers['primary'].length > 0) {
         display = '<div><ul>';
         layers['primary'].forEach(function(primFeat) {
+          // TODO: cageCode is appSpecific, so could be removed
           if (primFeat.get('cageCode')) {
             let cageCode = primFeat.get('cageCode');
             display +=
@@ -287,6 +288,8 @@ class OpenLayersSearchMap extends React.Component {
               cageCode +
               ')</a></li>';
           } else {
+            // TODO: rely on id rather than uri - but the custom constraint code
+            // is what is adding the uri
             let uri = primFeat.get('uri');
             display += '<li><a href="/detail/' + uri + '">' + uri + '</a></li>';
           }
