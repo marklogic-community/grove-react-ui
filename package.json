@@ -16,7 +16,7 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.6",
-    "react-scripts": "^1.1.5",
+    "react-scripts": "^2.1.1",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
   },
@@ -30,8 +30,8 @@
     "start": "react-scripts start",
     "devtools-server": "node start-remote-redux-devtools-server.js",
     "build": "npm run lint && react-scripts build",
-    "test": "npm run lint && react-scripts test --env=jsdom",
-    "test:watch": "npm run lint && react-scripts test --env=jsdom",
+    "test": "npm run lint && react-scripts test",
+    "test:watch": "npm run lint && react-scripts test",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
@@ -58,5 +58,11 @@
       "name": "Geert Josten",
       "url": "https://github.com/grtjn"
     }
+  ],
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
   ]
 }
