@@ -1,6 +1,6 @@
 {
   "name": "grove-react-ui",
-  "version": "0.10.0-beta",
+  "version": "1.0.0-rc.1",
   "private": true,
   "proxy": "http://localhost:9003",
   "engines": {
@@ -10,8 +10,8 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "bootstrap-material-design": "^0.5.10",
-    "grove-core-react-components": "git+https://project.marklogic.com/repo/scm/nacw/grove-core-react-components.git#development",
-    "grove-core-react-redux-containers": "git+https://project.marklogic.com/repo/scm/~pmcelwee/grove-core-react-redux-containers.git#development",
+    "grove-core-react-components": "git+https://project.marklogic.com/repo/scm/nacw/grove-core-react-components.git#1.0.0-rc.1",
+    "grove-core-react-redux-containers": "git+https://project.marklogic.com/repo/scm/~pmcelwee/grove-core-react-redux-containers.git#1.0.0-rc.1",
     "query-string": "^6.2.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
@@ -22,7 +22,7 @@
   },
   "grove": {
     "templateID": "grove-react-ui",
-    "templateVersion": "0.10.0-beta"
+    "templateVersion": "1.0.0-rc.1"
   },
   "scripts": {
     "lint": "eslint .",
