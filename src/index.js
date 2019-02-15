@@ -1,3 +1,7 @@
+//Polyfills for IE11+ support
+import '@babel/polyfill';
+import 'url-polyfill';
+
 import 'bootstrap/dist/css/bootstrap.css';
 // import 'bootstrap/dist/css/bootstrap-theme.css';
 import 'bootstrap-material-design/dist/css/bootstrap-material-design.css';
