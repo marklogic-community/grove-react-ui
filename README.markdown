@@ -77,3 +77,15 @@ You can do this in `.env.development` (shared with your team) or `.env.developme
 As in the last section, in a production situation, nothing special needs to be done. All network calls should be relative URLs, inheriting the protocol (https), host and port from which the UI application files themselves were served.
 
 In development, when your middle-tier or other backend requires HTTPS, simply change the protocol to 'https' in the `proxy` field of this UI directory's `package.json`. NOTE: the grove-cli may currently overwrite this property when run, unfortunately. There is Jira ticket to improve this: [GROVE-316](https://project.marklogic.com/jira/browse/GROVE-316)
+
+## Docker
+
+A template to create a nginx docker container is included into this project.  Once you have built the static files by running `npm run build`, then use the following docker command at the project root to create the container.  
+
+    docker build -t <containerName> .
+
+The [nginx.conf](nginx.conf) assumes several configuration items.
+
+ * The middle tier is hosted on a docker container named grove_node
+ * The middle tier is listening on port 9003
+
