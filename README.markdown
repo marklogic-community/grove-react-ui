@@ -11,7 +11,7 @@ Note that this UI expects a Grove API-spec compliant middle-tier to be available
 
 ## Installation
 
-This UI can be generated using the [grove-cli](https://project.marklogic.com/repo/users/pmcelwee/repos/grove-cli/browse).
+This UI can be generated using the [grove-cli](https://github.com/marklogic-community/grove-cli).
 
 You can install npm dependencies with the following command:
 
