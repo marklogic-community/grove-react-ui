@@ -1,5 +1,5 @@
 {
-  "name": "grove-react-ui",
+  "name": "@marklogic-community/grove-react-ui",
   "version": "1.0.0-rc.1",
   "private": true,
   "proxy": "http://localhost:9003",
@@ -8,15 +8,15 @@
     "npm": ">=5.7.0"
   },
   "dependencies": {
-    "bootstrap": "^3.3.7",
+    "@marklogic-community/grove-core-react-components": "^1.0.0-rc.1",
+    "@marklogic-community/grove-core-react-redux-containers": "^1.0.0-rc.1",
+    "bootstrap": "^3.4.1",
     "bootstrap-material-design": "^0.5.10",
-    "grove-core-react-components": "git+https://project.marklogic.com/repo/scm/nacw/grove-core-react-components.git#1.0.0-rc.1",
-    "grove-core-react-redux-containers": "git+https://project.marklogic.com/repo/scm/~pmcelwee/grove-core-react-redux-containers.git#1.0.0-rc.1",
-    "query-string": "^6.2.0",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-redux": "^5.0.6",
-    "react-scripts": "^2.1.1",
+    "query-string": "^6.4.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^5.1.1",
+    "react-scripts": "^2.1.8",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
   },
@@ -35,14 +35,14 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "enzyme": "^3.7.0",
-    "enzyme-adapter-react-16": "^1.6.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
     "eslint-config-prettier": "^2.10.0",
     "eslint-plugin-prettier": "^2.7.0",
     "jest-enzyme": "^4.0.2",
     "nock": "^9.6.1",
-    "prettier": "^1.14.3",
-    "react-test-renderer": "^16.5.2"
+    "prettier": "^1.17.0",
+    "react-test-renderer": "^16.8.6"
   },
   "license": "Apache-2.0",
   "contributors": [

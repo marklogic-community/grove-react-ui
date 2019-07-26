@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 
-import { AppContainer } from 'grove-core-react-redux-containers';
+import { AppContainer } from '@marklogic-community/grove-core-react-redux-containers';
 
 import Routes from './components/Routes';
 import Navbar from './components/Navbar';

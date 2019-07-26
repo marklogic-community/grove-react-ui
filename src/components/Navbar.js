@@ -2,7 +2,7 @@ import React from 'react';
 import { Nav, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Navbar as MLNavbar } from 'grove-core-react-components';
+import { Navbar as MLNavbar } from '@marklogic-community/grove-core-react-components';
 
 const brandLink = props => <Link to="/" {...props} />;
 const Navbar = props => (
