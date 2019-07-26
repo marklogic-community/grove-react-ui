@@ -1,6 +1,6 @@
 {
   "name": "@marklogic-community/grove-react-ui",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0",
   "private": true,
   "proxy": "http://localhost:9003",
   "engines": {
@@ -22,7 +22,7 @@
   },
   "grove": {
     "templateID": "grove-react-ui",
-    "templateVersion": "1.0.0-rc.1"
+    "templateVersion": "1.0.0"
   },
   "scripts": {
     "lint": "eslint .",
@@ -47,8 +47,8 @@
   "license": "Apache-2.0",
   "contributors": [
     {
-      "name": "Patrick McElwee",
-      "url": "https://github.com/patrickmcelwee"
+      "name": "Matt Pileggi",
+      "url": "https://github.com/withjam"
     },
     {
       "name": "Marianne Myers",
