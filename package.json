@@ -16,12 +16,13 @@
     "bootstrap": "^3.4.1",
     "bootstrap-material-design": "^0.5.10",
     "query-string": "^6.4.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.9.0",
+    "react-app-polyfill": "^1.0.2",
+    "react-dom": "^16.9.0",
     "react-redux": "^5.1.1",
-    "react-scripts": "^2.1.8",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "react-scripts": "^3.1.0",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0"
   },
   "grove": {
     "templateID": "grove-react-ui",
@@ -62,10 +63,16 @@
       "url": "https://github.com/grtjn"
     }
   ],
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 2 chrome version",
+      "last 2 firefox version",
+      "last 2 safari version"
+    ]
+  }
 }

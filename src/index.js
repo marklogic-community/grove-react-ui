@@ -1,3 +1,7 @@
+//converted into suitable polyfills by browserlist in package.json
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
+
 import 'bootstrap/dist/css/bootstrap.css';
 // import 'bootstrap/dist/css/bootstrap-theme.css';
 import 'bootstrap-material-design/dist/css/bootstrap-material-design.css';
@@ -27,6 +31,12 @@ import { compose, createStore, applyMiddleware } from 'redux';
 //   realtime: true,
 //   port: 18055
 // });
+
+//baseURI doesnt exist in IE11
+if (!document.baseURI) {
+  document.baseURI = document.URL;
+}
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // TODO: extract to store.js?
