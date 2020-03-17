@@ -1,0 +1,41 @@
+.ml-fade-slide-enter {
+  opacity: 0.01;
+  transform: translateY(-10%);
+  /* transform: scaleY(0); */
+}
+
+.ml-fade-slide-appear {
+  opacity: 0.01;
+  transform: translateY(-10%);
+  /* transform: scaleY(0); */
+}
+
+.ml-fade-slide-enter.ml-fade-slide-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  /* transform: scaleY(1); */
+  transform-origin: top;
+  transition: all 500ms ease-in;
+}
+
+.ml-fade-slide-appear.ml-fade-slide-appear-active {
+  opacity: 1;
+  transform: translateY(0);
+  /* transform: scaleY(1); */
+  transform-origin: top;
+  transition: all 500ms ease-in;
+}
+
+.ml-fade-slide-exit {
+  opacity: 1;
+  /* transform: scaleY(1); */
+  transform: translateY(0);
+}
+
+.ml-fade-slide-exit.ml-fade-slide-exit-active {
+  opacity: 0.01;
+  /* transform: scaleY(0); */
+  transform: translateY(-10%);
+  transition: all 300ms ease-in;
+  transform-origin: top;
+}
