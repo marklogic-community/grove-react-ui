@@ -2,11 +2,11 @@ import React from 'react';
 import { Nav, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Navbar as MLNavbar } from '@marklogic-community/grove-core-react-components';
+import { GroveNavbar } from './GroveNavbar';
 
 const brandLink = props => <Link to="/" {...props} />;
 const Navbar = props => (
-  <MLNavbar title="MarkLogic Grove" {...props} brandLink={brandLink}>
+  <GroveNavbar title="MarkLogic Grove" {...props} brandLink={brandLink}>
     <Nav>
       <LinkContainer exact to="/">
         <NavItem>Search</NavItem>
@@ -15,7 +15,7 @@ const Navbar = props => (
         <NavItem>Create</NavItem>
       </LinkContainer>
     </Nav>
-  </MLNavbar>
+  </GroveNavbar>
 );
 
 export default Navbar;
