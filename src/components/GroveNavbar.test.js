@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, render } from 'enzyme';
 import expect from 'expect';
-import GroveNavbar from './GroveNavbar';
+import { GroveNavbar } from './GroveNavbar';
 
 describe('<GroveNavbar />', () => {
   it('renders without crashing', () => {

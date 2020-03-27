@@ -27,7 +27,7 @@
     "react-dom": "^16.8.6",
     "react-redux": "^5.1.1",
     "react-scripts": "^2.1.8",
-    "redux": "^3.7.2",
+    "redux": "^4.0.0",
     "redux-thunk": "^2.2.0",
     "vkbeautify": "^0.99.3",
     "x2js": "^3.1.1"
@@ -47,14 +47,18 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "deep-freeze": "0.0.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
+    "eslint": "^5.6.0",
     "eslint-config-prettier": "^2.10.0",
     "eslint-plugin-prettier": "^2.7.0",
+    "expect": "^1.20.2",
     "jest-enzyme": "^4.0.2",
     "nock": "^9.6.1",
     "prettier": "^1.17.0",
-    "react-test-renderer": "^16.8.6"
+    "react-test-renderer": "^16.8.6",
+    "redux-mock-store": "^1.2.3"
   },
   "license": "Apache-2.0",
   "contributors": [

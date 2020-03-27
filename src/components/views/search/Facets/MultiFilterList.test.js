@@ -13,7 +13,10 @@ describe('<MultiFilterList/>', () => {
   it('renders with values', () => {
     const wrapper = shallow(
       <MultiFilterList
-        values={[{ value: 'value1', count: 1 }, { value: 'value2', count: 2 }]}
+        values={[
+          { value: 'value1', count: 1 },
+          { value: 'value2', count: 2 }
+        ]}
         addFilter={() => {}}
       />
     );
@@ -28,7 +31,10 @@ describe('<MultiFilterList/>', () => {
   it('shows a single selected value', () => {
     const wrapper = shallow(
       <MultiFilterList
-        values={[{ value: 'value1', count: 1 }, { value: 'value2', count: 2 }]}
+        values={[
+          { value: 'value1', count: 1 },
+          { value: 'value2', count: 2 }
+        ]}
         selectedValues={[{ value: 'value1' }]}
         removeFilter={() => {}}
         addFilter={() => {}}
@@ -49,7 +55,10 @@ describe('<MultiFilterList/>', () => {
   it('shows two selected values', () => {
     const wrapper = shallow(
       <MultiFilterList
-        values={[{ value: 'value1', count: 1 }, { value: 'value2', count: 2 }]}
+        values={[
+          { value: 'value1', count: 1 },
+          { value: 'value2', count: 2 }
+        ]}
         selectedValues={[{ value: 'value1' }, { value: 'value2' }]}
         addFilter={() => {}}
         removeFilter={() => {}}
@@ -71,7 +80,10 @@ describe('<MultiFilterList/>', () => {
     const addFilterSpy = expect.createSpy();
     const wrapper = shallow(
       <MultiFilterList
-        values={[{ value: 'value1', count: 1 }, { value: 'value2', count: 2 }]}
+        values={[
+          { value: 'value1', count: 1 },
+          { value: 'value2', count: 2 }
+        ]}
         addFilter={addFilterSpy}
       />
     );
@@ -88,7 +100,10 @@ describe('<MultiFilterList/>', () => {
     const addFilterSpy = expect.createSpy();
     const wrapper = shallow(
       <MultiFilterList
-        values={[{ value: 'value1', count: 1 }, { value: 'value2', count: 2 }]}
+        values={[
+          { value: 'value1', count: 1 },
+          { value: 'value2', count: 2 }
+        ]}
         addFilter={addFilterSpy}
       />
     );
@@ -107,7 +122,10 @@ describe('<MultiFilterList/>', () => {
     const addFilterSpy = expect.createSpy();
     const wrapper = shallow(
       <MultiFilterList
-        values={[{ value: 'value1', count: 1 }, { value: 'value2', count: 2 }]}
+        values={[
+          { value: 'value1', count: 1 },
+          { value: 'value2', count: 2 }
+        ]}
         addFilter={addFilterSpy}
       />
     );
@@ -126,7 +144,10 @@ describe('<MultiFilterList/>', () => {
     const removeFilterSpy = expect.createSpy();
     const wrapper = shallow(
       <MultiFilterList
-        values={[{ value: 'value1', count: 1 }, { value: 'value2', count: 2 }]}
+        values={[
+          { value: 'value1', count: 1 },
+          { value: 'value2', count: 2 }
+        ]}
         addFilter={() => {}}
         removeFilter={removeFilterSpy}
         selectedValues={[{ value: 'value1' }]}
@@ -142,7 +163,10 @@ describe('<MultiFilterList/>', () => {
     const removeFilterSpy = expect.createSpy();
     const wrapper = shallow(
       <MultiFilterList
-        values={[{ value: 'value1', count: 1 }, { value: 'value2', count: 2 }]}
+        values={[
+          { value: 'value1', count: 1 },
+          { value: 'value2', count: 2 }
+        ]}
         addFilter={() => {}}
         removeFilter={removeFilterSpy}
         selectedValues={[{ value: 'value1' }]}

@@ -27,7 +27,8 @@ describe('search reducer', () => {
       ).toMatchObject(failedState);
     });
 
-    it('eliminates race conditions');
+    // TODO: Implement
+    // it('eliminates race conditions');
   });
 
   describe('SET_QUERYTEXT', () => {

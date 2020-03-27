@@ -33,9 +33,6 @@ const mapDispatchToProps = dispatch =>
     dispatch
   );
 
-CreateContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CreateContainer);
+CreateContainer = connect(mapStateToProps, mapDispatchToProps)(CreateContainer);
 
 export default CreateContainer;

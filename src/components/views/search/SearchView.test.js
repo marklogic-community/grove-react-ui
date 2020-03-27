@@ -100,5 +100,6 @@ describe('<SearchView />', () => {
     expect(spy).toHaveBeenCalledWith('');
   });
 
-  it('returns a helpful error when no runSearch() provided');
+  // TODO: Implement
+  // it('returns a helpful error when no runSearch() provided');
 });

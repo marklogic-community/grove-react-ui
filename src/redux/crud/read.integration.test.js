@@ -3,7 +3,7 @@ import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import nock from 'nock';
 
-import reducer, { selectors } from './';
+import reducer, { selectors } from './index';
 import * as actions from './actions';
 
 describe('READ', () => {
@@ -27,9 +27,15 @@ describe('READ', () => {
   it('fetches a doc successfully', done => {
     nock('http://localhost')
       .get('/api/crud/all/' + escapedDocId)
-      .reply(200, {
-        content: doc
-      });
+      .reply(
+        200,
+        {
+          content: doc
+        },
+        {
+          'Content-type': 'application/json'
+        }
+      );
     expect(selectors.isDocumentFetchPending(store.getState(), docId)).toBe(
       false
     );
@@ -84,9 +90,15 @@ describe('READ', () => {
         nock.cleanAll();
         nock('http://localhost')
           .get(/crud/)
-          .reply(200, {
-            content: doc
-          });
+          .reply(
+            200,
+            {
+              content: doc
+            },
+            {
+              'Content-type': 'application/json'
+            }
+          );
         return store.dispatch(actions.fetchDoc(fickleDocId));
       })
       .then(() => {

@@ -368,6 +368,7 @@ describe('search', () => {
 
     it('reports error after search failure', done => {
       nock('http://localhost')
+        .persist()
         .post('/api/search/all')
         .reply(400, {
           statusCode: 400,
@@ -406,8 +407,9 @@ describe('search', () => {
 
     // Could have a long-running search error, while a second search succeeds
     // Successful results should be maintained and error should not enter state
-    it('only reacts to the latest executedSearch results');
-
-    it('allows for reducer / action namespacing');
+    // TODO: Implement
+    // it('only reacts to the latest executedSearch results');
+    // TODO: Implement
+    //it('allows for reducer / action namespacing');
   });
 });
