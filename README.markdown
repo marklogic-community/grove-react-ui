@@ -2,9 +2,15 @@
 
 This is a React UI designed to be used in conjunction with a MarkLogic UI Resources (Grove) middle-tier. It uses Redux for application state management.
 
+This project provides a set of React components and Redux modules, connected via containers, useful for building applications backed by MarkLogic.  The React components are located in the [src/components](src/components/README.md) directory.  The Redux modules are located in [src/redux](src/redux/README.md).  Lastly, the containers are located in [src/containers](src/containers/README.md).
+
+Additional details and documentation, including recipes, can be found in the [Grove](https://marklogic-community.github.io/grove/) project on GitHub.
+
+
 ## Quick Start
 
-Note that this UI expects a Grove API-spec compliant middle-tier to be available at the location specified in the `proxy` field of the `package.json` located in this directory.
+Note that this UI expects a Grove API-spec compliant middle-tier such as [grove-node](https://github.com/marklogic-community/grove-node).
+ to be available at the location specified in the `proxy` field of the `package.json` located in this directory.
 
     npm install
     npm start # Starts a Webpack development server
@@ -25,7 +31,7 @@ Note that this UI expects a Grove API-spec compliant middle-tier to be available
 
 ## Run the Tests
 
-    npm test
+    npm run test
 
 ## Build into static files
 
@@ -89,3 +95,30 @@ The [nginx.conf](nginx.conf) assumes several configuration items.
  * The middle tier is hosted on a docker container named grove_node
  * The middle tier is listening on port 9003
 
+## Contributing
+
+You will need to install the devDependencies:
+
+    npm install
+
+### Building
+
+This project uses [react-scripts](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/) for building:
+
+    npm run build
+
+### Testing
+
+This project uses [react-scripts](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/) for testing:
+
+    npm run test
+
+`react-scripts` uses [Jest](https://facebook.github.io/jest/).
+
+Or, if you want it to watch for file changes and automatically re-run the tests:
+
+    npm run test:watch
+
+### Linting
+
+This project uses the [Javascript Standard Style](https://standardjs.com/). It will be checked automatically when you run tests, but you will have a greatly improved experience if you [install an ESLint checker in your text editor](https://eslint.org/docs/user-guide/integrations#editors), so linting errors are highlighted immediately.

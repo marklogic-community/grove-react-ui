@@ -1,6 +1,6 @@
 {
   "name": "@marklogic-community/grove-react-ui",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "proxy": "http://localhost:9003",
   "engines": {
     "node": ">=8.10.0",
@@ -11,21 +11,30 @@
     "url": "git@github.com:marklogic-community/grove-react-ui.git"
   },
   "dependencies": {
-    "@marklogic-community/grove-core-react-components": "^1.0.0",
-    "@marklogic-community/grove-core-react-redux-containers": "^1.0.0",
     "bootstrap": "^3.4.1",
     "bootstrap-material-design": "^0.5.10",
+    "codemirror": "^5.39.2",
+    "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.17.11",
     "query-string": "^6.4.2",
     "react": "^16.8.6",
+    "react-bootstrap": "^0.31.2",
+    "react-codemirror2": "^5.1.0",
+    "react-json-tree": "^0.11.0",
+    "react-router-bootstrap": "^0.24.4",
+    "react-router-dom": "^4.2.2",
+    "react-transition-group": "^2.2.1",
     "react-dom": "^16.8.6",
     "react-redux": "^5.1.1",
     "react-scripts": "^2.1.8",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.2.0",
+    "vkbeautify": "^0.99.3",
+    "x2js": "^3.1.1"
   },
   "grove": {
     "templateID": "grove-react-ui",
-    "templateVersion": "1.0.0"
+    "templateVersion": "2.0.0"
   },
   "scripts": {
     "lint": "eslint .",
@@ -38,14 +47,18 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "deep-freeze": "0.0.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
+    "eslint": "^5.6.0",
     "eslint-config-prettier": "^2.10.0",
     "eslint-plugin-prettier": "^2.7.0",
+    "expect": "^1.20.2",
     "jest-enzyme": "^4.0.2",
     "nock": "^9.6.1",
     "prettier": "^1.17.0",
-    "react-test-renderer": "^16.8.6"
+    "react-test-renderer": "^16.8.6",
+    "redux-mock-store": "^1.2.3"
   },
   "license": "Apache-2.0",
   "contributors": [

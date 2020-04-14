@@ -2,17 +2,17 @@ import React from 'react';
 import { Grid } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 
-import { AppContainer } from '@marklogic-community/grove-core-react-redux-containers';
+import AppContainer from './containers/AppContainer';
 
 import Routes from './components/Routes';
-import Navbar from './components/Navbar';
+import Header from './components/Header';
 
 const App = appProps => (
   <AppContainer
     {...appProps}
     render={props => (
       <div>
-        <Navbar
+        <Header
           isAuthenticated={props.isAuthenticated}
           currentUsername={props.currentUser}
           submitLogout={props.submitLogout}

@@ -1,0 +1,16 @@
+.ml-fade-enter, .ml-fade-appear {
+  opacity: 0.01;
+}
+
+.ml-fade-enter.ml-fade-enter-active, .ml-fade-appear.ml-fade-appear-active  {
+  opacity: 1;
+  transition: all 500ms ease-in;
+}
+
+.ml-fade-exit {
+  opacity: 1;
+}
+
+.ml-fade-exit.ml-fade-exit-active {
+  opacity: 0.01;
+}

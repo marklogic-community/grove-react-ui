@@ -7,7 +7,7 @@ import {
   DetailContainer,
   CreateContainer,
   LoginContainer
-} from '@marklogic-community/grove-core-react-redux-containers';
+} from '../containers';
 
 const PrivateRoute = ({
   component: Component,
