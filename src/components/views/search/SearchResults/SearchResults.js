@@ -37,7 +37,7 @@ class SearchResults extends React.Component {
     } else if (e === 'List') {
       resultComponent = ListResult;
     } else {
-      throw 'Invalid Result Type: ' + e;
+      throw new Error('Invalid Result Type: ' + e);
     }
     this.setState({
       resultComponentName: e,
