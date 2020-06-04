@@ -20,6 +20,7 @@ export const Navbar = ({
               <img
                 src={logo}
                 style={logoStyle || { maxWidth: '100px', maxHeight: '45px' }}
+                alt="MarkLogic Grove Logo"
               />
             </props.brandLink>
           </div>
@@ -46,6 +47,8 @@ export const Navbar = ({
   </BSNavbar>
 );
 
+// This anchor is populated with content above in the BSNavbar.  Disabling esling warning.
+// eslint-disable-next-line
 const defaultBrandLink = props => <a href="/" {...props} />;
 
 Navbar.defaultProps = {

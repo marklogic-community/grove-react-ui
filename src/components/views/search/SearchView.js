@@ -32,6 +32,7 @@ class SearchView extends Component {
       // Intentionally using != to test object reference (ie, is it the
       // same object?) Because our Redux flow will swap out the filters
       // object on any change, but keep it referentially the same otherwise
+      // eslint-disable-next-line
       prevProps.stagedSearch.filters != this.props.stagedSearch.filters
     ) {
       this.search();
@@ -43,7 +44,7 @@ class SearchView extends Component {
   }
 
   search() {
-    if (this.props.stagedSearch.page == 1) {
+    if (this.props.stagedSearch.page === 1) {
       this.props.runSearch(this.props.stagedSearch);
     } else {
       this.props.changePage(1);
