@@ -1,6 +1,6 @@
 {
   "name": "@marklogic-community/grove-react-ui",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "proxy": "http://localhost:9003",
   "engines": {
     "node": ">=8.10.0",
