@@ -15,9 +15,9 @@ const SingleFilterList = ({
             selectedValues.includes(value.name) && (
               <div key={value.name}>
                 {removeFilter && (
-                  <span
+                  <i
                     className={
-                      'glyphicon glyphicon-remove-circle icon-white ml-facet-remove-filter'
+                      'fa fa-times-circle-o icon-white ml-facet-remove-filter'
                     }
                     onClick={removeFilter.bind(null, value.name)}
                     style={{ cursor: 'pointer' }}
@@ -36,7 +36,7 @@ const SingleFilterList = ({
           (!selectedValues || !selectedValues.includes(value.name)) && (
             <div key={value.name}>
               <i
-                className="glyphicon glyphicon-plus-sign ml-facet-add-pos"
+                className="fa fa-plus-circle ml-facet-add-pos"
                 onClick={addFilter.bind(null, value.name)}
                 style={{ cursor: 'pointer' }}
               />

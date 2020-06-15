@@ -4,7 +4,7 @@ import Login from './Login';
 
 const LoginJumbotron = props => (
   <Row>
-    <Col md={6} mdOffset={3}>
+    <Col md={6} className="offset-md-3">
       <Jumbotron>
         <Login {...props} />
       </Jumbotron>

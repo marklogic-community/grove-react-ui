@@ -46,7 +46,7 @@ class Login extends React.Component {
             onChange={this.setPassword}
           />
         </FormGroup>
-        <Button type="submit" bsStyle="primary" className="btn-raised">
+        <Button type="submit" variant="primary" className="btn-raised">
           Sign in
         </Button>
       </form>

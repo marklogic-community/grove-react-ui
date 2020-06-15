@@ -11,29 +11,27 @@ export const Navbar = ({
   withoutUser,
   ...props
 }) => (
-  <BSNavbar fluid={true}>
-    <BSNavbar.Header>
-      {logo && (
-        <BSNavbar.Brand>
-          <div className="navbar-left">
-            <props.brandLink>
-              <img
-                src={logo}
-                style={logoStyle || { maxWidth: '100px', maxHeight: '45px' }}
-                alt="MarkLogic Grove Logo"
-              />
-            </props.brandLink>
-          </div>
-        </BSNavbar.Brand>
-      )}
+  <BSNavbar bg="dark" variant="dark">
+    {logo && (
       <BSNavbar.Brand>
-        <props.brandLink>
-          <span>{title}</span>
-        </props.brandLink>
+        <div className="navbar-left">
+          <props.brandLink>
+            <img
+              src={logo}
+              style={logoStyle || { maxWidth: '100px', maxHeight: '45px' }}
+              alt="MarkLogic Grove Logo"
+            />
+          </props.brandLink>
+        </div>
       </BSNavbar.Brand>
-      <BSNavbar.Toggle />
-    </BSNavbar.Header>
-    <BSNavbar.Collapse>
+    )}
+    <BSNavbar.Brand>
+      <props.brandLink>
+        <span>{title}</span>
+      </props.brandLink>
+    </BSNavbar.Brand>
+    <BSNavbar.Toggle />
+    <BSNavbar.Collapse className="justify-content-between">
       {children}
       {!withoutUser && (
         <UserInfo

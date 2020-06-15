@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Glyphicon, Nav, NavItem, Navbar as BSNavbar } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import { Nav } from 'react-bootstrap';
 
 export const UserInfo = ({
   isAuthenticated,
@@ -11,26 +10,26 @@ export const UserInfo = ({
 }) => (
   <div>
     {isAuthenticated ? (
-      <div className="pull-right">
-        <BSNavbar.Text>
-          <Glyphicon glyph="user" /> {currentUsername}
-        </BSNavbar.Text>
-        <Nav>
-          <NavItem
-            onClick={e => {
-              e.preventDefault();
-              submitLogout(currentUsername);
-            }}
-          >
-            Logout
-          </NavItem>
-        </Nav>
-      </div>
+      <Nav className="justify-content-end">
+        <Nav.Item>
+          <Nav.Link eventKey="disabled" className="userInfo">
+            <i className="fa fa-user"></i> {currentUsername}
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Link
+          onClick={e => {
+            e.preventDefault();
+            submitLogout(currentUsername);
+          }}
+        >
+          Logout
+        </Nav.Link>
+      </Nav>
     ) : (
-      <Nav pullRight>
-        <LinkContainer exact to={loginPath || '/login'}>
-          <NavItem>Login</NavItem>
-        </LinkContainer>
+      <Nav className="justify-content-end">
+        <Nav.Item>
+          <Nav.Link href={loginPath || '/login'}>Login</Nav.Link>
+        </Nav.Item>
       </Nav>
     )}
   </div>

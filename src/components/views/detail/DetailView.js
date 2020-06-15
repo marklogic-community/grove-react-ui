@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import JSONTree from 'react-json-tree';
 import vkbeautify from 'vkbeautify';
-import { Row, Col, Button, Glyphicon } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 
 const ViewAsJson = ({ detail, contentType, label, id }) => {
   if (!detail) {
@@ -49,12 +49,12 @@ class DetailView extends Component {
         <Col md={12}>
           <div className="pull-right">
             <Button
-              bsStyle="default"
+              variant="default"
               bsSize="small"
               className="btn-raised"
               onClick={() => this.props.loadDetail(this.props.id)}
             >
-              <Glyphicon glyph="refresh" />
+              <i className="fa fa-refresh"></i>
             </Button>
           </div>
           {this.props.error ? (

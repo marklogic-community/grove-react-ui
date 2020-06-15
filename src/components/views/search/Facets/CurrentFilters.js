@@ -34,7 +34,7 @@ const CurrentFilters = ({ filters, removeFilter }) => (
                 <span title={value}>
                   {filter.constraint}: {value}{' '}
                 </span>
-                <span className="glyphicon glyphicon-remove-circle icon-white" />
+                <i className="fa fa-times-circle-o"></i>
               </div>
             ))}
           </div>
