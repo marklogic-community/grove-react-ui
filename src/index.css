@@ -1,0 +1,27 @@
+.card {
+  margin-bottom: 20px; border-radius: 5px;
+}
+
+.card-header {
+  border-radius: 5px 5px 0px 0px; 
+  padding: 10px 15px;
+  background-color: dodgerblue ! important;
+  color: white;
+}
+
+.card-title {
+  margin: 0px; 
+  font-size: 16px;
+}
+
+.navbar {
+  margin-bottom:20px;
+}
+
+.userInfo {
+  pointer-events: none;
+}
+
+.nav-link {
+  text-transform: none;
+}

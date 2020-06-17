@@ -5,7 +5,7 @@ import {
   FormGroup,
   FormControl,
   InputGroup,
-  Glyphicon,
+  ButtonGroup,
   Button
 } from 'react-bootstrap';
 
@@ -34,22 +34,22 @@ const SearchBar = ({
               value={queryText}
               onChange={e => onQueryTextChange(e.target.value)}
             />
-            <InputGroup.Button>
+            <ButtonGroup style={{ padding: '4.5px 12px', margin: 0 }}>
               <Button
                 className="ml-execute-search btn-raised"
                 disabled={searchPending}
                 type="submit"
               >
                 {/* <Glyphicon className="glyphicon-spin" glyph="refresh"/> */}
-                <Glyphicon glyph="search" /> Search
+                <i className="fa fa-search"></i> Search
               </Button>
               <Button
                 onClick={() => onQueryTextChange('')}
                 className="ml-qtext-clear btn-raised"
               >
-                <Glyphicon glyph="remove" /> Clear
+                <i className="fa fa-times"></i> Clear
               </Button>
-            </InputGroup.Button>
+            </ButtonGroup>
           </InputGroup>
         </FormGroup>
       </form>

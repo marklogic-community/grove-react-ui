@@ -53,13 +53,13 @@ class CreateView extends React.Component {
     }
   }
   render() {
-    const icon = this.state.invalid ? 'remove' : 'ok';
-    const cls = this.state.invalid ? 'invalid' : 'valid';
+    const icon = this.state.invalid ? 'remove' : 'check';
+    const cls = this.state.invalid ? 'invalid' : 'times';
     return (
       <div>
-        <div className="panel panel-primary">
-          <div className="panel-heading">
-            <span className={`${cls} glyphicon glyphicon-${icon}`} />
+        <div className="card bg-primary">
+          <div className="card-header">
+            <i className={`${cls} fa fa-${icon}`}></i>
             &nbsp;JSON Editor
           </div>
           <CodeMirror
@@ -79,7 +79,7 @@ class CreateView extends React.Component {
         >
           <Button
             type="submit"
-            bsStyle="primary"
+            variant="primary"
             className="btn-raised"
             disabled={this.state.invalid}
           >

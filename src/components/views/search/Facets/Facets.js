@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Card } from 'react-bootstrap';
 import CurrentFilters from './CurrentFilters';
 import SingleFilterList from './SingleFilterList';
 
@@ -39,11 +39,11 @@ const Facets = ({
             selectedValues = activeFilter.value;
           }
           return (
-            <div key={facetName} className="panel panel-primary ml-facet">
-              <div className="panel-heading">
-                <h3 className="panel-title">{facetName}</h3>
-              </div>
-              <div className="panel-body">
+            <Card key={facetName} className="ml-facet">
+              <Card.Header>
+                <Card.Title>{facetName}</Card.Title>
+              </Card.Header>
+              <Card.Body>
                 <SingleFilterList
                   values={availableFilters[facetName].facetValues}
                   selectedValues={selectedValues}
@@ -54,8 +54,8 @@ const Facets = ({
                   )}
                   removeFilter={removeFilter.bind(null, facetName)}
                 />
-              </div>
-            </div>
+              </Card.Body>
+            </Card>
           );
         })}
   </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Panel, Col } from 'react-bootstrap';
+import { Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import SearchSnippet from './SearchSnippet.js';
 import './CardResult.css';
@@ -22,29 +22,28 @@ const SearchSnippets = ({ result }) => (
 );
 
 const Header = props => (
-  <h1 className="panel-title">
+  <Card.Title>
     {props.result.label || getFilename(props.result.id) || props.result.uri}
-  </h1>
+  </Card.Title>
 );
 
 const CardResult = props => (
   <Col xs={12} sm={6} md={4} lg={3} className="ml-search-result">
-    <Link
-      to={{
-        pathname: props.detailPath,
-        state: { id: props.result.id },
-        search: `?id=${props.result.id}`
-      }}
-      style={{ textDecoration: 'none' }}
-    >
-      <Panel
-        bsStyle="info"
-        style={{ height: '200px', overflow: 'hidden' }}
-        header={props.header && <props.header {...props} />}
+    <Card>
+      <Link
+        to={{
+          pathname: props.detailPath,
+          state: { id: props.result.id },
+          search: `?id=${props.result.id}`
+        }}
+        style={{ textDecoration: 'none' }}
       >
-        <props.content {...props} />
-      </Panel>
-    </Link>
+        <Card.Header>{props.header && <props.header {...props} />}</Card.Header>
+        <Card.Body>
+          <props.content {...props} />
+        </Card.Body>
+      </Link>
+    </Card>
   </Col>
 );
 
