@@ -38,9 +38,7 @@ const CardResult = props => (
         }}
         style={{ textDecoration: 'none' }}
       >
-        <Card.Header>
-          {props.header && <props.header {...props} />}
-        </Card.Header>
+        <Card.Header>{props.header && <props.header {...props} />}</Card.Header>
         <Card.Body>
           <props.content {...props} />
         </Card.Body>

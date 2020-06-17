@@ -12,14 +12,17 @@ export const Pagination = ({
   function onChange(event) {
     let text = event.target.text;
     let pageNumber = null;
+    console.log(text);
     try {
-      pageNumber = parseInt(text)
-    } catch (e){ }
-    
-    if (pageNumber == null || isNaN(pageNumber)){
-      return
+      pageNumber = parseInt(text);
+    } catch (e) {
+      return;
     }
-    
+
+    if (pageNumber == null || isNaN(pageNumber)) {
+      return;
+    }
+
     if (pageNumber !== activePage) {
       onSelect(pageNumber);
     }
@@ -55,7 +58,7 @@ export const Pagination = ({
     <BSPagination.Item active={1 === activePage}>1</BSPagination.Item>
   );
   if (min > 2) {
-    pageNumbers.push(<BSPagination.Ellipsis className="disabled"/>);
+    pageNumbers.push(<BSPagination.Ellipsis className="disabled" />);
   }
   for (var i = min; i < max; ++i) {
     if (i === 1 || i === items) {
@@ -66,7 +69,7 @@ export const Pagination = ({
     );
   }
   if (items - max > 0) {
-    pageNumbers.push(<BSPagination.Ellipsis className="disabled"/>);
+    pageNumbers.push(<BSPagination.Ellipsis className="disabled" />);
   }
   pageNumbers.push(
     <BSPagination.Item active={items === activePage}>{items}</BSPagination.Item>

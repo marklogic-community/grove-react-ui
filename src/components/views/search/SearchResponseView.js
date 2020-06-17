@@ -22,12 +22,9 @@ const SearchResponseView = props => {
       ) : (
         !props.isSearchPending && (
           //TODO: not sure why i need to specify width here
-          <div style={{width:'100%'}}>
+          <div style={{ width: '100%' }}>
             <Col md={6}>
-              <SearchMetrics
-                time={props.executionTime}
-                total={props.total}
-              />
+              <SearchMetrics time={props.executionTime} total={props.total} />
             </Col>
             <SearchResults
               results={props.results || []}

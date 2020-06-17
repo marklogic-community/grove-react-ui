@@ -68,7 +68,7 @@ class SearchResults extends React.Component {
             </ButtonToolbar>
           </Col>
         )}
-        <Row className="ml-search-results" style={{width:'100%'}}>
+        <Row className="ml-search-results" style={{ width: '100%' }}>
           {this.props.results.map(result => (
             <this.state.resultComponent
               key={result.id}
